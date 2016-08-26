@@ -1,0 +1,72 @@
+Net::SMTP_auth>>> Net::SMTP_auth(0.08)
+Net::SMTP_auth>>>   Net::SMTP(2.31)
+Net::SMTP_auth>>>     Net::Cmd(2.29)
+Net::SMTP_auth>>>       Exporter(5.63)
+Net::SMTP_auth>>>     IO::Socket::INET(1.31)
+Net::SMTP_auth>>>       IO::Socket(1.31)
+Net::SMTP_auth>>>         IO::Handle(1.28)
+Net::SMTP_auth=GLOB(0x4497800)<<< 220-box507.bluehost.com ESMTP Exim 4.86_2 #1 Wed, 27 Jul 2016 10:19:31 -0600 
+Net::SMTP_auth=GLOB(0x4497800)<<< 220-We do not authorize the use of this system to transport unsolicited, 
+Net::SMTP_auth=GLOB(0x4497800)<<< 220 and/or bulk e-mail.
+Net::SMTP_auth=GLOB(0x4497800)>>> EHLO cms.caltech.edu
+Net::SMTP_auth=GLOB(0x4497800)<<< 250-box507.bluehost.com Hello cms.caltech.edu [74.220.219.107]
+Net::SMTP_auth=GLOB(0x4497800)<<< 250-SIZE 52428800
+Net::SMTP_auth=GLOB(0x4497800)<<< 250-8BITMIME
+Net::SMTP_auth=GLOB(0x4497800)<<< 250-AUTH PLAIN LOGIN
+Net::SMTP_auth=GLOB(0x4497800)<<< 250-STARTTLS
+Net::SMTP_auth=GLOB(0x4497800)<<< 250 HELP
+Net::SMTP_auth=GLOB(0x4497800)>>> MAIL FROM:<vidick@cms.caltech.edu>
+Net::SMTP_auth=GLOB(0x4497800)<<< 250 OK
+Net::SMTP_auth=GLOB(0x4497800)>>> RCPT TO:<sc@itcs-conf.org>
+Net::SMTP_auth=GLOB(0x4497800)<<< 250 Accepted
+Net::SMTP_auth=GLOB(0x4497800)>>> DATA
+Net::SMTP_auth=GLOB(0x4497800)<<< 354 Enter message, ending with "." on a line by itself
+Net::SMTP_auth=GLOB(0x4497800)>>> Date: Wed, 27 Jul 2016 10:19:26 -0600
+Net::SMTP_auth=GLOB(0x4497800)>>> From: sc@itcs-conf.org
+Net::SMTP_auth=GLOB(0x4497800)>>> To: "Steering Commitee" <sc@itcs-conf.org>
+Net::SMTP_auth=GLOB(0x4497800)>>> Sender: steering@itcs-conf.org
+Net::SMTP_auth=GLOB(0x4497800)>>> X-Priority: 3
+Net::SMTP_auth=GLOB(0x4497800)>>> X-Original-From: sc@itcs-conf.org
+Net::SMTP_auth=GLOB(0x4497800)>>> Precedence: list
+Net::SMTP_auth=GLOB(0x4497800)>>> List: steering
+Net::SMTP_auth=GLOB(0x4497800)>>> List-Archive: <http://www.itcs-conf.org/dadamail/dada/mail.cgi/archive/steering/>
+Net::SMTP_auth=GLOB(0x4497800)>>> List-ID: <steering.box507.bluehost.com>
+Net::SMTP_auth=GLOB(0x4497800)>>> List-Owner: <sc@itcs-conf.org>
+Net::SMTP_auth=GLOB(0x4497800)>>> List-Post: <mailto:steering@itcs-conf.org>
+Net::SMTP_auth=GLOB(0x4497800)>>> List-Subscribe: <http://www.itcs-conf.org/dadamail/dada/mail.cgi/s/steering///>
+Net::SMTP_auth=GLOB(0x4497800)>>> List-Unsubscribe: <mailto:sc@itcs-conf.org?Subject=Unsubscribe%20from%20Steering%20Commitee>,
+Net::SMTP_auth=GLOB(0x4497800)>>>  <>
+Net::SMTP_auth=GLOB(0x4497800)>>> Message-ID: <20160727101926.37847141@itcs-conf.org>
+Net::SMTP_auth=GLOB(0x4497800)>>> X-Mailer: Dada Mail 9.1.3 Stable 03/13/16
+Net::SMTP_auth=GLOB(0x4497800)>>> Content-type: text/plain; charset=UTF-8
+Net::SMTP_auth=GLOB(0x4497800)>>> Content-Transfer-Encoding: quoted-printable
+Net::SMTP_auth=GLOB(0x4497800)>>> Subject: [steering] Sending Preference Test Email for, Steering Commitee
+Net::SMTP_auth=GLOB(0x4497800)>>> 
+Net::SMTP_auth=GLOB(0x4497800)>>> 
+Net::SMTP_auth=GLOB(0x4497800)>>> Hello, sc@itcs-conf.org,=20
+Net::SMTP_auth=GLOB(0x4497800)>>> 
+Net::SMTP_auth=GLOB(0x4497800)>>> This message was sent out by Dada Mail to test out mail sending for the mai=
+Net::SMTP_auth=GLOB(0x4497800)>>> ling list,=20
+Net::SMTP_auth=GLOB(0x4497800)>>> 
+Net::SMTP_auth=GLOB(0x4497800)>>> 		Steering Commitee=20
+Net::SMTP_auth=GLOB(0x4497800)>>> =09=09
+Net::SMTP_auth=GLOB(0x4497800)>>> If you've received this message, it looks like mail sending is working.=20
+Net::SMTP_auth=GLOB(0x4497800)>>> 
+Net::SMTP_auth=GLOB(0x4497800)>>> 
+Net::SMTP_auth=GLOB(0x4497800)>>> =20
+Net::SMTP_auth=GLOB(0x4497800)>>> 	* Mail is being sent via SMTP
+Net::SMTP_auth=GLOB(0x4497800)>>> =20
+Net::SMTP_auth=GLOB(0x4497800)>>> 
+Net::SMTP_auth=GLOB(0x4497800)>>> 
+Net::SMTP_auth=GLOB(0x4497800)>>> -- Dada Mail
+Net::SMTP_auth=GLOB(0x4497800)>>> 
+Net::SMTP_auth=GLOB(0x4497800)>>> 
+Net::SMTP_auth=GLOB(0x4497800)>>> 
+Net::SMTP_auth=GLOB(0x4497800)>>> Mailing List Powered by Dada Mail
+Net::SMTP_auth=GLOB(0x4497800)>>> http://www.itcs-conf.org/dadamail/dada/mail.cgi/what_is_dada_mail/=
+Net::SMTP_auth=GLOB(0x4497800)>>> .
+Net::SMTP_auth=GLOB(0x4497800)<<< 250 OK id=1bSRYR-0006iA-BE
+Net::SMTP_auth=GLOB(0x4497800)>>> RSET
+Net::SMTP_auth=GLOB(0x4497800)<<< 250 Reset OK
+Net::SMTP_auth=GLOB(0x4497800)>>> QUIT
+Net::SMTP_auth=GLOB(0x4497800)<<< 221 box507.bluehost.com closing connection

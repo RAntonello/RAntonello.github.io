@@ -1,0 +1,149 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Bounce Handler</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@osx004.apple.com" />
+</head>
+
+<body>
+
+
+
+<ul id="index">
+  <li><a href="#Bounce-Handler">Bounce Handler</a></li>
+  <li><a href="#User-Guide">User Guide</a></li>
+  <li><a href="#Obtaining-a-Copy-of-the-Plugin">Obtaining a Copy of the Plugin</a></li>
+  <li><a href="#Requirements">Requirements</a>
+    <ul>
+      <li><a href="#POP3-Email-Account">POP3 Email Account</a></li>
+    </ul>
+  </li>
+  <li><a href="#Installation">Installation</a>
+    <ul>
+      <li><a href="#Cronjob">Cronjob</a></li>
+    </ul>
+  </li>
+  <li><a href="#FAQ">FAQ</a>
+    <ul>
+      <li><a href="#Bounce-Email-Address">Bounce Email Address</a>
+        <ul>
+          <li><a href="#Do-you-use-only-one-Bounce-Email-Address-for-all-the-mailing-lists">Do you use only one Bounce Email Address for all the mailing lists?</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#COPYRIGHT">COPYRIGHT</a></li>
+</ul>
+
+<h1 id="Bounce-Handler">Bounce Handler</h1>
+
+<p>Bounce Handler intelligently handles bounces from Dada Mail mailing list messages.</p>
+
+<p>Messages sent to subscribers of your mailing list that bounce back will be directed to the <b>List Administrator Address</b>. This email account is then checked periodically by Bounce Handler.</p>
+
+<p>Bounce Handler then reads awaiting messages and <b>parses</b> the messages in an attempt to understand why the message has bounced.</p>
+
+<p>The <b>parsed</b> message will then be <b>examined</b> and an <b>action</b> will be taken.</p>
+
+<p>The usual action that is taken is to apply a <b>score</b> to the email address that has bounced the message. Once the <b>Score Threshold</b> is reached, the email address is unsubscribed from the mailing list.</p>
+
+<h1 id="User-Guide">User Guide</h1>
+
+<p>For a guide on using Bounce Handler, see the <b>Dada Mail Manual</b>:</p>
+
+<p><a href="http://dadamailproject.com/pro_dada/using_bounce_handler.html">http://dadamailproject.com/pro_dada/using_bounce_handler.html</a></p>
+
+<p>For more information on Pro Dada/Dada Mail Manual:</p>
+
+<p><a href="http://dadamailproject.com/purchase/pro.html">http://dadamailproject.com/purchase/pro.html</a></p>
+
+<h1 id="Obtaining-a-Copy-of-the-Plugin">Obtaining a Copy of the Plugin</h1>
+
+<p>Bounce Handler is located in the, <i>dada/plugins</i> directory of the main Dada Mail distribution, under the filename, <b>bounce_handler</b></p>
+
+<h1 id="Requirements">Requirements</h1>
+
+<h2 id="POP3-Email-Account">POP3 Email Account</h2>
+
+<p>Bounce Handler works by checking a email address via POP3. (IMAP is not supported).</p>
+
+<p>You will need to create a new email address account manually for Bounce Handler to utilize.</p>
+
+<p>Example: create <b>bounces@yourdomain.com</b>, where, <i>yourdomain.com</i> is the name of the domain Dada Mail is installed on.</p>
+
+<p>Guidelines on this address:</p>
+
+<ul>
+
+<li><p>Do NOT use this address for anything except Bounce Handler</p>
+
+<p>No one will be checking this POP3 account via a mail reader.</p>
+
+<p>Doing so won&#39;t break Dada Mail, but it will stop Bounce Handler from working correctly, if when checking messages, your mail reader then removes those messages from the POP3 account. If you do need to periodically check this inbox, make sure to have your mail reader set to <b>not</b> automatically remove the messages.</p>
+
+</li>
+<li><p>The email address MUST belong to the domain you have Dada Mail installed</p>
+
+<p>Meaning, if your domain is, &quot;yourdomain.com&quot;, the bounce email address should be something like, &quot;bounces@yourdomain.com&quot;. In other words, do not use a Yahoo! Gmail, or Hotmail account for your bounce address. This will most likely disrupt all regular mail sending in Dada Mail.</p>
+
+</li>
+<li><p>Bounce Handler MUST be able to check the POP3 account</p>
+
+<p>Check to make sure that the POP3 server (usually, port 110) is not blocked from requests coming from your hosting account server.</p>
+
+</li>
+</ul>
+
+<h1 id="Installation">Installation</h1>
+
+<p>This plugin can be installed during a Dada Mail install/upgrade, using the included installer that comes with Dada Mail. Under <b>Plugins/Extensions (Optional)</b> check the option, <b>Bounce Handler</b>.</p>
+
+<p>Below this option are form fields to put in the POP3 accounts login credentials, as well as a place to test those credentials out.</p>
+
+<p>Once Dada Mail installed, all new mailing lists will use the Bounce Handler&#39;s email address as the List Administrator. Any previous mailing lists may need to be manually set to have their List Administrator set to this address - this can be done in the List Control Panel under, <b>Your Mailing List - List Information</b></p>
+
+<h2 id="Cronjob">Cronjob</h2>
+
+<p>Bounce Handler runs in the background on a schedule. Make sure to set Dada Mail&#39;s cronjob:</p>
+
+<p><a href="http://dadamailproject.com/d/features-scheduled_cronjobs.pod.html">http://dadamailproject.com/d/features-scheduled_cronjobs.pod.html</a></p>
+
+<h1 id="FAQ">FAQ</h1>
+
+<h2 id="Bounce-Email-Address">Bounce Email Address</h2>
+
+<h3 id="Do-you-use-only-one-Bounce-Email-Address-for-all-the-mailing-lists">Do you use only one Bounce Email Address for all the mailing lists?</h3>
+
+<p>Yes.</p>
+
+<p>Even though there&#39;s only one Bounce Email Address, it is used by all the mailing lists of your Dada Mail, but Bounce Handler will work with every mailing list <i>individually</i>. Each mailing list also has a separate Bounce Scorecard.</p>
+
+<h1 id="COPYRIGHT">COPYRIGHT</h1>
+
+<p>Copyright (c) 1999 - 2016 Justin Simoni http://justinsimoni.com All rights reserved.</p>
+
+<p>This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.</p>
+
+<p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</p>
+
+<p>You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.</p>
+
+<p>Parts of this script were swiped from Mail::Bounce::Qmail module, fetched from here:</p>
+
+<p>http://mikoto.sapporo.iij.ad.jp/cgi-bin/cvsweb.cgi/fmlsrc/fml/lib/Mail/Bounce/Qmail.pm</p>
+
+<p>The copyright of that code stated:</p>
+
+<p>Copyright (C) 2001,2002,2003 Ken&#39;ichi Fukamachi All rights reserved. This program is free software; you can redistribute it and/or modify it under the same terms as Perl itself.</p>
+
+<p>Thanks Ken&#39;ichi</p>
+
+
+</body>
+
+</html>
+
+

@@ -1,0 +1,73 @@
+<!-- begin mass_mailing_options_screen.tmpl -->
+
+<!-- tmpl_set name="title" value="Mass Mailing &#187; Options" -->
+<div id="screen_meta" data-menu_highlight="mass_mailing_options"></div>
+
+<div class="row hide-for-small-only" id="control_panel_breadcrumbs">
+	<div class="medium-10 small-9 columns">
+	   	<nav class="breadcrumbs">	
+		 	 <a href="#" class="unavailable">
+				 Mass Mailing 
+			 </a>
+	 	    <a 
+				href="#"
+				class="current"
+			>	
+				Options
+			</a>
+		</nav>
+	</div>
+	<div class="medium-2 small-3 columns text-right">
+	   <!-- tmpl_include help_link_widget.tmpl -->
+	</div>
+</div>
+
+<!-- tmpl_if done -->
+	<!-- tmpl_include changes_saved_dialog_box_widget.tmpl  -->
+<!--/tmpl_if-->
+
+	<form action="<!-- tmpl_var S_PROGRAM_URL -->" method="post" name="default_form" id="default_form" accept-charset="<!-- tmpl_var HTML_CHARSET -->">
+	    <input type="hidden" name="s_program_url" id="s_program_url" value="<!-- tmpl_var S_PROGRAM_URL -->" >
+	    <input type="hidden" name="process" value="1" >
+        <input type="hidden" name="flavor"  value="mass_mailing_options" >
+    
+<fieldset>
+    <div class="row">
+        <div class="small-12 columns">
+			<label for="mass_mailing_convert_plaintext_to_html">  
+	            <input type="checkbox" 
+	                name="mass_mailing_convert_plaintext_to_html" 
+	                id="mass_mailing_convert_plaintext_to_html" 
+	                value="1" 
+	                <!-- tmpl_if list_settings.mass_mailing_convert_plaintext_to_html -->checked="checked"<!-- /tmpl_if --> 
+	             >
+                Convert PlainText-only mass email messages to HTML
+            </label>
+        </div>
+    </div> 
+    <div class="row">
+        <div class="small-12 columns">
+            <label for="mass_mailing_block_css_to_inline_css" <!-- tmpl_unless can_use_css_inliner -->class="disabled"<!-- /tmpl_unless -->>
+				<input type="checkbox" name="mass_mailing_block_css_to_inline_css" id="mass_mailing_block_css_to_inline_css" value="1" <!-- tmpl_if list_settings.mass_mailing_block_css_to_inline_css -->checked="checked"<!-- /tmpl_if --> >
+                Convert CSS &lt;style&gt; blocks to inline styles in HTML messages
+            </label>
+            <!-- tmpl_unless can_use_css_inliner --> 
+                <div class="alert-box info radius">
+                    <p>
+                        <strong>Disabled:</strong>
+                        The Perl CPAN module, <strong>CSS::Inliner</strong> will need to be installed.
+                    </p>
+                </div> 
+            <!-- /tmpl_unless -->
+        </div> 
+    </div> 
+    
+	<!-- tmpl_include common_save_list_settings_buttons_widget.tmpl -->
+
+</fieldset> 
+
+</form> 
+
+
+
+<!-- end mass_mailing_options_screen.tmpl -->

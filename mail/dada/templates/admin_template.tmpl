@@ -1,0 +1,221 @@
+<!doctype html>
+<html class="no-js" lang="en">
+ <head>
+	 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv='cache-control' content='no-cache'>
+  <meta http-equiv="Pragma"  content="no-cache" >
+  <meta http-equiv="Expires" content="-1" >
+  <meta http-equiv="Content-Type" content="text/html; charset=<!-- tmpl_var HTML_CHARSET -->">
+
+  <title><!-- tmpl_var title --> - <!-- tmpl_var list_settings.list_name --> - <!-- tmpl_var PROGRAM_NAME --></title>
+
+
+  <link rel="stylesheet" href="<!-- tmpl_var SUPPORT_FILES_URL -->/static/css/vendor/foundation/app.css?v=<!-- tmpl_var VER escape=URL -->" />
+  <link rel="stylesheet" href="<!-- tmpl_var SUPPORT_FILES_URL -->/static/css/vendor/foundation/foundation-icons/foundation-icons.css?v=<!-- tmpl_var VER escape=URL -->" />
+
+
+ 
+<!-- tmpl_if load_google_viz --> 
+	<!-- Google Visualization -->
+	<script type="text/javascript" src="//www.google.com/jsapi"></script>
+<!-- /tmpl_if --> 
+
+<!-- jQuery -->
+<script src="<!-- tmpl_var SUPPORT_FILES_URL -->/static/javascripts/vendor/jquery-2.1.4.min.js"></script>
+<script src="<!-- tmpl_var SUPPORT_FILES_URL -->/static/javascripts/vendor/jquery/jquery.tablesorter.js?v=<!-- tmpl_var VER escape=URL -->"></script>
+<script src="<!-- tmpl_var SUPPORT_FILES_URL -->/static/javascripts/vendor/jquery/jquery.zeroclipboard.min.js?v=<!-- tmpl_var VER escape=URL -->"></script>
+<script src="<!-- tmpl_var SUPPORT_FILES_URL -->/static/javascripts/vendor/spin.min.js?v=<!-- tmpl_var VER escape=URL -->"></script>
+
+
+<!-- tmpl_if load_google_viz --> 
+	<!-- Google Visualization -->
+	<script type="text/javascript">
+		google.load('visualization', '1.1', {'packages':['corechart', 'geochart']});	
+	</script>
+<!-- /tmpl_if -->
+
+<!-- tmpl_if load_jquery_validate --> 
+	<script src="<!-- tmpl_var SUPPORT_FILES_URL -->/static/javascripts/vendor/jquery/jquery.validate.js?v=<!-- tmpl_var VER escape=URL -->"></script>
+<!-- /tmpl_if --> 
+
+<!-- tmpl_if load_datetimepicker --> 
+    <link rel="stylesheet" type="text/css" href="<!-- tmpl_var SUPPORT_FILES_URL -->/static/css/vendor/jquery/jquery.datetimepicker.css?v=<!-- tmpl_var VER escape=URL -->"/ >
+    <script src="<!-- tmpl_var SUPPORT_FILES_URL -->/static/javascripts/vendor/jquery/jquery.datetimepicker.js?v=<!-- tmpl_var VER escape=URL -->"></script>
+    <script src="<!-- tmpl_var SUPPORT_FILES_URL -->/static/javascripts/vendor/jquery/unserialize.jquery.1.0.2.js"></script>
+    
+<!-- /tmpl_if -->
+
+<!-- Dada Mail's Admin Javascript -->
+<script src="<!-- tmpl_var SUPPORT_FILES_URL -->/static/javascripts/dada_mail.js?v=<!-- tmpl_var VER escape=URL -->" type="text/javascript"></script>
+
+<!-- tmpl_if load_wysiwyg_editor --> 
+	<!-- WYSIWYG Editors --> 
+	<!-- tmpl_if using_ckeditor --> 
+		<script src="<!-- tmpl_var CKEDITOR_URL -->/ckeditor.js?v=<!-- tmpl_var VER escape=URL -->"         type="text/javascript" ></script>
+		<script src="<!-- tmpl_var CKEDITOR_URL -->/adapters/jquery.js?v=<!-- tmpl_var VER escape=URL -->"  type="text/javascript"></script>
+	<!-- /tmpl_if --> 
+	<!-- tmpl_if using_tiny_mce --> 
+		<script src="<!-- tmpl_var TINY_MCE_URL -->/tinymce.min.js?v=<!-- tmpl_var VER escape=URL -->"         type="text/javascript"></script>
+		<script src="<!-- tmpl_var TINY_MCE_URL -->/dada_mail_config.js?v=<!-- tmpl_var VER escape=URL -->" type="text/javascript"></script>
+	<!-- /tmpl_if -->
+<!-- /tmpl_if --> 
+
+	<link rel="stylesheet" href="<!-- tmpl_var SUPPORT_FILES_URL -->/static/css/vendor/colorbox/colorbox.css?v=<!-- tmpl_var VER escape=URL -->">
+	<script src="<!-- tmpl_var SUPPORT_FILES_URL -->/static/javascripts/vendor/jquery/colorbox/jquery.colorbox-min.js?v=<!-- tmpl_var VER escape=URL -->"></script>    	
+	<script src="<!-- tmpl_var SUPPORT_FILES_URL -->/static/javascripts/vendor/modernizr.js?v=<!-- tmpl_var VER escape=URL -->"></script>
+    
+	
+
+
+	<link type="text/css" media="screen" rel="stylesheet" href="<!-- tmpl_var SUPPORT_FILES_URL -->/static/css/vendor/foundation/responsive-tables.css?v=<!-- tmpl_var VER escape=URL -->" >
+	<script type="text/javascript" src="<!-- tmpl_var SUPPORT_FILES_URL -->/static/javascripts/vendor/foundation/responsive-tables.js?v=<!-- tmpl_var VER escape=URL -->"></script>
+
+    <link rel="stylesheet" href="<!-- tmpl_var SUPPORT_FILES_URL -->/static/css/dada_mail.css?v=<!-- tmpl_var VER escape=URL -->" type="text/css" media="screen" />
+	
+</head>
+<body id="Dada"> 
+	<div class="off-canvas-wrap" data-offcanvas>
+		<div class="inner-wrap">       
+			<!-- mobile navigation -->
+			<nav class="tab-bar hide-for-large-up" role="navigation">
+				<section class="left-medium">
+					<a class="left-off-canvas-toggle menu-icon" href="#">
+						<span>
+						</span>
+					</a>
+				</section>
+				<section class="middle tab-bar-section">
+					<a href="<!-- tmpl_var PROGRAM_URL -->">
+						<img src="<!-- tmpl_var SUPPORT_FILES_URL -->/static/images/<!-- tmpl_var PROGRAM_IMG_FILENAME default="dada_mail_logo.png" -->" alt="<!-- tmpl_var PROGRAM_NAME -->">
+					</a>             
+				</section>
+			</nav>
+			<aside class="left-off-canvas-menu">
+				<!-- tmpl_var mobile_admin_menu -->
+			</aside>
+			<!-- /mobile navigation -->
+			
+		<section class="main-section">
+			<nav class="top-bar show-for-large-up" data-topbar role="navigation" id="admin_header">
+				<ul class="title-area">
+					<li class="name">
+						<h3>
+							<a href="<!-- tmpl_var PROGRAM_URL -->">
+								<img src="<!-- tmpl_var SUPPORT_FILES_URL -->/static/images/<!-- tmpl_var PROGRAM_IMG_FILENAME default="dada_mail_logo.png"-->" alt="<!-- tmpl_var PROGRAM_NAME -->">
+							</a>
+						</h3>
+					</li>
+				</ul>
+				<section class="top-bar-section">
+				<!-- tmpl_if GIVE_PROPS_IN_ADMIN -->
+					<ul class="left">
+							<li  class="has-form">
+								<a 
+									href="<!-- tmpl_var S_PROGRAM_URL -->?flavor=transform_to_pro" 
+									class="button round alert" 
+									style="font-weight:bold; box-shadow: 0px -2px 14px 0px  rgba(255, 102, 204, 1);"
+								>
+									Transform This Install Into Pro Dada!
+								</a>
+							</li>
+						</ul>
+					<!-- /tmpl_if -->
+					
+					<ul class="right">
+						<li class="divider">
+						</li>
+						<li>
+							<a href="<!-- tmpl_var PROGRAM_URL -->/list/<!-- tmpl_var list_settings.list -->/" target="_blank">
+								Logged in as 
+								<!-- tmpl_if root_login --> 
+									<strong>
+										<!-- tmpl_var PROGRAM_NAME --> Root
+									</strong>
+								<!-- tmpl_else --> 
+									<strong>
+										List Owner
+									</strong>
+								<!-- /tmpl_if -->
+								of  
+								<strong>
+									<!-- tmpl_var list_settings.list_name -->
+								</strong>
+									 (
+									 <em>
+										 <!-- tmpl_var list_settings.list -->
+									</em>
+									)
+							</a>   
+						</li>
+						<!-- tmpl_if login_switch_widget --> 
+							<!-- tmpl_if root_login --> 
+								<li class="divider">
+								</li>
+								<!-- tmpl_var login_switch_widget -->
+								<li class="divider">
+								</li>
+							<!-- /tmpl_if -->
+						<!-- /tmpl_if -->
+						<li class="has-form">
+							<a href="<!-- tmpl_var S_PROGRAM_URL -->?flavor=logout" class="button alert">
+								Log Out
+							</a>
+						</li>
+					</ul>
+				</section> 
+			</nav>
+		<!-- tmpl_if expr="(list_settings.list_control_panel_style eq 'top_bar')" -->	
+			<div class="show-for-large-up">
+				<!-- tmpl_var admin_top_bar_menu -->
+			</div>
+		<!-- tmpl_else -->
+			<div class="row"  style="width: 100%; margin-left: auto; margin-right: auto; max-width: initial;">
+				<div class="large-2 medium-3 columns">
+					<div class="show-for-large-up">
+						<div class="sidebar">
+							<nav>
+								<!-- tmpl_var admin_menu -->
+							</nav> 
+						</div> 
+					</div> 
+				</div>
+		<!-- /tmpl_if -->	
+
+		<!-- tmpl_if expr="(list_settings.list_control_panel_style eq 'top_bar')" -->	
+			<div class="row">
+				<div class="large-12 medium-12 columns large-centered medium-centered" id="admin_content_area">
+					<!-- tmpl_else -->
+				<div class="large-10 medium-9 columns" id="admin_content_area">
+		<!-- /tmpl_if -->
+		
+					<!-- tmpl_var content -->
+				</div> 
+			</div>
+		</section>
+	
+			<a class="exit-off-canvas"></a>
+		</div>
+	</div>
+
+
+	<!-- tmpl_if footer_props -->
+		<div class="row">
+		   <div class="small-12 columns" id="footer">
+				<p><small><!-- tmpl_var footer_props --></small></p>   
+			</div>
+		</div>
+	<!-- /tmpl_if -->
+
+
+	<script src="<!-- tmpl_var SUPPORT_FILES_URL -->/static/javascripts/vendor/foundation.min.js?v=<!-- tmpl_var VER escape=URL -->"></script>
+	<script src="<!-- tmpl_var SUPPORT_FILES_URL -->/static/javascripts/vendor/foundation/foundation.offcanvas.js?v=<!-- tmpl_var VER escape=URL -->"></script>
+	<script src="<!-- tmpl_var SUPPORT_FILES_URL -->/static/javascripts/vendor/foundation/foundation.magellan.js?v=<!-- tmpl_var VER escape=URL -->"></script>
+	<script>
+		$(document).foundation();
+	</script>
+
+	</body>
+</html>

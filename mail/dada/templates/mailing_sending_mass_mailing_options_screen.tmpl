@@ -1,0 +1,266 @@
+<!-- begin mailing_sending_mass_mailing_options_screen.tmpl -->
+<div id="screen_meta" data-menu_highlight="mailing_sending_mass_mailing_options"></div>
+<div id="mailing_sending_mass_mailing_options"></div> 
+<form> 
+	<input type="hidden" id="s_program_url" name="s_program_url" value="<!-- tmpl_var S_PROGRAM_URL -->" >
+</form> 
+
+
+
+<!-- tmpl_set name="title" value="Sending &#187; Mass Mailing Options" -->
+<div class="row hide-for-small-only" id="control_panel_breadcrumbs">
+	<div class="medium-10 small-9 columns">
+	   	<nav class="breadcrumbs">	
+		 	 <a href="#" class="unavailable">
+				Sending
+			 </a>
+	 	    <a 
+				href="#"
+				class="current"
+			>	
+				Mass Mailing Options
+			</a>
+		</nav>
+	</div>
+	<div class="medium-2 small-3 columns text-right">
+	   <!-- tmpl_include help_link_widget.tmpl -->
+	</div>
+</div>
+
+
+<!-- tmpl_if done -->
+	<!-- tmpl_include changes_saved_dialog_box_widget.tmpl  -->
+<!--/tmpl_if-->
+
+<form 
+	name="default_form" 
+	id="default_form" 
+	action="<!-- tmpl_var name="S_PROGRAM_URL" -->" 
+	method="post" 
+	accept-charset="<!-- tmpl_var HTML_CHARSET -->"
+>
+    <input type="hidden" name="s_program_url" id="s_program_url" value="<!-- tmpl_var S_PROGRAM_URL -->" >
+	<input type="hidden" name="process" value="1" >
+	<input type="hidden" name="flavor"  value="mailing_sending_mass_mailing_options" >
+	
+	<fieldset>
+		<legend>
+			Batch Sending Options
+		</legend>
+		
+		<div class="row">
+			<div class="small-12 columns">
+				
+
+		
+
+				<input 
+					type="checkbox" 
+					name="enable_bulk_batching"
+					id="enable_bulk_batching"
+					class="previewBatchSendingSpeed"
+					value="1"
+					<!-- tmpl_if list_settings.enable_bulk_batching -->checked="checked"<!--/tmpl_if-->
+				>
+				<label for="enable_bulk_batching">
+					Enable batch sending
+				</label>
+				
+				<div class="alert-box warning radius">
+					<strong>Warning:</strong> setting your batch settings to send at a higher rate than what is allowed 
+					on your mail server/mail service provider will cause problems with email delivery! 
+				</div>
+				
+			</div> 
+		</div>
+		
+		<!-- tmpl_if show_amazon_ses_options -->
+			<div class="row">
+				<div class="small-12 columns">							
+					<label for="amazon_ses_auto_batch_settings">
+						<input
+							type="checkbox"
+							name="amazon_ses_auto_batch_settings"
+							id="amazon_ses_auto_batch_settings"
+							value="1"
+							<!-- tmpl_if list_settings.amazon_ses_auto_batch_settings -->checked="checked"<!--/tmpl_if-->
+						>
+							<!-- tmpl_if expr="(type_of_service eq 'mandrill')" --> 
+								Automatically set batching speeds based on your Mandrill limits
+							<!-- tmpl_else --> 
+								Automatically set batching speeds based on your Amazon SES limits
+							<!-- /tmpl_if -->
+					</label>
+				</div>
+			</div>
+		<!-- /tmpl_if -->
+
+		
+			<div id="batch_setting_settings">
+				<div id="manual_batch_settings"> 
+					<div class="row">
+						<div class="large-6 medium-6 columns">
+							<label>
+								Messages Sent Per Batch
+							</label>
+							<!-- tmpl_var mass_send_amount_menu -->
+						</div>
+						<div class="large-6 medium-6 columns">			
+							<label> 
+								Sleep Time Between Batches
+							</label>
+							<!-- tmpl_var bulk_sleep_amount_menu -->
+						</div>
+					</div>	
+				</div>
+
+		
+		<div class="row">
+			<div class="small-12 columns">
+
+			<div class="alert-box info radius">
+				<!-- tmpl_if show_amazon_ses_options --> 
+					<div id="amazon_ses_get_stats_loading"></div> 
+					<div id="amazon_ses_get_stats"></div> 
+				<!-- /tmpl_if --> 
+				<div id="previewBatchSendingSpeed_loading"></div> 
+				<div id="previewBatchSendingSpeed"></div> 
+			</div>
+			
+				</div>	
+			</div>
+			
+			<div class="row">
+				<div class="small-12 columns">							
+					<input
+						type="checkbox"
+						name="adjust_batch_sleep_time"
+						id="adjust_batch_sleep_time"
+						value="1" 
+						<!-- tmpl_if list_settings.adjust_batch_sleep_time -->checked="checked"<!--/tmpl_if-->
+					>
+					<label for="adjust_batch_sleep_time">
+						Adjust sleep time 
+					</label>
+
+					<div class="alert-box info radius">
+						Sleep time between batches 
+						will be adjusted automatically, 
+						depending on how long the batch took to complete.
+					</div>
+			
+				</div> 
+			</div>
+
+			<div class="row">
+				<div class="small-12 columns">							
+
+					<input 
+						type="checkbox" 
+						name="smtp_connection_per_batch" 
+						id="smtp_connection_per_batch" 
+						value="1" <!-- tmpl_if list_settings.smtp_connection_per_batch -->checked="checked"<!-- /tmpl_if -->
+					>
+					<label for="smtp_connection_per_batch"> 
+						Use one SMTP connection per batch
+					</label>
+					<!-- tmpl_if expr="(list_settings.sending_method ne 'smtp')" --> 
+						<div class="alert-box info radius">
+								<em>Sending via SMTP is not enabled</em> 
+						</div>
+					<!-- /tmpl_if -->
+				</div> 
+			</div>
+		</div>
+	</fieldset>
+
+	<fieldset>
+		<legend>
+			Auto Pickup Options
+		</legend> 
+		
+		<div class="row">
+			<div class="small-12 columns">
+		
+				<label for="auto_pickup_dropped_mailings">
+		
+					<input 
+						type="checkbox" 
+						name="auto_pickup_dropped_mailings" 
+						id="auto_pickup_dropped_mailings" 
+						value="1" <!-- tmpl_if list_settings.auto_pickup_dropped_mailings -->checked="checked"<!--/tmpl_if-->
+					>
+						Auto-Pickup dropped mass mailings
+					</label>
+				<div class="alert-box info radius">
+					Mass mailing can be a lengthy process and can sometimes get interrupted by the server. 
+					Activating this options safeguards against this issue by automatically reloading 
+					a mailing from the point that it was stopped.
+				</div>
+			</div>
+		</div>
+				
+	</fieldset>
+
+	<fieldset> 
+		<legend>
+			Notifications
+		</legend>
+		<div class="row">
+			<div class="small-12 columns">							
+		
+				<input 
+					type="checkbox" 
+					name="mass_mailing_send_to_list_owner"
+					id="mass_mailing_send_to_list_owner"
+					value="1" 
+					<!-- tmpl_if list_settings.mass_mailing_send_to_list_owner -->checked="checked"<!--/tmpl_if-->
+				>
+				<label for="mass_mailing_send_to_list_owner">
+					Send mass mailings to List Owner
+				</label>
+			</div> 
+		</div>
+		<div class="row">
+			<div class="small-12 columns">							
+		
+				<input 
+					type="checkbox" 
+					name="get_finished_notification" 
+					id="get_finished_notification" 
+					value="1" 
+					<!-- tmpl_if list_settings.get_finished_notification -->checked="checked"<!--/tmpl_if--> 
+				>
+				<label for="get_finished_notification">
+					Send &quot;Mass Mailing Completed&quot; notification to List Owner
+				</label>
+			</div>
+		</div>
+	</fieldset>
+	<fieldset> 
+		<legend>
+			Logging
+		</legend>
+		<div class="row">
+			<div class="small-12 columns">									
+				<input
+					type="checkbox" 
+					name="mass_mailing_save_logs" 
+					id="mass_mailing_save_logs" 
+					value="1" 
+					<!-- tmpl_if list_settings.mass_mailing_save_logs -->checked="checked"<!--/tmpl_if-->
+				>
+				<label for="mass_mailing_save_logs">
+					Save mass mailing logs
+				</label>
+			</div>
+		</div>
+	</fieldset>
+	
+	<!-- tmpl_include common_save_list_settings_buttons_widget.tmpl -->
+
+	
+</form> 
+
+
+<!-- end mailing_sending_mass_mailing_options_screen.tmpl -->

@@ -1,0 +1,9 @@
+Problems with connecting to the SMTP Server: Invalid argument at /DADA/App/Messages.pm line 154
+Debug => 1
+Hello => gmail.com
+Port => 25
+Timeout => 60
+Host => 
+ at /DADA/App/Messages.pm line 154
+Problems sending via SMTP: Can't call method "mail" on an undefined value at /DADA/Mail/Send.pm line 517.
+ at /DADA/App/Messages.pm line 154

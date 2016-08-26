@@ -1,0 +1,4 @@
+1469076158: /home3/itcsconf/public_html/ssv3_installer_payload-hGeWP1OxCq.php startup
+[20-Jul-2016 22:42:56 America/Denver] PHP Warning:  unlink(dada-6_7_1.tar.gz): No such file or directory in /home3/itcsconf/public_html/ss_installhelper.php on line 13
+1469081225: /home3/itcsconf/public_html/ssv3_removal_payload-7f7yHYb01C.php startup
+1469081230: /home3/itcsconf/public_html/ssv3_removal_payload-DKOXuxj2do.php startup

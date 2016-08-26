@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<style>
+
+.thumb1 { 
+background: url(blah.jpg) 50% 50% no-repeat; /* 50% 50% centers image in div */
+width: 250px;
+height: 250px;
+}
+body {
+  margin:0;
+  padding:0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  background-color: #D9D9D9;
+}
+
+header {
+  padding: 20px 0;
+}
+
+header .row,
+footer .row {
+  display: flex;
+  align-items: center;
+}
+
+header h1 {
+  font-weight: 700;
+  margin: 0;
+}
+
+header nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+header p {
+  padding: 0 20px;
+  margin: 0;
+}
+
+.jumbotron {
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  color: #ffffff;
+  height: 500px;
+  text-shadow: 0.25px 0.25px 0.25px #000000;
+}
+
+.jumbotron h2 {
+  font-size: 60px;
+  font-weight: 700;
+  margin: 0;
+  color: #fff;
+}
+
+.jumbotron h3 {
+  margin: 0 0 20px;
+  color: #fff;
+}
+
+section .row img {
+  margin: 0 0 30px;
+  width: 100%;
+}
+
+.col-md-6 {
+  margin: 0 0 30px;
+}
+
+.btn.btn-primary {
+  border-radius: 2px;
+  border: 0px;
+  color: #fbd1d5;
+  text-shadow: none;
+  background-color: #ffffff;
+}
+
+.btn.btn-primary:hover {
+  color: #ffffff;
+  background-color: #fbd1d5;
+}
+
+.btn-secondary {
+  background-color: #E8DFE0;
+  color: #ffffff;
+  margin: 0 0 30px;
+}
+
+footer {
+  font-size: 12px;
+  padding: 20px 0;
+}
+
+footer .col-sm-8 {
+  display: flex;
+  justify-content: flex-end;
+}
+
+footer ul {
+  list-style: none;
+}
+
+footer li img {
+  width: 32px;
+  height: 32px;
+}
+
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+address {
+    display: block;
+    font-style: italic;
+    LINE-HEIGHT:60px;
+}
+
+
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.topnav li a:hover:not(.active) {background-color: #111;}
+
+ul.topnav li a.active {background-color: #4C4F50;}
+
+ul.topnav li.right {float: right;}
+
+@media screen and (max-width: 600px){
+    ul.topnav li.right,
+    ul.topnav li {float: none;}
+}
+</style>
+</head>
+
+
+
+<body>
+<div style="padding:0 16px;">
+  <h1>ITCS - Innovations in Theoretical Computer Science</h2>
+</div>
+
+<ul class="topnav">
+  <li><a href="home.html">Home</a></li>
+  <li><a href="cfp.html">Call For Papers </a></li>
+  <li><a class="active" href="gov.html">Governance</a></li>
+
+</ul>
+
+<div id="pg-wrapper">
+<div class="container-fluid" id="all-but-header">
+<div class="row">
+<div class="col-md-8" style="font-size:110%">
+<br>
+
+<h2>Steering Committee</h2><hr>
+
+</div>
+</div>
+</div>
+</div>
+
+
+<section class="container"  style="background-color:#FFFFFF">
+  <div>
+  <div class="row" style="height="42"; width="42"">
+    <figure class="col-sm-3">
+    <h4>Sanjeev Arora</h4>
+    <a href="https://www.cs.princeton.edu/~arora/">
+    <!-- <img src="http://cacm.acm.org/system/assets/0000/9807/111912_CACMpg128_Sanjeev-Arora.large.jpg?1353364315&1353364315" class="img-responsive"> -->
+    </a>
+    </figure>
+    <figure class="col-sm-3">
+    <h4>Manuel Blum</h4>
+    <a href="https://www.cs.cmu.edu/~mblum/">
+    <!-- <img src="http://theory.cs.cmu.edu/pics/mblum.jpg" class="img-responsive"> -->
+    </a>
+    </figure>
+    <figure class="col-sm-3">
+    <h4>Bernard Chazelle</h4>
+    <a href="https://www.cs.princeton.edu/~chazelle/">
+    <!-- <img src="http://www.onbeing.org/sites/default/files/styles/width175/public/profile_picts/bernard-chazelle-cover.jpg?itok=ic3uFOxM" class="img-responsive"> -->
+    </a>
+    </figure>
+    <figure class="col-sm-3">
+    <h4>Irit Dinur</h4>
+    <a href="http://www.wisdom.weizmann.ac.il/~dinuri/">
+    <!-- <img src="https://www.radcliffe.harvard.edu/sites/radcliffe.harvard.edu/files/styles/large_body/public/imagefield_crop/field_image/person/irit-dinur_photo-by-tony-rinaldo_500px_0.jpg" class="img-responsive"> -->
+    </a>
+    </figure>
+  </div>
+  <div class="row">
+    <figure class="col-sm-3">
+    <h4>Oded Goldreich</h4>
+    <a href="http://www.wisdom.weizmann.ac.il/~oded/">
+    <!-- <img src="https://0.academia-photos.com/1611956/562819/701349/s200_oded.goldreich.jpg" class="img-responsive"> -->
+    </a>
+    </figure>
+    <figure class="col-sm-3">
+    <h4>Sahfi Goldwasser</h4>
+    <a href="https://www.csail.mit.edu/user/733">
+    <!-- <img src="https://www.csail.mit.edu/images/directory/goldwasser.jpg" class="img-responsive"> -->
+    </a>
+    </figure>
+    <figure class="col-sm-3">
+    <h4>Richard Karp</h4>
+    <a href="https://math.berkeley.edu/people/faculty/richard-karp">
+    <!-- <img src="https://math.berkeley.edu/sites/default/files/imagecache/photo_faculty/faculty/photos/R.Karp_.JPG" class="img-responsive"> -->
+    </a>
+    </figure>
+    <figure class="col-sm-3">
+    <h4>Robert Klienburg</h4>
+    <a href="http://www.cs.cornell.edu/~rdk/">
+    <!-- <img src="http://infosci.cornell.edu/sites/infosci/files/styles/300_square/public/RobertKleinberg.jpg?itok=YAp_oN8u" class="img-responsive"> -->
+    </a>
+    </figure>
+  </div>
+  <div class="row">
+    <figure class="col-sm-3">
+    <h4>Ueli Maurer</h4>
+    <a href="https://www.crypto.ethz.ch/~maurer/">
+    <!-- <img src="https://www.crypto.ethz.ch/~maurer/ueli_maurer2.jpg" class="img-responsive"> -->
+    </a>
+    </figure>
+    <figure class="col-sm-3">
+    <h4>Silvio Micali</h4>
+    <a href="https://people.csail.mit.edu/silvio/"> 
+    <!-- <img src="https://people.csail.mit.edu/silvio/index_files/image002.JPG" class="img-responsive"> -->
+    </a>
+    </figure>
+    <figure class="col-sm-3">
+    <h4>Christos Papadimitriou</h4>
+    <a href="https://people.eecs.berkeley.edu/~christos/">
+    <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Christos_Papadimitriou_mg_7721-b.cr2.jpg/220px-Christos_Papadimitriou_mg_7721-b.cr2.jpg" class="img-responsive"> -->
+    </a>
+    </figure>
+    <figure class="col-sm-3">
+    <h4>Michael Rabin</h4>
+    <a href="https://www.seas.harvard.edu/directory/rabin">
+    <!-- <img src="http://media.news.harvard.edu/gazette/wp-content/uploads/2011/07/rabin.jpg" class="img-responsive"> -->
+    </a>
+    </figure>
+  </div>
+  <div class="row">
+    <figure class="col-sm-3">
+    <h4>Omer Reingold</h4>
+    <a href="https://omereingold.wordpress.com/">
+    <!-- <img src="http://www.computerhope.com/people/pictures/omer_reingold.jpg" class="img-responsive"> -->
+    </a>
+    </figure>
+    <figure class="col-sm-3">
+    <h4>Tim Roughgarden</h4>
+    <a href="https://profiles.stanford.edu/timothy-roughgarden">
+    <!-- <img src="https://cap.stanford.edu/profiles/viewImage?profileId=14452&type=square" class="img-responsive"> -->?
+    </a>
+    </figure>
+    <figure class="col-sm-3">
+    <h4>Madhu Sudan</h4>
+    <a href="http://madhu.seas.harvard.edu/">
+    <!-- <img src="http://www.csa.iisc.ernet.in/sem-evts/igsarma-memorial/madhu.jpg" class="img-responsive"> -->
+    </a>
+    </figure>
+    <figure class="col-sm-3">
+    <h4>Leslie Valiant</h4>
+    <a href="http://people.seas.harvard.edu/~valiant/">
+    <!-- <img src="https://www.seas.harvard.edu/sites/default/files/styles/medium/public/images/news/Valiant_0036_sq.jpg?itok=7Une90t9" class="img-responsive"> -->
+    </a>
+    </figure>
+  </div>
+  <div class="row">
+    <figure class="col-sm-3">
+    <h4>Umesh Vazirani</h4>
+    <a href="https://people.eecs.berkeley.edu/~vazirani/">
+    <!-- <img src="https://www.edx.org/sites/default/files/person/image/professor-vazirani.74cb19a54e4e.jpg" class="img-responsive"> -->
+    </a>
+    </figure>
+    <figure class="col-sm-3">
+    <h4>Thomas Vidick</h4>
+    <a href="http://users.cms.caltech.edu/~vidick/">
+    <!-- <img src="http://www.eas.caltech.edu/images/engenious/2015-Issue12/vidick.jpg" class="img-responsive"> -->
+    </a>
+    </figure>
+    <figure class="col-sm-3">
+    <h4>Avi Wigderson</h4>
+    <a href="https://www.math.ias.edu/avi/home">
+    <!-- <img src="https://www.math.ias.edu/images/avi.jpg" class="img-responsive"> -->
+    </a>
+    </figure>
+    <figure class="col-sm-3">
+    <h4>Andy Yao</h4>
+    <a href="http://iiis.tsinghua.edu.cn/yao/">
+    <!-- <img src="http://amturing.acm.org/images/lg_aw/1611524.jpg" class="img-responsive"> -->
+    </a>
+    </figure>
+  </div>
+</div>
+</section>
+<hr>
+
+<address>
+Questions or concerns about this page? Contact the <a href="mailto:rjantonel@gmail.com">webmaster</a>.<br>
+</address>
+
+</body>
+</html>
+

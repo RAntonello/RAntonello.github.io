@@ -1,0 +1,65 @@
+<!-- tmpl_set name="title" value="Plugins/Extensions &#187; Change List Shortname" -->
+
+<div id="screen_meta" data-menu_highlight="change_list_shortname"></div>
+
+<div class="row hide-for-small-only" id="control_panel_breadcrumbs">
+	<div class="medium-10 small-9 columns">
+	   	<nav class="breadcrumbs">	
+		 	 <a href="#" class="unavailable">
+				Plugins/Extensions
+			 </a>
+	 	    <a 
+				href="#"
+				class="current"
+			>	
+				Change List Shortname
+			</a>
+		</nav>
+	</div>
+	<div class="medium-2 small-3 columns text-right">
+	   <!-- tmpl_include help_link_widget.tmpl -->
+	</div>
+</div>
+
+<div id="plugins_change_list_shortname"></div> 
+	
+	<form action="<!-- tmpl_var S_PROGRAM_URL -->" method="post" id="change_name_form" name="change_name_form">
+
+		<input type="hidden" name="s_program_url" id="s_program_url" value="<!-- tmpl_var S_PROGRAM_URL -->" >
+		<input type="hidden" name="flavor" id="flavor" value="plugins" >
+		<input type="hidden" name="plugin" id="plugin" value="change_list_shortname" >
+		<input type="hidden" name="prm" id="prm" value="verify_change_list_shortname" >
+
+		<div class="row">
+			<div class="large-3 medium-3 columns">
+				<label 
+					class="medium-text-right"
+					for="new_name"
+				>
+					New List Short Name
+				</label>
+			</div> 
+			<div class="large-9 medium-9 columns">					
+				<input 
+					type="text" 
+					name="new_name" 
+					id="new_name" 
+					value="" 
+					maxlength="16"
+				>
+			</div>
+		</div>
+
+		<div class="clearfix">
+			<ul class="button-group right">
+			    <li>
+					<input 
+						type="button" 
+						id="verify_button" 
+						value="Verify ..." 
+						class="alert button"
+					> 
+				</li>
+			</ul>
+		</div>
+	</form>

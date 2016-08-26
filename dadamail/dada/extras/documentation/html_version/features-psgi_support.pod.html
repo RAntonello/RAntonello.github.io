@@ -1,0 +1,126 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>PSGI/Plack Support</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@osx004.apple.com" />
+</head>
+
+<body>
+
+
+
+<ul id="index">
+  <li><a href="#Dada-Mail-PSGI-Support">Dada Mail PSGI Support</a></li>
+  <li><a href="#Additional-Requirements">Additional Requirements</a></li>
+  <li><a href="#Configuring-Dada-Mail-to-run-under-PSGI">Configuring Dada Mail to run under PSGI</a></li>
+  <li><a href="#Running-the-PSGI-Process">Running the PSGI Process</a></li>
+  <li><a href="#Configuring-your-web-server">Configuring your web server</a></li>
+  <li><a href="#PSGI-Shortcomings-in-Dada-Mail">PSGI Shortcomings in Dada Mail</a></li>
+</ul>
+
+<h1 id="Dada-Mail-PSGI-Support">Dada Mail PSGI Support</h1>
+
+<p>Dada Mail supports running under PSGI. Background:</p>
+
+<p><a href="http://plackperl.org/">http://plackperl.org/</a></p>
+
+<p><i>PSGI is an interface between Perl web applications and web servers, and Plack is a Perl module and toolkit that contains PSGI middleware, helpers and adapters to web servers.</i></p>
+
+<p><i>PSGI and Plack are inspired by Python&#39;s WSGI and Ruby&#39;s Rack.</i></p>
+
+<p>PSGI is astonishing simple and incredibly powerful.</p>
+
+<h1 id="Additional-Requirements">Additional Requirements</h1>
+
+<p>Dada Mail will require additional CPAN modules that are not shipped with Dada Mail:</p>
+
+<ul>
+
+<li><p>Task::Plack</p>
+
+</li>
+<li><p>Plack::Builder</p>
+
+</li>
+<li><p>Plack::Middleware::Static</p>
+
+</li>
+</ul>
+
+<h1 id="Configuring-Dada-Mail-to-run-under-PSGI">Configuring Dada Mail to run under PSGI</h1>
+
+<p>You probably will want to install Dada Mail using the command line interface of Dada Mail&#39;s included installer. Documentation to do so is located here:</p>
+
+<p><a href="http://dadamailproject.com/d/installer_dada_mail_cl.pod">http://dadamailproject.com/d/installer_dada_mail_cl.pod</a></p>
+
+<p>One thing to note is the <code>--deployment_running_under</code> flag, which you will want to pass, <code>PSGI</code>:</p>
+
+<pre><code>    --deployment_running_under PSGI</code></pre>
+
+<h1 id="Running-the-PSGI-Process">Running the PSGI Process</h1>
+
+<p>Once you&#39;ve ran the installer (and the installation/configuration is successful), you will want to change back into the <code>dada</code> directory, and run Dada Mail:</p>
+
+<pre><code>    plackup --host 127.0.0.1 --port 9090 app.psgi</code></pre>
+
+<p>Dada Mail would then be available at: <a>127.0.0.1:9090</a></p>
+
+<h1 id="Configuring-your-web-server">Configuring your web server</h1>
+
+<p>In this example, we&#39;ll be using the nginx web server to run the PSGI process via a reverse proxy. Our nginx configuration would include something like the following simplified example:</p>
+
+<pre><code>    http {
+        server { 
+            location / {
+                proxy_pass http://127.0.0.1:9090;
+            }
+        }
+    }</code></pre>
+
+<p>Dada Mail will then be available at, <a href="http://127.0.0.1">http://127.0.0.1</a></p>
+
+<h1 id="PSGI-Shortcomings-in-Dada-Mail">PSGI Shortcomings in Dada Mail</h1>
+
+<p>The following features current do not work when running Dada Mail under PSGI</p>
+
+<ul>
+
+<li><p>File Browser/Manager</p>
+
+<p>Neither KCFinder, nor Core5 Filemanager work under PSGI, as both will be served as static files, rather than php/perl applications. This feature is useful in Dada Mail&#39;s Send a Message/Webpage screens to upload images and place them in email messages you are composing, as well as upload files to be used as attachments.</p>
+
+<p>There may be a way to have the webserver (ngnix) know to serve the backend for (as an example) KCFinder as a php app. If you do configure nginix this way, we would highly suggest to specify the exact PHP script names you would like to run, and nothing else.</p>
+
+</li>
+<li><p>Bridge Mail Forwarding</p>
+
+<p>Bridge&#39;s Mail Forward feature, where messages are piped directly to the application will not work with Dada Mail running under PSGI. You may still use Dada Mail&#39;s POP3 support for your List Email.</p>
+
+<p>One workaround for this is to have a separate script available just for mail forwarding - a copy of this script can be found in Dada Mail&#39;s installer directory. The name of this directory is changed to a random name, but should be located at,</p>
+
+<p><i>dada/installer-disabled[random]/templates</i></p>
+
+<p>Where, <code>[random]</code> is random string of letters and numbers. Inside this <code>templates</code> directory is a file called, <code>mail.cgi.tmpl</code>. Copy this file into the, <code>dada</code> directory and rename it to whatever you&#39;d like (we would suggest giving it a file ending of, &quot;.pl&quot;, example: <code>mail.pl</code>.</p>
+
+<p>Change its permissions to, <code>755</code> and use this as the script used for mail forwarding. Bridge will probably give something like the following as the absolute path to this script:</p>
+
+<p><i>|/home/youraccount/dada/app.psgi --inject --list listshortname</i></p>
+
+<p>This would be wrong.</p>
+
+<p>Rather, you would use something like the following:</p>
+
+<p><i>|/home/youraccount/dada/mail.pl --inject --list listshortname</i></p>
+
+</li>
+</ul>
+
+
+</body>
+
+</html>
+
+

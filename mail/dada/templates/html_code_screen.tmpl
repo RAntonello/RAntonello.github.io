@@ -1,0 +1,166 @@
+<!-- begin html_code_screen.tmpl -->
+
+<!-- tmpl_set name="title" value="Appearance &#187; Subscription Form HTML" -->
+
+<div id="screen_meta" data-menu_highlight="html_code"></div>
+<div id="html_code"></div>
+
+
+<div class="row hide-for-small-only" id="control_panel_breadcrumbs">
+	<div class="medium-10 small-9 columns">
+	   	<nav class="breadcrumbs">	
+		 	 <a href="#" class="unavailable">
+				Appearance
+			 </a>
+	 	    <a 
+				href="#"
+				class="current"
+			>	
+				Subscription Form HTML
+			</a>
+		</nav>
+	</div>
+	<div class="medium-2 small-3 columns text-right">
+	   <!-- tmpl_include help_link_widget.tmpl -->
+	</div>
+</div>
+
+
+<ul class="tabs" data-tab>
+	
+	<li class="tab-title active">
+		<a href="#minimal">
+			Minimal Subscription Form
+		</a>
+	</li>
+	<li class="tab-title">
+		<a href="#full">
+			Full Subscription Form
+		</a>
+	</li>
+	<li class="tab-title">
+		<a href="#modal_menu">
+			Modal Window Subscription Form
+		</a>
+	</li>
+</ul>
+	
+	
+	<div class="tabs-content">
+	
+		<div class="content active" id="minimal"> 
+			<p>
+				Copy the code in the text box and add it to any page on your site.
+			</p>
+		
+			<div class="row">
+				<div class="small-12 columns">
+					<button 
+						type="button" 
+						class="zclip expand" 
+						data-zclip-target-id="minimal_subscription_form"
+						>
+							Copy
+					</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-12 columns">
+					<textarea readonly id="minimal_subscription_form" name="minimal_subscription_form" cols="50" rows="12"><!-- tmpl_var minimal_subscription_form --></textarea>
+				</div>
+			</div> 
+		
+			<fieldset>
+				<legend>
+					Working Preview
+			</legend>
+			<!-- tmpl_var minimal_subscription_form -->
+			</fieldset>
+		</div> 
+	
+		<div class="content" id="full"> 
+			<p>
+				Copy the code in the text box and add it to any page on your site.
+			</p>
+		
+			<div class="row">
+				<div class="small-12 columns">
+					<button 
+						type="button" 
+						class="zclip expand" 
+						data-zclip-target-id="full_subscription_form"
+						>
+							Copy
+					</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-12 columns">
+					<textarea readonly id="full_subscription_form" name="full_subscription_form" cols="50" rows="12"><!-- tmpl_var subscription_form escape="HTML" --> </textarea>
+			</div>
+		</div>
+		    <fieldset>
+		    <legend>
+		    Working Preview</legend>
+		    <!-- tmpl_var subscription_form  -->
+		</div> 
+	
+		<div class="content tab-title" id="modal_menu"> 
+			Place the following in the &lt;head&gt; of your page:
+			<div class="row">
+				<div class="small-12 columns">
+					<button 
+						type="button" 
+						class="zclip expand" 
+						data-zclip-target-id="modal_menu_subscription_form_head"
+						>
+							Copy
+					</button>
+				</div>
+			</div> 
+			<div class="row">
+				<div class="small-12 columns">
+					<textarea 
+						id="modal_menu_subscription_form_head"
+						rows="12" 
+						readonly><!-- tmpl_var jquery_head_code escape="HTML" --></textarea>
+				</div>
+			</div> 
+			  
+			<p>Place the following in the body of your page:</p> 
+			<div class="row">
+				<div class="small-12 columns">
+					<button 
+						type="button" 
+						class="zclip expand" 
+						data-zclip-target-id="modal_menu_subscription_form_body"
+						>
+							Copy
+					</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-12 columns">
+					<textarea 
+						readonly
+						rows="12"
+						id="modal_menu_subscription_form_body"
+						><!-- tmpl_var jquery_body_code escape="HTML" --></textarea>
+				</div>
+			</div>
+		<div class="row">
+  		  <div class="small-6 small-centered columns">
+				 <a 
+				 	href="<!-- tmpl_var S_PROGRAM_URL -->?flavor=preview_jquery_plugin_subscription_form"
+					class="button success preview_jquery_plugin_subscription_form expand"
+					target="_blank"
+				>
+					 	View Working Preview...
+ 				</a>
+  		  </div>
+	  </div>
+	</div>
+	
+	
+</div> 
+<!-- end html_code_screen.tmpl -->

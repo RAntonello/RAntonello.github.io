@@ -1,0 +1,172 @@
+<!-- begin archive_options_screen.tmpl -->
+
+<!-- tmpl_set name="title" value="Message Archives &#187; Options" -->
+<div id="screen_meta" data-menu_highlight="archive_options"></div>
+
+
+
+<div class="row hide-for-small-only" id="control_panel_breadcrumbs">
+	<div class="medium-10 small-9 columns">
+	   	<nav class="breadcrumbs">	
+		 	 <a href="#" class="unavailable">
+				Message Archives
+			 </a>
+	 	    <a 
+				href="#"
+				class="current"
+			>	
+				Options
+			</a>
+		</nav>
+	</div>
+	<div class="medium-2 small-3 columns text-right">
+	   <!-- tmpl_include help_link_widget.tmpl -->
+	</div>
+</div>
+
+<!-- tmpl_if done -->
+	<!-- tmpl_include changes_saved_dialog_box_widget.tmpl  -->
+<!--/tmpl_if-->
+
+
+<form 
+	action="<!-- tmpl_var S_PROGRAM_URL -->" 
+	method="post" 
+	name="default_form" 
+	id="default_form" 
+	accept-charset="<!-- tmpl_var HTML_CHARSET -->"
+>
+    <input type="hidden" name="s_program_url" id="s_program_url" value="<!-- tmpl_var S_PROGRAM_URL -->" >
+	<input type="hidden" name="process" value="1">
+	<input type="hidden" name="flavor"  value="archive_options">
+
+	<fieldset>
+
+		<div class="row">
+			<div class="small-12 columns">
+				<label for="archive_messages">
+					<input 
+						type="checkbox" 
+						name="archive_messages" 
+						id="archive_messages" 
+						value="1" 
+						<!-- tmpl_if list_settings.archive_messages -->checked="checked"<!--/tmpl_if-->
+					>
+					Archive your messages
+			    </label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="small-12 columns">
+				<label for="show_archives">
+					<input
+						type="checkbox"
+						name="show_archives"
+						id="show_archives"
+						value="1"
+						<!-- tmpl_if list_settings.show_archives -->checked="checked"<!--/tmpl_if-->
+					>
+					Publicly Display Your Archives
+				</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="small-1 columns">
+			</div>
+			<div class="small-11 columns">
+				<label for="archives_available_only_to_subscribers" <!-- tmpl_unless PROFILE_ENABLED -->class="disabled"<!-- /tmpl_unless -->>
+					<input 
+						type="checkbox" 
+						name="archives_available_only_to_subscribers" 
+						id="archives_available_only_to_subscribers" 
+						value="1" 
+						<!-- tmpl_if list_settings.archives_available_only_to_subscribers -->checked="checked"<!--/tmpl_if-->
+					>
+					Only allow subscribers to view archived messages
+				</label>
+
+				<!-- tmpl_unless PROFILE_ENABLED -->
+					<div class="alert-box info radius">
+						Disabled. <!-- tmpl_var PROGRAM_NAME --> Profiles themselves are not enabled.
+					</div> 
+				<!--/tmpl_unless-->
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="small-12 columns">
+
+				<label for="archive_subscribe_form">
+					<input
+						type="checkbox"
+						name="archive_subscribe_form"
+						id="archive_subscribe_form"
+						value="1"
+						<!-- tmpl_if list_settings.archive_subscribe_form -->checked="checked"<!--/tmpl_if-->
+					>
+					Add a subscription form to the archive screens
+				</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="small-12 columns">
+			
+				<label for="archive_search_form">
+					<input
+						type="checkbox"
+						name="archive_search_form"
+						id="archive_search_form"
+						value="1"
+						<!-- tmpl_if list_settings.archive_search_form -->checked="checked"<!--/tmpl_if-->
+					>
+					Add a search form to the archive screens
+				</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="small-12 columns">
+				<label for="archive_send_form">
+					<input 
+						type="checkbox" 
+						name="archive_send_form" 
+						id="archive_send_form" 
+						value="1"
+						<!-- tmpl_if list_settings.archive_send_form -->checked="checked"<!--/tmpl_if-->
+					>
+					Enable &quot;Forward to a Friend&quot;
+				</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="small-1 columns">
+			</div>
+			<div class="small-11 columns">
+			
+				<label for="captcha_archive_send_form">
+					<input 
+						type="checkbox" 
+						name="captcha_archive_send_form" 
+						id="captcha_archive_send_form" 
+						value="1" 
+						<!-- tmpl_if list_settings.captcha_archive_send_form -->checked="checked"<!--/tmpl_if-->
+					>
+					Enable CAPTCHA for &quot;Forward to a Friend&quot;
+				</label>
+
+				<!-- tmpl_unless can_use_captcha -->
+					<div class="alert-box info radius">
+						Disabled.The CAPTCHA system (<strong><!-- tmpl_var CAPTCHA_TYPE --></strong>) needs to be successfully configured. 
+					</div> 
+				<!--/tmpl_unless-->
+			</div>
+		</div>
+	</fieldset>
+	<!-- tmpl_include common_save_list_settings_buttons_widget.tmpl -->
+</form> 
+
+<!-- end archive_options_screen.tmpl -->

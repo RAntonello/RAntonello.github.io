@@ -1,0 +1,62 @@
+<!-- begin list_breadcrumbs_widget.tmpl -->
+<ul class="breadcrumbs">
+	<li>
+		<a href="<!-- tmpl_var program_url -->">
+			<!-- tmpl_var program_name -->
+		</a>
+	</li>
+	<li>
+		 <a href="<!-- tmpl_var program_url -->/list/<!-- tmpl_var list_settings.list -->/">
+			  <!-- tmpl_var list_settings.list_name -->
+		 </a>
+	</li>
+ 
+	<!-- tmpl_if header_subject -->
+		 <li>
+			 <a href="<!-- tmpl_var program_url -->/archive/<!-- tmpl_var list_settings.list -->/">
+			 	 Archives 
+			 </a>
+		 </li>
+		 <li class="current">
+			 <a href="#">
+			 	<!-- tmpl_var header_subject escape="HTML" -->
+			</a>
+		 </li>
+	<!--/tmpl_if-->
+
+	<!-- tmpl_if keyword -->
+	 
+		 <li>
+			 <a href="<!-- tmpl_var program_url -->/archive/<!-- tmpl_var list_settings.list -->/">
+		  	   Archives 
+		 	</a>
+		 </li>
+		 <li class="current">
+			 <a href="#">
+		 		Search results for: <!-- tmpl_var keyword escape="HTML"-->
+		  	 </a>
+		 </li>
+	<!--/tmpl_if-->
+
+	<!-- tmpl_if flavor_sign_in -->
+	 
+		 <li class="current">
+			 <a href="#">
+				 Login
+		  	 </a>
+		 </li>	 
+	<!--/tmpl_if-->
+
+	<!-- tmpl_if flavor_archive -->
+	 
+		 <li class="current">
+			 <a href="#">
+				 Archives
+		  	 </a>
+		 </li>	 
+	 
+	<!--/tmpl_if-->
+
+</ul>
+
+<!-- end list_breadcrumbs_widget.tmpl -->

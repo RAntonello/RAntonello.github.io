@@ -1,0 +1,31 @@
+<!-- begin archive_nav_table_widget.tmpl --> 
+
+<div class="row panel">
+	<div class="medium-5 columns medium-text-left">
+		<!-- tmpl_if prev_subject --> 
+			&lsaquo;
+			<a href="<!-- tmpl_var PROGRAM_URL -->?flavor=<!-- tmpl_var flavor_label -->&list=<!-- tmpl_var list_settings.list -->&id=<!-- tmpl_var prev -->">
+			 <!-- tmpl_var prev_subject -->
+			</a>
+		<!-- tmpl_else --> 
+				 &nbsp;
+		<!-- /tmpl_if --> 
+	</div>
+	<div class="medium-2 columns medium-text-center">
+	   	<a href="<!-- tmpl_var PROGRAM_URL -->?flavor=<!-- tmpl_var flavor_label -->&list=<!-- tmpl_var list_settings.list -->">
+			Index
+		</a>
+	</div>
+	<div class="medium-5 columns medium-text-right">
+	<!-- tmpl_if next_subject --> 
+		<a href="<!-- tmpl_var PROGRAM_URL -->?flavor=<!-- tmpl_var flavor_label -->&list=<!-- tmpl_var list_settings.list -->&id=<!-- tmpl_var next -->">
+		 <!-- tmpl_var next_subject -->
+		</a>
+		&rsaquo;
+	<!-- tmpl_else --> 
+			 &nbsp;
+	<!-- /tmpl_if --> 
+	</div> 
+</div>
+
+<!-- end archive_nav_table_widget.tmpl --> 

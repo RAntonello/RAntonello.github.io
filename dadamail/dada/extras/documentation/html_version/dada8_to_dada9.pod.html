@@ -1,0 +1,128 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Dada Mail 8.x to Dada Mail 9.x Guide</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@osx004.apple.com" />
+</head>
+
+<body>
+
+
+
+<ul id="index">
+  <li><a href="#Dada-Mail-8-to-Dada-Mail-9-Upgrade-Guide">Dada Mail 8 to Dada Mail 9 Upgrade Guide</a>
+    <ul>
+      <li><a href="#Focus">Focus</a>
+        <ul>
+          <li><a href="#Major-UI-Changes">Major UI Changes</a>
+            <ul>
+              <li><a href="#Administration-Login">Administration Login</a></li>
+              <li><a href="#Reorganizaiton-of-top-level-menus">Reorganizaiton of top-level menus</a></li>
+              <li><a href="#Side-Bar-to-Top-Bar">Side Bar to Top Bar</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#File-Browser-Uploaders">File Browser/Uploaders</a>
+        <ul>
+          <li><a href="#CoreFile-FileManager-Upgrade-to-v2.2.0">CoreFile FileManager Upgrade to v2.2.0</a></li>
+        </ul>
+      </li>
+      <li><a href="#Removed-Features">Removed Features</a>
+        <ul>
+          <li><a href="#Multiple-Mailing-List-Sending">Multiple Mailing List Sending</a></li>
+          <li><a href="#Sending-Options">Sending Options</a>
+            <ul>
+              <li><a href="#Errors-To-headers-support">Errors-To headers support</a></li>
+              <li><a href="#Return-Path-header">Return-Path header</a></li>
+            </ul>
+          </li>
+          <li><a href="#Sending---Mass-Mailing-Options">Sending - Mass Mailing Options</a>
+            <ul>
+              <li><a href="#Reload-Mailings-After-Each-Batch">Reload Mailings After Each Batch</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#Deprecations">Deprecations</a>
+        <ul>
+          <li><a href="#S_PROGRAM_URL-global-config-variale">$S_PROGRAM_URL global config variale</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="Dada-Mail-8-to-Dada-Mail-9-Upgrade-Guide">Dada Mail 8 to Dada Mail 9 Upgrade Guide</h1>
+
+<p>This guide was compiled to get you ready for upgrade to Dada Mail v9, from a previous upgrade. Please look over this guide to ensure there&#39;s still support for how you utilize the application.</p>
+
+<h2 id="Focus">Focus</h2>
+
+<p>The main difference between v9 of Dada Mail and all previous versions of Dada Mail, is that v9 now relies on the Zurb Foundation Frontend Framework:</p>
+
+<p><a href="http://foundation.zurb.com/">http://foundation.zurb.com/</a></p>
+
+<p>The majority of the changes in v9 happen with rewritting and in some cases: renaming template files found in, <code>dada/templates</code>. If you have made your own customizations and modifications to these files, they may well need to be rewritten to work with this new version of Dada Mail (and thus, the major release status)</p>
+
+<h3 id="Major-UI-Changes">Major UI Changes</h3>
+
+<p>Along with utilizing Foundation, many of Dada Mail&#39;s user interfaces have drastically changed from their previous designs:</p>
+
+<h4 id="Administration-Login">Administration Login</h4>
+
+<p>The administration login now uses a much more compact design to either log into a mailing list, or to create a new one. Both forms are still there, but now in a tab interface, so only one form is shown at a time.</p>
+
+<h4 id="Reorganizaiton-of-top-level-menus">Reorganizaiton of top-level menus</h4>
+
+<p>Many items in the navigation bar for the list control panel have been moved around and renamed.</p>
+
+<h4 id="Side-Bar-to-Top-Bar">Side Bar to Top Bar</h4>
+
+<p>Dada Mail&#39;s List Control Panel side bar has been replaced with a top bar. If you prefer the former design, you may enable the classic side bar in the List Control Panel under, <b>Settings - Enable/Disable Features</b></p>
+
+<h2 id="File-Browser-Uploaders">File Browser/Uploaders</h2>
+
+<h3 id="CoreFile-FileManager-Upgrade-to-v2.2.0">CoreFile FileManager Upgrade to v2.2.0</h3>
+
+<h2 id="Removed-Features">Removed Features</h2>
+
+<p>Some features in Dada Mail have been <b>removed</b> to help with the scope of the project, code cruft, and to keep focus on parts of Dada Mail that are most popular/most useful</p>
+
+<h3 id="Multiple-Mailing-List-Sending">Multiple Mailing List Sending</h3>
+
+<p>Multiple Mailing List Sending has been completely removed. This feature wasn&#39;t enabled by default, but could be enabled through Dada Mail&#39;s global config.</p>
+
+<h3 id="Sending-Options">Sending Options</h3>
+
+<h4 id="Errors-To-headers-support">Errors-To headers support</h4>
+
+<p>Dada Mail had the option to add a, <code>Errors-To</code> header. This header is very much outdated, and support for it has been removed from the app.</p>
+
+<h4 id="Return-Path-header">Return-Path header</h4>
+
+<p>Dada Mail had an option to explicitly set a <code>Return-Path</code> header, although limited MTA&#39;s supported this. The MTA itself will set this header correctly on behalf of the app.</p>
+
+<h3 id="Sending---Mass-Mailing-Options">Sending - Mass Mailing Options</h3>
+
+<h4 id="Reload-Mailings-After-Each-Batch">Reload Mailings After Each Batch</h4>
+
+<p>This option has been removed, as it&#39;s usually the wrong option to depend on.</p>
+
+<h2 id="Deprecations">Deprecations</h2>
+
+<h3 id="S_PROGRAM_URL-global-config-variale">$S_PROGRAM_URL global config variale</h3>
+
+<p><code>$S_POGRAM_URL</code> is a somewhat naive way to &quot;add&quot; extra security to Dada Mail giving you the ability to set a different URL for List Control Panel access. It usually is not utilized at all.</p>
+
+<p>Support in the app is still there, but the included installer does not support setting it. Best thing to do is to use https connections for everything.</p>
+
+
+</body>
+
+</html>
+
+

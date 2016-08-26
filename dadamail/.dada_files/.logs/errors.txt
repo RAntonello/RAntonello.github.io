@@ -1,0 +1,162 @@
+[Thu Jul 21 01:32:51 2016] mail.cgi: doesn't have a draft! at /DADA/App/MassSend.pm line 1681.
+[Thu Jul 21 01:36:08 2016] mail.cgi: doesn't have a draft! at /DADA/App/MassSend.pm line 1681.
+220-box507.bluehost.com ESMTP Exim 4.86_2 #1 Thu, 21 Jul 2016 01:44:31 -0600 
+220-We do not authorize the use of this system to transport unsolicited, 
+220 and/or bulk e-mail.
+250-box507.bluehost.com Hello localhost.localdomain [127.0.0.1]
+250-SIZE 52428800
+250-8BITMIME
+250-AUTH PLAIN LOGIN
+250-STARTTLS
+250 HELP
+250-box507.bluehost.com Hello box507.bluehost.com [127.0.0.1]
+250-SIZE 52428800
+250-8BITMIME
+250-AUTH PLAIN LOGIN
+250-STARTTLS
+250 HELP
+550-Verification failed for <announcements@itcs-conf.org>
+550-No Such User Here
+550 Sender verify failed
+Dada Mail 9.1.3 Stable 03/13/16 Warning: 
+                         didn't close pipe to '|/usr/sbin/sendmail -t -fannouncements@itcs-conf.org' while 
+                         attempting to send a message to: '"ITCS Announcements Subscriber" <rjantonel@gmail.com> because:'  at /DADA/Mail/Send.pm line 733.
+[Thu Jul 21 01:47:28 2016] mail.cgi: doesn't have a draft! at /DADA/App/MassSend.pm line 1681.
+[Thu Jul 21 01:47:54 2016] mail.cgi: returning message id<20160721014754.07269087@itcs-conf.org> at /DADA/App/MassSend.pm line 409
+220-box507.bluehost.com ESMTP Exim 4.86_2 #1 Thu, 21 Jul 2016 01:47:59 -0600 
+220-We do not authorize the use of this system to transport unsolicited, 
+220 and/or bulk e-mail.
+250-box507.bluehost.com Hello localhost.localdomain [127.0.0.1]
+250-SIZE 52428800
+250-8BITMIME
+250-AUTH PLAIN LOGIN
+250-STARTTLS
+250 HELP
+250-box507.bluehost.com Hello box507.bluehost.com [127.0.0.1]
+250-SIZE 52428800
+250-8BITMIME
+250-AUTH PLAIN LOGIN
+250-STARTTLS
+250 HELP
+550-Verification failed for <announcements@itcs-conf.org>
+550-No Such User Here
+550 Sender verify failed
+[Thu Jul 21 01:47:59 2016] mail.cgi: Dada Mail 9.1.3 Stable 03/13/16 Warning: 
+[Thu Jul 21 01:47:59 2016] mail.cgi:                          didn't close pipe to '|/usr/sbin/sendmail -t -fannouncements@itcs-conf.org' while 
+[Thu Jul 21 01:47:59 2016] mail.cgi:                          attempting to send a message to: '"ITCS Announcements Subscriber" <announcements@itcs-conf.org> because:'  at /DADA/Mail/Send.pm line 733.
+220-box507.bluehost.com ESMTP Exim 4.86_2 #1 Thu, 21 Jul 2016 01:48:05 -0600 
+220-We do not authorize the use of this system to transport unsolicited, 
+220 and/or bulk e-mail.
+250-box507.bluehost.com Hello localhost.localdomain [127.0.0.1]
+250-SIZE 52428800
+250-8BITMIME
+250-AUTH PLAIN LOGIN
+250-STARTTLS
+250 HELP
+250-box507.bluehost.com Hello box507.bluehost.com [127.0.0.1]
+250-SIZE 52428800
+250-8BITMIME
+250-AUTH PLAIN LOGIN
+250-STARTTLS
+250 HELP
+550-Verification failed for <announcements@itcs-conf.org>
+550-No Such User Here
+550 Sender verify failed
+[Thu Jul 21 01:48:05 2016] mail.cgi: Dada Mail 9.1.3 Stable 03/13/16 Warning: 
+[Thu Jul 21 01:48:05 2016] mail.cgi:                          didn't close pipe to '|/usr/sbin/sendmail -t -fannouncements@itcs-conf.org' while 
+[Thu Jul 21 01:48:05 2016] mail.cgi:                          attempting to send a message to: '"List Owner For ITCS Announcements" <announcements@itcs-conf.org> because:'  at /DADA/Mail/Send.pm line 733.
+[Thu Jul 21 01:50:39 2016] mail.cgi: returning message id<20160721015039.84567613@itcs-conf.org> at /DADA/App/MassSend.pm line 409
+$ENV{REMOTE_ADDR:166.170.15.110 at /DADA/App/Session.pm line 505.
+$args{-ip_address}131.215.220.185 at /DADA/App/Session.pm line 506.
+[Sun Jul 24 19:31:01 2016] mail.cgi: doesn't have a draft! at /DADA/App/MassSend.pm line 1681.
+[Sun Jul 24 20:02:09 2016] mail.cgi: doesn't have a draft! at /DADA/App/MassSend.pm line 1681.
+[Sun Jul 24 20:03:04 2016] mail.cgi: doesn't have a draft! at /DADA/App/MassSend.pm line 1681.
+attempt to to add: "vidick@cms.caltech.edu" to list: "steering.list" (email already subcribed) - ignoring. at /home3/itcsconf/public_html/dadamail/dada//DADA/MailingList/Subscribers.pm line 122
+attempt to to add: "rjantonello@aol.com" to list: "steering.list" (email already subcribed) - ignoring. at /home3/itcsconf/public_html/dadamail/dada//DADA/MailingList/Subscribers.pm line 122
+Can't open 4f425565206a36c6bc7b8e712c722923-new_emails.txt: No such file or directory at /home3/itcsconf/public_html/dadamail/dada//DADA/App/Guts.pm line 924.
+attempt to to add: "madhu@mit.edu" to list: "steering.list" (email already subcribed) - ignoring. at /home3/itcsconf/public_html/dadamail/dada//DADA/MailingList/Subscribers.pm line 122
+attempt to to add: "shafi@theory.csail.mit.edu" to list: "steering.list" (email already subcribed) - ignoring. at /home3/itcsconf/public_html/dadamail/dada//DADA/MailingList/Subscribers.pm line 122
+attempt to to add: "maurer@inf.ethz.ch" to list: "steering.list" (email already subcribed) - ignoring. at /home3/itcsconf/public_html/dadamail/dada//DADA/MailingList/Subscribers.pm line 122
+attempt to to add: "silvio@csail.mit.edu" to list: "steering.list" (email already subcribed) - ignoring. at /home3/itcsconf/public_html/dadamail/dada//DADA/MailingList/Subscribers.pm line 122
+attempt to to add: "tim@cs.stanford.edu" to list: "steering.list" (email already subcribed) - ignoring. at /home3/itcsconf/public_html/dadamail/dada//DADA/MailingList/Subscribers.pm line 122
+attempt to to add: "avi@ias.edu" to list: "steering.list" (email already subcribed) - ignoring. at /home3/itcsconf/public_html/dadamail/dada//DADA/MailingList/Subscribers.pm line 122
+attempt to to add: "karp@cs.berkeley.edu" to list: "steering.list" (email already subcribed) - ignoring. at /home3/itcsconf/public_html/dadamail/dada//DADA/MailingList/Subscribers.pm line 122
+attempt to to add: "sanjeev@cis.upenn.edu" to list: "steering.list" (email already subcribed) - ignoring. at /home3/itcsconf/public_html/dadamail/dada//DADA/MailingList/Subscribers.pm line 122
+attempt to to add: "christos@cs.berkeley.edu" to list: "steering.list" (email already subcribed) - ignoring. at /home3/itcsconf/public_html/dadamail/dada//DADA/MailingList/Subscribers.pm line 122
+attempt to to add: "mblum@cs.cmu.edu" to list: "steering.list" (email already subcribed) - ignoring. at /home3/itcsconf/public_html/dadamail/dada//DADA/MailingList/Subscribers.pm line 122
+attempt to to add: "chazelle@cs.princeton.edu" to list: "steering.list" (email already subcribed) - ignoring. at /home3/itcsconf/public_html/dadamail/dada//DADA/MailingList/Subscribers.pm line 122
+attempt to to add: "oded.goldreich@weizmann.ac.il" to list: "steering.list" (email already subcribed) - ignoring. at /home3/itcsconf/public_html/dadamail/dada//DADA/MailingList/Subscribers.pm line 122
+attempt to to add: "arora@cs.princeton.edu" to list: "steering.list" (email already subcribed) - ignoring. at /home3/itcsconf/public_html/dadamail/dada//DADA/MailingList/Subscribers.pm line 122
+attempt to to add: "bromille@cs.au.dk" to list: "steering.list" (email already subcribed) - ignoring. at /home3/itcsconf/public_html/dadamail/dada//DADA/MailingList/Subscribers.pm line 122
+attempt to to add: "rabin@seas.harvard.edu" to list: "steering.list" (email already subcribed) - ignoring. at /home3/itcsconf/public_html/dadamail/dada//DADA/MailingList/Subscribers.pm line 122
+attempt to to add: "valiant@seas.harvard.edu" to list: "steering.list" (email already subcribed) - ignoring. at /home3/itcsconf/public_html/dadamail/dada//DADA/MailingList/Subscribers.pm line 122
+attempt to to add: "andrewcyao@yahoo.com" to list: "steering.list" (email already subcribed) - ignoring. at /home3/itcsconf/public_html/dadamail/dada//DADA/MailingList/Subscribers.pm line 122
+attempt to to add: "irit.dinur@weizmann.ac.il" to list: "steering.list" (email already subcribed) - ignoring. at /home3/itcsconf/public_html/dadamail/dada//DADA/MailingList/Subscribers.pm line 122
+attempt to to add: "omer.reingold@gmail.com" to list: "steering.list" (email already subcribed) - ignoring. at /home3/itcsconf/public_html/dadamail/dada//DADA/MailingList/Subscribers.pm line 122
+attempt to to add: "rdk@cs.cornell.edu" to list: "steering.list" (email already subcribed) - ignoring. at /home3/itcsconf/public_html/dadamail/dada//DADA/MailingList/Subscribers.pm line 122
+id, '2' doesn't exist! at /DADA/App/MassSend.pm line 1250
+id, '2' doesn't exist! at /DADA/App/MassSend.pm line 1250
+id, '2' doesn't exist! at /DADA/App/MassSend.pm line 1250
+id, '2' doesn't exist! at /DADA/App/MassSend.pm line 1250
+id, '2' doesn't exist! at /DADA/App/MassSend.pm line 1250
+[Sun Jul 24 23:09:27 2016] mail.cgi: doesn't have a draft! at /DADA/App/MassSend.pm line 1681.
+[Sun Jul 24 23:09:31 2016] mail.cgi: doesn't have a draft! at /DADA/App/MassSend.pm line 1681.
+[Sun Jul 24 23:10:03 2016] mail.cgi: returning message id<20160724231003.05097138@itcs-conf.org> at /DADA/App/MassSend.pm line 409
+[Sun Jul 24 23:10:52 2016] mail.cgi: returning message id<20160724231052.10523412@itcs-conf.org> at /DADA/App/MassSend.pm line 409
+[Sun Jul 24 23:11:58 2016] mail.cgi: returning message id<20160724231157.06512242@itcs-conf.org> at /DADA/App/MassSend.pm line 409
+[Sun Jul 24 23:12:03 2016] mail.cgi: returning message id<20160724231203.19930500@itcs-conf.org> at /DADA/App/MassSend.pm line 409
+[Sun Jul 24 23:12:48 2016] mail.cgi: returning message id<20160724231248.44859780@itcs-conf.org> at /DADA/App/MassSend.pm line 409
+[Sun Jul 24 23:30:45 2016] mail.cgi: returning message id<20160724233045.84463571@itcs-conf.org> at /DADA/App/MassSend.pm line 409
+$ENV{REMOTE_ADDR:166.216.157.64 at /DADA/App/Session.pm line 505.
+$args{-ip_address}166.170.15.110 at /DADA/App/Session.pm line 506.
+[Tue Jul 26 01:32:35 2016] mail.cgi: returning message id<20160726013234.44891232@itcs-conf.org> at /DADA/App/MassSend.pm line 409
+[Tue Jul 26 05:51:41 2016] mail.cgi: doesn't have a draft! at /DADA/App/MassSend.pm line 1681.
+reCAPTCHA Mailhide not working correctly?: Can't locate Captcha/reCAPTCHA/Mailhide.pm in @INC (@INC contains: ../../../ ../../../DADA/perllib ./ ../ ../../ ./../../DADA ../../perllib ../../DADA ../perllib ../../DADA/perllib /home3/itcsconf/public_html/dadamail/dada/../DADA/perllib /home3/itcsconf/public_html/dadamail/dada/../../ ../../../perllib /home3/itcsconf/public_html/dadamail/dada/../../../ /home3/itcsconf/public_html/dadamail/dada/../ /home3/itcsconf/public_html/dadamail/dada/DADA/perllib /home3/itcsconf/public_html/dadamail/dada/ /usr/local/lib64/perl5 /usr/local/share/perl5 /usr/lib64/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib64/perl5 /usr/share/perl5 . /home3/itcsconf/perl5/lib/perl5 /home3/itcsconf/perl5/lib/perl5/x86_64-linux-thread-multi /home3/itcsconf/perllib /home3/itcsconf/perl/home3/itcsconf/public_html/dadamail/dada/DADA/perllib /home3/itcsconf/perl/home3/itcsconf/public_html/dadamail/dada/ /home3/itcsconf/perl/usr/local/lib64/perl5 /home3/itcsconf/perl/usr/local/share/perl5 /home3/itcsconf/perl/usr/lib64/perl5/vendor_perl /home3/itcsconf/perl/usr/share/perl5/vendor_perl /home3/itcsconf/perl/usr/lib64/perl5 /home3/itcsconf/perl/usr/share/perl5 /home3/itcsconf/perl. /home3/itcsconf/perl/home3/itcsconf/public_html/dadamail/dada/../DADA/perllib /home3/itcsconf/perl/home3/itcsconf/public_html/dadamail/dada/../../../ /home3/itcsconf/perl/home3/itcsconf/public_html/dadamail/dada/../../ /home3/itcsconf/perl/home3/itcsconf/public_html/dadamail/dada/../ /home3/itcsconf/perl/home3/itcsconf/perl5/lib/perl5 /home3/itcsconf/perl/home3/itcsconf/perl5/lib/perl5/x86_64-linux-thread-multi /home3/itcsconf/perl/home3/itcsconf/perllib /home3/itcsconf/perl/home3/itcsconf/perl/home3/itcsconf/public_html/dadamail/dada/DADA/perllib /home3/itcsconf/perl/home3/itcsconf/perl/home3/itcsconf/public_html/dadamail/dada/ /home3/itcsconf/perl/home3/itcsconf/perl/usr/local/lib64/perl5 /home3/itcsconf/perl/home3/itcsconf/perl/usr/local/share/perl5 /home3/itcsconf/perl/home3/itcsconf/perl/usr/lib64/perl5/vendor_perl /home3/itcsconf/perl/home3/itcsconf/perl/usr/share/perl5/vendor_perl /home3/itcsconf/perl/home3/itcsconf/perl/usr/lib64/perl5 /home3/itcsconf/perl/home3/itcsconf/perl/usr/share/perl5 /home3/itcsconf/perl/home3/itcsconf/perl. /home3/itcsconf/perl../../ /home3/itcsconf/perl../../DADA/perllib /home3/itcsconf/perl../../../ /home3/itcsconf/perl../../../DADA/perllib /home3/itcsconf/perl../../perllib /home3/itcsconf/perl../../DADA /home3/itcsconf/perl../../../perllib /home3/itcsconf/perl./ /home3/itcsconf/perl../ /home3/itcsconf/perl./../../DADA /home3/itcsconf/perl/home3/itcsconf/perl/home3/itcsconf/public_html/dadamail/dada/../DADA/perllib /home3/itcsconf/perl/home3/itcsconf/perl/home3/itcsconf/public_html/dadamail/dada/../../../ /home3/itcsconf/perl/home3/itcsconf/perl/home3/itcsconf/public_html/dadamail/dada/../../ /home3/itcsconf/perl/home3/itcsconf/perl/home3/itcsconf/public_html/dadamail/dada/../ /home3/itcsconf/perl/home3/itcsconf/perl/home3/itcsconf/perl5/lib/perl5 /home3/itcsconf/perl/home3/itcsconf/perl/home3/itcsconf/perl5/lib/perl5/x86_64-linux-thread-multi /home3/itcsconf/perl/home3/itcsconf/perl/home3/itcsconf/perllib /home3/itcsconf/perl/home3/itcsconf/perl/home3/itcsconf/perl/home3/itcsconf/public_html/dadamail/dada/DADA/perllib /home3/itcsconf/perl/home3/itcsconf/perl/home3/itcsconf/perl/home3/itcsconf/public_html/dadamail/dada/ /home3/itcsconf/perl/home3/itcsconf/perl/home3/itcsconf/perl/usr/local/lib64/perl5 /home3/itcsconf/perl/home3/itcsconf/perl/home3/itcsconf/perl/usr/local/share/perl5 /home3/itcsconf/perl/home3/itcsconf/perl/home3/itcsconf/perl/usr/lib64/perl5/vendor_perl /home3/itcsconf/perl/home3/itcsconf/perl/home3/itcsconf/perl/usr/share/perl5/vendor_perl /home3/itcsconf/perl/home3/itcsconf/perl/home3/itcsconf/perl/usr/lib64/perl5 /home3/itcsconf/perl/home3/itcsconf/perl/home3/itcsconf/perl/usr/share/perl5 /home3/itcsconf/perl/home3/itcsconf/perl/home3/itcsconf/perl.) at /home3/itcsconf/public_html/dadamail/dada//DADA/App.pm line 6832.
+ at /home3/itcsconf/public_html/dadamail/dada//DADA/App.pm line 6844
+[Tue Jul 26 06:56:34 2016] mail.cgi: doesn't have a draft! at /DADA/App/MassSend.pm line 1681.
+$ENV{REMOTE_ADDR:166.216.157.64 at /DADA/App/Session.pm line 505.
+$args{-ip_address}166.170.15.110 at /DADA/App/Session.pm line 506.
+$ENV{REMOTE_ADDR:166.216.157.64 at /DADA/App/Session.pm line 505.
+$args{-ip_address}166.170.15.110 at /DADA/App/Session.pm line 506.
+$ENV{REMOTE_ADDR:166.216.157.64 at /DADA/App/Session.pm line 505.
+$args{-ip_address}166.170.15.110 at /DADA/App/Session.pm line 506.
+$ENV{REMOTE_ADDR:166.216.157.64 at /DADA/App/Session.pm line 505.
+$args{-ip_address}166.170.15.110 at /DADA/App/Session.pm line 506.
+$ENV{REMOTE_ADDR:107.77.105.108 at /DADA/App/Session.pm line 505.
+$args{-ip_address}166.216.157.64 at /DADA/App/Session.pm line 506.
+[Tue Jul 26 23:08:07 2016] mail.cgi: doesn't have a draft! at /DADA/App/MassSend.pm line 1681.
+bridge rejecting sending of received message - 	From: vidick@cms.caltech.edu	Subject: Comments on ITCS website	Message-ID: <32a02c96-0700-c8a7-9a78-0a7192d09df0@cms.caltech.edu>	Reasons: msg_not_from_subscriber, msg_not_from_list_owner,  at /plugins/bridge line 2847.
+$ENV{REMOTE_ADDR:38.117.109.20 at /DADA/App/Session.pm line 505.
+$args{-ip_address}65.92.69.136 at /DADA/App/Session.pm line 506.
+[Wed Jul 27 09:47:10 2016] mail.cgi: doesn't have a draft! at /DADA/App/MassSend.pm line 1681.
+Use of uninitialized value $endpoint_name in substitution (s///) at /home3/itcsconf/public_html/dadamail/dada/DADA/perllib/Net/Amazon/SES.pm line 699.
+Unspecified AWS credentials file. at /home3/itcsconf/public_html/dadamail/dada/DADA/perllib/Net/Amazon/SES.pm line 492.
+	(in cleanup) Can't access 'DESTROY' field in object of class Net::Amazon::SES at /DADA/App/AmazonSES.pm line 78
+ at /DADA/App/AmazonSES.pm line 78
+[Wed Jul 27 10:12:13 2016] mail.cgi: returning message id<20160727101213.91452379@cms.caltech.edu> at /plugins/bridge line 2533
+[Wed Jul 27 10:17:02 2016] mail.cgi: returning message id<20160727101702.19545458@itcs-conf.org> at /plugins/bridge line 2533
+[Wed Jul 27 10:24:30 2016] mail.cgi: returning message id<20160727102430.58907218@cms.caltech.edu> at /plugins/bridge line 2533
+[Wed Jul 27 10:27:34 2016] mail.cgi: returning message id<20160727102734.55497431@cms.caltech.edu> at /plugins/bridge line 2533
+[Wed Jul 27 10:28:36 2016] mail.cgi: returning message id<20160727102836.06104342@cms.caltech.edu> at /plugins/bridge line 2533
+[Wed Jul 27 10:36:30 2016] mail.cgi: returning message id<20160727103630.10688252@cms.caltech.edu> at /plugins/bridge line 2533
+[Wed Jul 27 10:40:11 2016] mail.cgi: returning message id<20160727104010.15701584@cms.caltech.edu> at /plugins/bridge line 2533
+[Wed Jul 27 10:45:04 2016] mail.cgi: bridge rejecting sending of received message - 	From: madhu@cs.harvard.edu	Subject: Re: [steering] Comments on ITCS website	Message-ID: <5798E032.4000006@cs.harvard.edu>	Reasons: msg_not_from_subscriber, msg_not_from_list_owner,  at /plugins/bridge line 2847.
+[Wed Jul 27 10:55:08 2016] mail.cgi: returning message id<20160727105508.03552040@cms.caltech.edu> at /plugins/bridge line 2533
+[Wed Jul 27 11:16:08 2016] mail.cgi: returning message id<20160727111608.81757814@cms.caltech.edu> at /plugins/bridge line 2533
+[Wed Jul 27 11:20:09 2016] mail.cgi: returning message id<20160727112009.59585480@cms.caltech.edu> at /plugins/bridge line 2533
+[Wed Jul 27 11:26:10 2016] mail.cgi: returning message id<20160727112610.86760711@cms.caltech.edu> at /plugins/bridge line 2533
+$ENV{REMOTE_ADDR:65.92.69.136 at /DADA/App/Session.pm line 505.
+$args{-ip_address}38.117.109.20 at /DADA/App/Session.pm line 506.
+$ENV{REMOTE_ADDR:65.92.69.136 at /DADA/App/Session.pm line 505.
+$args{-ip_address}38.117.109.20 at /DADA/App/Session.pm line 506.
+$ENV{REMOTE_ADDR:65.92.69.136 at /DADA/App/Session.pm line 505.
+$args{-ip_address}38.117.109.20 at /DADA/App/Session.pm line 506.
+[Thu Jul 28 00:56:02 2016] mail.cgi: bridge rejecting sending of received message - 	From: christos@berkeley.edu	Subject: Re: [steering] Comments on ITCS website	Message-ID: <CAA1UZ6MKNaJ7YG2Qc2V2gL=xjb5f0G0j=D-ZgaBXWS514qjMmg@mail.gmail.com>	Reasons: msg_not_from_subscriber, msg_not_from_list_owner,  at /plugins/bridge line 2847.
+[Thu Jul 28 05:30:26 2016] mail.cgi: doesn't have a draft! at /DADA/App/MassSend.pm line 1681.
+[Tue Aug  9 12:34:09 2016] mail.cgi: returning message id<20160809123409.76612709@itcs-conf.org> at /plugins/bridge line 2533
+[Wed Aug 10 22:34:04 2016] mail.cgi: returning message id<20160810223404.62229084@itcs-conf.org> at /plugins/bridge line 2533
+[Wed Aug 10 22:40:03 2016] mail.cgi: returning message id<20160810224003.96286491@itcs-conf.org> at /plugins/bridge line 2533
+[Wed Aug 10 23:54:04 2016] mail.cgi: returning message id<20160810235404.16223026@itcs-conf.org> at /plugins/bridge line 2533
+[Fri Aug 26 05:04:03 2016] mail.cgi: DBI connect('dbname=itcsconf_dadamail947;host=localhost;port=3306','itcsconf_dada947',...) failed: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2) at /DADA/App/DBIHandle.pm line 127
+[Fri Aug 26 05:04:03 2016] mail.cgi: DBI connect('dbname=itcsconf_dadamail947;host=localhost;port=3306','itcsconf_dada947',...) failed: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2) at /DADA/App/DBIHandle.pm line 127
+[Fri Aug 26 05:04:03 2016] mail.cgi: DBI connect('dbname=itcsconf_dadamail947;host=localhost;port=3306','itcsconf_dada947',...) failed: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2) at /DADA/App/DBIHandle.pm line 127

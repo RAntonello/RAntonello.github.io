@@ -1,0 +1,955 @@
+#!/usr/bin/perl
+
+package bounce_handler;
+
+use strict;
+$|++;
+
+#---------------------------------------------------------------------#
+# bounce_handler
+#
+# Documentation:
+#
+#  http://dadamailproject.com/d/bounce_handler.html
+#
+#---------------------------------------------------------------------#
+
+
+BEGIN {
+    if ( $] > 5.008 ) {
+        require Errno;
+        require Config;
+    }
+}
+
+$ENV{PATH} = "/bin:/usr/bin";
+delete @ENV{ 'IFS', 'CDPATH', 'ENV', 'BASH_ENV' };
+
+use FindBin;
+use lib "$FindBin::Bin/../";
+use lib "$FindBin::Bin/../DADA/perllib";
+
+BEGIN {
+    my $b__dir = ( getpwuid($>) )[7] . '/perl';
+    push @INC, $b__dir . '5/lib/perl5', $b__dir . '5/lib/perl5/x86_64-linux-thread-multi', $b__dir . 'lib',
+      map { $b__dir . $_ } @INC;
+}
+
+use CGI::Carp qw(fatalsToBrowser);
+
+use DADA::Config;
+use DADA::App::Guts;
+use DADA::Mail::Send;
+use DADA::MailingList::Subscribers;
+use DADA::MailingList::Settings;
+use DADA::Template::HTML;
+use DADA::App::BounceHandler;
+
+my $Plugin_Config = {
+    Server                   => undef,
+    Username                 => undef,
+    Password                 => undef,
+    Port                     => 'AUTO',
+    USESSL                   => 0,
+    AUTH_MODE                => 'BEST',
+    Log                      => $DADA::Config::LOGS . '/bounces.txt',
+    MessagesAtOnce           => 100,
+    Max_Size_Of_Any_Message  => 2621440,
+    Enable_POP3_File_Locking => 1,
+    Plugin_URL               => $DADA::Config::S_PROGRAM_URL . '?flavor=plugins&plugin=bounce_handler',
+    Plugin_Name              => 'Bounce Handler',
+};
+
+#---------------------------------------------------------------------#
+# Nothing else to be configured.                                      #
+
+use Getopt::Long;
+use MIME::Entity;
+
+use Fcntl qw(
+  O_CREAT
+  O_RDWR
+  LOCK_EX
+  LOCK_NB
+);
+
+my $debug;
+my $help;
+my $test;
+my $server;
+my $username;
+my $password;
+my $verbose;
+my $log;
+my $messages;
+my $erase_score_card;
+my $version;
+my $list;
+my $admin_list;
+my $root_login;
+
+sub reset_globals {
+    $debug            = 0;
+    $help             = 0;
+    $test             = undef;
+    $server           = undef;
+    $username         = undef;
+    $password         = undef;
+    $verbose          = 0;
+    $log              = undef;
+    $messages         = 0;
+    $erase_score_card = 0;
+    $version          = undef;
+    $list             = undef;
+    $admin_list       = undef;
+    $root_login       = undef;
+}
+
+&init_vars;
+
+run()
+  unless caller();
+
+sub init_vars {
+
+    # DEV: This NEEDS to be in its own module - perhaps DADA::App::PluginHelper or something?
+
+    while ( my $key = each %$Plugin_Config ) {
+        if ( exists( $DADA::Config::PLUGIN_CONFIGS->{Bounce_Handler}->{$key} ) ) {
+            if ( defined( $DADA::Config::PLUGIN_CONFIGS->{Bounce_Handler}->{$key} ) ) {
+                $Plugin_Config->{$key} = $DADA::Config::PLUGIN_CONFIGS->{Bounce_Handler}->{$key};
+            }
+        }
+    }
+}
+
+sub init {
+
+    $Plugin_Config->{Server}         = $server   if $server;
+    $Plugin_Config->{Username}       = $username if $username;
+    $Plugin_Config->{Password}       = $password if $password;
+    $Plugin_Config->{Log}            = $log      if $log;
+    $Plugin_Config->{MessagesAtOnce} = $messages if $messages > 0;
+
+    if ($test) {
+        $debug = 1
+          if $test eq 'bounces';
+    }
+
+    $verbose = 1
+      if $debug == 1;
+
+}
+
+sub test_sub { 
+    return 'Hello, World!'; 
+}
+
+sub run {
+    my $q = shift;
+    reset_globals();
+
+    if ( !$ENV{GATEWAY_INTERFACE} ) {
+        my $r = cl_main();
+        if ( $verbose || $help || $test || $version ) {
+            print $r;
+        }
+        exit;
+    }
+    else {
+        return cgi_main($q);
+    }
+}
+
+sub test_sub {
+    return "Hello, World!";
+}
+
+sub cgi_main {
+    my $q = shift;
+
+    if (   keys %{ $q->Vars }
+        && $q->param('run')
+        && xss_filter( scalar $q->param('run') ) == 1
+        && $Plugin_Config->{Allow_Manual_Run} == 1 )
+    {
+        return ( {}, cgi_manual_start() );
+    }
+    else {
+
+        ( $admin_list, $root_login ) = check_list_security(
+            -cgi_obj  => $q,
+            -Function => 'bounce_handler'
+        );
+        $list = $admin_list;
+        
+        my $ls = DADA::MailingList::Settings->new( { -list => $list } );
+        my $li = $ls->get();
+
+        my $prm = $q->param('prm') || 'cgi_default';
+        my %Mode = (
+
+            'cgi_default'                => \&cgi_default,
+            'cgi_parse_bounce'           => \&cgi_parse_bounce,
+            'cgi_scorecard'              => \&cgi_scorecard,
+            'export_scorecard_csv'       => \&export_scorecard_csv,
+            'cgi_bounce_score_search'    => \&cgi_bounce_score_search,
+            'cgi_show_plugin_config'     => \&cgi_show_plugin_config,
+            'ajax_parse_bounces_results' => \&ajax_parse_bounces_results,
+            'manually_enter_bounces'     => \&manually_enter_bounces,
+            'cgi_erase_scorecard'        => \&cgi_erase_scorecard,
+            'edit_prefs'                 => \&edit_prefs,
+        );
+
+        if ( exists( $Mode{$prm} ) ) {
+            return $Mode{$prm}->($q);    #call the correct subroutine
+        }
+        else {
+            return cgi_default($q);
+        }
+    }
+}
+
+sub cgi_default {
+    my $q = shift;
+
+    my $ls = DADA::MailingList::Settings->new( { -list => $list } );
+    my $li = $ls->get();
+
+    my $done = $q->param('done') || 0;
+
+    my @amount = (
+        1,   2,   3,   4,   5,   6,   7,   8,   9,   10,  25,  50,  100, 150, 200, 250,
+        300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000
+    );
+
+	require HTML::Menu::Select; 
+    my $bounce_handler_softbounce_score_popup_menu = HTML::Menu::Select::popup_menu(
+        {
+			name    => 'bounce_handler_softbounce_score',
+        	values  => [ ( 0 .. 10 ) ],
+        	default => $ls->param('bounce_handler_softbounce_score'),
+    	}
+	);
+
+    my $bounce_handler_hardbounce_score_popup_menu = HTML::Menu::Select::popup_menu(
+        { 
+			name    => 'bounce_handler_hardbounce_score',
+        	values  => [ ( 0 .. 10 ) ],
+        	default => $ls->param('bounce_handler_hardbounce_score'),
+    	}
+	);
+
+    my $bounce_handler_decay_score_popup_menu = HTML::Menu::Select::popup_menu(
+        { 
+			name    => 'bounce_handler_decay_score',
+        	values  => [ ( 0 .. 10 ) ],
+        	default => $ls->param('bounce_handler_decay_score'),
+    	}
+	);
+
+    my $bounce_handler_threshold_score_popup_menu = HTML::Menu::Select::popup_menu(
+        { 
+			name    => 'bounce_handler_threshold_score',
+        	values  => [ ( 0 .. 100 ) ],
+        	default => $ls->param('bounce_handler_threshold_score'),
+    	}
+	);
+
+    my $curl_location = `which curl`;
+    $curl_location = strip( make_safer($curl_location) );
+
+    my $parse_amount_widget = HTML::Menu::Select::popup_menu(
+        { 
+			name     => 'parse_amount',
+	        id       => 'parse_amount',
+	        values => [@amount],
+	        default  => $Plugin_Config->{MessagesAtOnce},
+	        label    => '',
+		}
+    );
+
+    my $plugin_configured = 1;
+    if (
+           !defined( $Plugin_Config->{Server} )
+        || !defined( $Plugin_Config->{Username} )
+        || !defined( $Plugin_Config->{Password} )
+
+      )
+    {
+        $plugin_configured = 0;
+    }
+
+    require DADA::Template::Widgets;
+    my $scrn = DADA::Template::Widgets::wrap_screen(
+        {
+            -screen         => 'plugins/bounce_handler/default.tmpl',
+            -with           => 'admin',
+            -expr           => 1,
+            -wrapper_params => {
+                -Root_Login => $root_login,
+                -List       => $list,
+            },
+            -vars => {
+
+                screen => 'using_bounce_handler',
+
+                MAIL_SETTINGS                              => $DADA::Config::MAIL_SETTINGS,
+                Username                                   => $Plugin_Config->{Username},
+                Server                                     => $Plugin_Config->{Server},
+                Plugin_URL                                 => $Plugin_Config->{Plugin_URL},
+                Plugin_Name                                => $Plugin_Config->{Plugin_Name},
+                Allow_Manual_Run                           => $Plugin_Config->{Allow_Manual_Run},
+                Manual_Run_Passcode                        => $Plugin_Config->{Manual_Run_Passcode},
+                curl_location                              => $curl_location,
+                plugin_configured                          => $plugin_configured,
+                parse_amount_widget                        => $parse_amount_widget,
+                done                                       => $done,
+                bounce_handler_softbounce_score_popup_menu => $bounce_handler_softbounce_score_popup_menu,
+                bounce_handler_hardbounce_score_popup_menu => $bounce_handler_hardbounce_score_popup_menu,
+                bounce_handler_decay_score_popup_menu      => $bounce_handler_decay_score_popup_menu,
+                bounce_handler_threshold_score_popup_menu  => $bounce_handler_threshold_score_popup_menu,
+
+            },
+            -list_settings_vars_param => {
+                -list   => $list,
+                -dot_it => 1,
+            },
+        }
+    );
+    return ( {}, $scrn );
+}
+
+sub edit_prefs {
+
+    my $q = shift;
+    my $ls = DADA::MailingList::Settings->new( { -list => $list } );
+    $ls->save_w_params(
+        {
+            -associate => $q,
+            -settings  => {
+                bounce_handler_softbounce_score           => undef,
+                bounce_handler_hardbounce_score           => undef,
+                bounce_handler_decay_score                => undef,
+                bounce_handler_threshold_score            => undef,
+                bounce_handler_forward_msgs_to_list_owner => 0,
+                bounce_handler_when_threshold_reached     => undef,
+            }
+        }
+    );
+    return ( { -redirect_uri => $Plugin_Config->{Plugin_URL} . '&done=1' }, undef );
+}
+
+sub ajax_parse_bounces_results {
+
+    my $q = shift;
+    if ( $q->param('test') ) {
+        $test = $q->param('test');
+    }
+    else {
+        $test = undef;
+    }
+
+    if ( defined( xss_filter( scalar $q->param('parse_amount') ) ) ) {
+        $Plugin_Config->{MessagesAtOnce} =
+          xss_filter( scalar $q->param('parse_amount') );
+    }
+
+    my $r = '';
+    $r .= '<pre>';
+    $r .= cl_main();
+    $r .= '</pre>';
+
+    return ( {}, $r );
+}
+
+sub cgi_parse_bounce {
+
+    my $q = shift;
+
+    require DADA::Template::Widgets;
+    my $scrn = DADA::Template::Widgets::wrap_screen(
+        {
+            -screen         => 'plugins/bounce_handler/parse_bounce.tmpl',
+            -with           => 'admin',
+            -wrapper_params => {
+                -Root_Login => $root_login,
+                -List       => $list,
+            },
+
+            -vars => {
+                parse_amount   => xss_filter( scalar $q->param('parse_amount') ),
+                test           => xss_filter( scalar $q->param('test') ),
+                Plugin_Name    => $Plugin_Config->{Plugin_Name},
+                Plugin_URL     => $Plugin_Config->{Plugin_URL},
+                MessagesAtOnce => $Plugin_Config->{MessagesAtOnce},
+            },
+        }
+    );
+    return ( {}, $scrn );
+
+}
+
+sub cgi_manual_start {
+    my $q = shift;
+
+    # This is basically just a wrapper around, cl_main();
+    my $r = '';
+    if (
+           ( xss_filter( scalar $q->param('passcode') ) eq $Plugin_Config->{Manual_Run_Passcode} )
+        || ( $Plugin_Config->{Manual_Run_Passcode} eq '' )
+
+      )
+    {
+
+        my $verbose;
+        if ( defined( xss_filter( scalar $q->param('verbose') ) ) ) {
+            $verbose = xss_filter( scalar $q->param('verbose') );
+        }
+        else {
+            $verbose = 1;
+        }
+
+        if ( defined( xss_filter( scalar $q->param('test') ) ) ) {
+            $test = $q->param('test');
+        }
+
+        if ( defined( xss_filter( scalar $q->param('messages') ) ) ) {
+            $Plugin_Config->{MessagesAtOnce} =
+              xss_filter( scalar $q->param('messages') );
+        }
+        if ( defined( $q->param('list') ) ) {
+            $list = $q->param('list');
+        }
+        else {
+            $list = undef;    # just to make that perfectly clear.
+        }
+
+        $r .= $q->header();
+
+        if ($verbose) {
+            $r .= '<pre>';
+            $r .= cl_main();
+            $r .= '</pre>';
+        }
+        else {
+            cl_main();
+        }
+        return $r;
+
+    }
+    else {
+        $r .= "$DADA::Config::PROGRAM_NAME $DADA::Config::VER Access Denied.";
+    }
+
+    return $r;
+}
+
+sub cgi_scorecard {
+
+    my $q = shift;
+    my $page = $q->param('page') || 1;
+
+    require DADA::App::BounceHandler::ScoreKeeper;
+    my $bsk = DADA::App::BounceHandler::ScoreKeeper->new( { -list => $list } );
+
+    my $num_rows  = $bsk->num_scorecard_rows;
+    my $scorecard = $bsk->raw_scorecard(
+        {
+            -page    => $page,
+            -entries => 100,
+        }
+    );
+
+    my $pager        = undef;
+    my $pages_in_set = [];
+
+    require Data::Pageset;
+    my $page_info = Data::Pageset->new(
+        {
+            'total_entries'    => $num_rows,
+            'entries_per_page' => 100,         #$ls->param('tracker_record_view_count'), # needs to be tweakable...
+            'current_page'     => $page,
+            'mode'             => 'slide',     # default fixed
+        }
+    );
+
+    foreach my $page_num ( @{ $page_info->pages_in_set() } ) {
+        if ( $page_num == $page_info->current_page() ) {
+            push( @$pages_in_set, { page => $page_num, on_current_page => 1 } );
+        }
+        else {
+            push( @$pages_in_set, { page => $page_num, on_current_page => undef } );
+        }
+    }
+
+    require DADA::Template::Widgets;
+    my $scrn = DADA::Template::Widgets::screen(
+        {
+            -screen => 'plugins/bounce_handler/scorecard.tmpl',
+            -vars   => {
+                Plugin_URL    => $Plugin_Config->{Plugin_URL},
+                Plugin_Name   => $Plugin_Config->{Plugin_Name},
+                num_rows      => $num_rows,
+                first_page    => $page_info->first_page(),
+                last_page     => $page_info->last_page(),
+                next_page     => $page_info->next_page(),
+                previous_page => $page_info->previous_page(),
+                pages_in_set  => $pages_in_set,
+                scorecard     => $scorecard,
+
+            }
+        }
+    );
+    return ( {}, $scrn );
+
+}
+
+sub export_scorecard_csv {
+    my $q = shift;
+    require DADA::App::BounceHandler::ScoreKeeper;
+    my $bsk = DADA::App::BounceHandler::ScoreKeeper->new( { -list => $list } );
+
+    my $headers = {
+        -attachment => 'bounce_scorecard-' . $list . '-' . time . '.csv',
+        -type       => 'text/csv',
+    };
+
+    return ( $headers, $bsk->csv_scorecard );
+}
+
+sub cgi_erase_scorecard {
+
+    require DADA::App::BounceHandler::ScoreKeeper;
+    my $bsk = DADA::App::BounceHandler::ScoreKeeper->new( { -list => $list } );
+    $bsk->erase;
+    return ( { -redirect_uri => $Plugin_Config->{Plugin_URL} }, undef );
+
+}
+
+sub cgi_show_plugin_config {
+
+    my $configs = [];
+    for ( sort keys %$Plugin_Config ) {
+        if ( $_ eq 'Password' ) {
+            push( @$configs, { name => $_, value => '(Not Shown)' } );
+        }
+        else {
+            push( @$configs, { name => $_, value => $Plugin_Config->{$_} } );
+        }
+    }
+
+    require DADA::Template::Widgets;
+    my $scrn = DADA::Template::Widgets::wrap_screen(
+        {
+            -screen         => 'plugins/shared/plugin_config.tmpl',
+            -with           => 'admin',
+            -wrapper_params => {
+                -Root_Login => $root_login,
+                -List       => $list,
+            },
+            -vars => {
+                Plugin_URL  => $Plugin_Config->{Plugin_URL},
+                Plugin_Name => $Plugin_Config->{Plugin_Name},
+                configs     => $configs,
+            },
+        }
+    );
+    return ( {}, $scrn );
+}
+
+sub cgi_bounce_score_search {
+
+    my $q     = shift;
+    my $query = xss_filter( scalar $q->param('query') );
+
+    my $chrome = 1;
+    if ( defined( $q->param('chrome') ) ) {
+        $chrome = $q->param('chrome') || 0;
+    }
+
+    if ( !defined($query) ) {
+        $q->redirect( -uri => $Plugin_Config->{Plugin_URL} );
+        return;
+    }
+
+    require DADA::App::BounceHandler::Logs;
+    my $bhl     = DADA::App::BounceHandler::Logs->new;
+    my $results = $bhl->search(
+        {
+            -query => $query,
+            -list  => $list,
+            -file  => $Plugin_Config->{Log},
+        }
+    );
+    my $results_found = 0;
+    if ( $results->[0] ) {
+        $results_found = 1;
+        @$results      = reverse(@$results);
+    }
+
+    require DADA::MailingList::Subscribers;
+    my $lh = DADA::MailingList::Subscribers->new( { -list => $list } );
+
+    my $valid_email        = 0;
+    my $subscribed_address = 0;
+    if ( DADA::App::Guts::check_for_valid_email($query) == 0 ) {
+        $valid_email = 1;
+        if ( $lh->check_for_double_email( -Email => $query ) == 1 ) {
+            $subscribed_address = 1;
+        }
+    }
+
+    # This is just to add newlines to the values of the diagnostic stuff, so it's not all clumped together:
+    for (@$results) {
+        for my $pt_diags ( @{ $_->{diagnostics} } ) {
+            $pt_diags->{diagnostic_value} =
+              encode_html_entities( $pt_diags->{diagnostic_value} );
+            $pt_diags->{diagnostic_value} =~ s/(\n|\r)/\<br \/\>\n/g;
+
+        }
+    }
+
+    my %tmpl_vars = (
+        query              => $query,
+        subscribed_address => $subscribed_address,
+        valid_email        => $valid_email,
+        search_results     => $results,
+        results_found      => $results_found,
+        S_PROGRAM_URL      => $DADA::Config::S_PROGRAM_URL,
+        Plugin_URL         => $Plugin_Config->{Plugin_URL},
+        Plugin_Name        => $Plugin_Config->{Plugin_Name},
+    );
+    require DADA::Template::Widgets;
+    my $scrn = '';
+    if ( $chrome == 0 ) {
+        $scrn = DADA::Template::Widgets::screen(
+            {
+                -screen                   => 'plugins/bounce_handler/bounce_score_search.tmpl',
+                -vars                     => { %tmpl_vars, chrome => 0, },
+                -list_settings_vars_param => {
+                    -list   => $list,
+                    -dot_it => 1,
+                },
+            },
+
+        );
+        return ( {}, $scrn );
+    }
+    else {
+
+        $scrn = DADA::Template::Widgets::wrap_screen(
+            {
+                -screen         => 'bounce_score_search.tmpl',
+                -with           => 'admin',
+                -wrapper_params => {
+                    -Root_Login => $root_login,
+                    -List       => $list,
+                },
+                -vars                     => { %tmpl_vars, },
+                -list_settings_vars_param => {
+                    -list   => $list,
+                    -dot_it => 1,
+                },
+            }
+
+        );
+    }
+    return ( {}, $scrn );
+}
+
+sub manually_enter_bounces {
+    my $q = shift;
+    my $process = xss_filter( strip( scalar $q->param('process') ) ) || 0;
+
+    require DADA::Template::Widgets;
+
+    if ( !$process ) {
+        my $scrn = DADA::Template::Widgets::wrap_screen(
+            {
+                -screen         => 'plugins/bounce_handler/manually_enter_bounces.tmpl',
+                -with           => 'admin',
+                -wrapper_params => {
+                    -Root_Login => $root_login,
+                    -List       => $list,
+                },
+                -vars => {
+                    Plugin_URL => $Plugin_Config->{Plugin_URL},
+                },
+                -list_settings_vars_param => {
+                    -list   => $list,
+                    -dot_it => 1,
+                },
+            }
+
+        );
+        return ( {}, $scrn );
+    }
+    else {
+        my $msg = $q->param('msg');
+        $msg =~ s/\r\n/\n/g;
+
+        my $bh = DADA::App::BounceHandler->new($Plugin_Config);
+        my ( $found_list, $need_to_delete, $msg_report, $rule_report, $diag ) = $bh->parse_bounce(
+            {
+                -message => $msg,
+                -test    => 1,
+                -list    => $list,
+            }
+        );
+        my $diags_ht = [];
+
+        for my $i_d ( keys %$diag ) {
+            my $v = encode_html_entities( $diag->{$i_d} );
+            $v =~ s/(\n|\r)/\<br \/\>\n/g;
+            push(
+                @$diags_ht,
+                {
+                    diagnostic_label => $i_d,
+                    diagnostic_value => $v,
+                }
+            );
+        }
+
+        require DADA::App::BounceHandler::Rules;
+        my $bhr  = DADA::App::BounceHandler::Rules->new;
+        my $rule = $bhr->rule( $diag->{matched_rule} );
+
+        require Data::Dumper;
+        my $scrn = DADA::Template::Widgets::screen(
+            {
+                -screen         => 'plugins/bounce_handler/manually_enter_bounces_results.tmpl',
+                -with           => 'admin',
+                -wrapper_params => {
+                    -Root_Login => $root_login,
+                    -List       => $list,
+                },
+                -vars => {
+                    msg_report  => $msg_report,
+                    diagnostics => $diags_ht,
+                    rule_title  => $diag->{matched_rule},
+                    rule        => Data::Dumper::Dumper($rule),
+                },
+                -list_settings_vars_param => {
+                    -list   => $list,
+                    -dot_it => 1,
+                },
+            }
+
+        );
+        return ( {}, $scrn );
+
+    }
+}
+
+sub cl_main {
+    my $r;
+
+    GetOptions(
+        "help"             => \$help,
+        "test=s"           => \$test,
+        "server=s"         => \$server,
+        "username=s"       => \$username,
+        "password=s"       => \$password,
+        "verbose"          => \$verbose,
+        "log=s"            => \$log,
+        "messages=i"       => \$messages,
+        "erase_score_card" => \$erase_score_card,
+        "version"          => \$version,
+        "list=s"           => \$list,
+    );
+
+    init();
+    if ( $help == 1 ) {
+        return help();
+    }
+    elsif ($erase_score_card) {
+        my $bh = DADA::App::BounceHandler->new($Plugin_Config);
+        $r .= $bh->erase_score_card( { -list => $list } );
+    }
+    elsif ( defined($test) && $test ne 'bounces' ) {
+        my $bh = DADA::App::BounceHandler->new($Plugin_Config);
+        $r .= $bh->test_bounces(
+            {
+                -test_type => $test,
+                -list      => $list
+            }
+        );
+    }
+    elsif ( defined($version) ) {
+        $r .= version();
+    }
+    else {
+        my $bh = DADA::App::BounceHandler->new($Plugin_Config);
+        $r .= $bh->parse_all_bounces(
+            {
+                -list => $list,
+                -test => $test,
+            }
+        );
+    }
+    return $r;
+
+}
+
+
+sub scheduled_task {
+    my $list = shift || undef; 
+       
+    my $r; 
+    my $bh = DADA::App::BounceHandler->new($Plugin_Config);
+	
+        if($list eq '_all') { 
+            $r .= $bh->parse_all_bounces();
+        }
+        else {
+           $r .= $bh->parse_all_bounces(
+                {
+                    -list => $list,
+                }
+            );
+        }
+    
+    return $r; 
+}
+sub help {
+    require DADA::Template::Widgets;
+    return DADA::Template::Widgets::screen( { -screen => 'plugins/bounce_handler/cl_help.tmpl' } );
+}
+
+sub version {
+
+    my $r = '';
+    $r .= "$Plugin_Config->{Plugin_Name}\n";
+    $r .= "$DADA::Config::PROGRAM_NAME Version: $DADA::Config::VER\n";
+    $r .= "Perl Version: $]\n\n";
+
+    my @ap = (
+        'No sane man will dance. - Cicero ',
+        'Be happy. It is a way of being wise.  - Colette',
+        'There is more to life than increasing its speed. - Mahatma Gandhi',
+        'Life is short. Live it up. - Nikita Khrushchev'
+    );
+
+    $r .= "Random Aphorism: " . $ap[ int rand( $#ap + 1 ) ] . "\n\n";
+    return $r;
+
+}
+
+=pod
+
+=head1 Bounce Handler
+
+
+Bounce Handler intelligently handles bounces from Dada Mail mailing list messages.
+
+Messages sent to subscribers of your mailing list that bounce back will be directed to the B<List Administrator Address>. This email account is then checked periodically by Bounce Handler. 
+
+Bounce Handler then reads awaiting messages and B<parses> the messages in an attempt to understand why the message has bounced. 
+
+The B<parsed> message will then be B<examined> and an B<action> will be taken. 
+
+The usual action that is taken is to apply a B<score> to the email address that has bounced the message. Once the B<Score Threshold> is reached, the email address is unsubscribed from the mailing list. 
+
+=head1 User Guide
+
+For a guide on using Bounce Handler, see the B<Dada Mail Manual>: 
+
+L<http://dadamailproject.com/pro_dada/using_bounce_handler.html>
+
+For more information on Pro Dada/Dada Mail Manual: 
+
+L<http://dadamailproject.com/purchase/pro.html>
+
+=head1 Obtaining a Copy of the Plugin
+
+Bounce Handler is located in the, I<dada/plugins> directory of the main Dada Mail distribution, under the filename, B<bounce_handler>
+
+=head1 Requirements
+
+=head2 POP3 Email Account
+
+Bounce Handler works by checking a email address via POP3. (IMAP is not supported).  
+
+You will need to create a new email address account manually for Bounce Handler to utilize. 
+
+Example: create B<bounces@yourdomain.com>, where, I<yourdomain.com> is the name of the domain Dada Mail is installed on.
+
+Guidelines on this address: 
+
+=over
+
+=item * Do NOT use this address for anything except Bounce Handler
+
+No one will be checking this POP3 account via a mail reader.
+
+Doing so won't break Dada Mail, but it will stop Bounce Handler from working correctly, if when checking messages, your mail reader then removes those messages from the POP3 account.  If you do need to periodically check this inbox, make sure to have your mail reader set to B<not> automatically remove the messages. 
+
+=item * The email address MUST belong to the domain you have Dada Mail installed
+
+Meaning, if your domain is, "yourdomain.com", the bounce email address should be something like, "bounces@yourdomain.com". In other words, do not use a Yahoo! Gmail, or Hotmail account for your bounce address. This will most likely disrupt all regular mail sending in Dada Mail. 
+
+=item * Bounce Handler MUST be able to check the POP3 account
+
+Check to make sure that the POP3 server (usually, port 110) is not blocked from requests coming from your hosting account server.  
+
+=back
+
+=head1 Installation
+
+This plugin can be installed during a Dada Mail install/upgrade, using the included installer that comes with Dada Mail. Under B<Plugins/Extensions  (Optional)> check the option, B<Bounce Handler>. 
+
+Below this option are form fields to put in the POP3 accounts login credentials, as well as a place to test those credentials out. 
+
+Once Dada Mail installed, all new mailing lists will use the Bounce Handler's email address as the List Administrator. Any previous mailing lists may need to be manually set to have their List Administrator set to this address - this can be done in the List Control Panel under,  B<Your Mailing List - List Information>
+
+=head2 Cronjob
+
+Bounce Handler runs in the background on a schedule. Make sure to set Dada Mail's cronjob: 
+
+L<http://dadamailproject.com/d/features-scheduled_cronjobs.pod.html>
+
+=head1 FAQ
+
+=head2 Bounce Email Address
+
+=head3 Do you use only one Bounce Email Address  for all the mailing lists? 
+
+Yes. 
+
+Even though there's only one Bounce Email Address, it is used by all the mailing lists of your Dada Mail, but Bounce Handler will work with every mailing list I<individually>. Each mailing list also has a separate Bounce Scorecard. 
+
+
+=head1 COPYRIGHT
+
+Copyright (c) 1999 - 2016 Justin Simoni 
+http://justinsimoni.com 
+All rights reserved. 
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Parts of this script were swiped from Mail::Bounce::Qmail module, fetched from here: 
+
+http://mikoto.sapporo.iij.ad.jp/cgi-bin/cvsweb.cgi/fmlsrc/fml/lib/Mail/Bounce/Qmail.pm
+
+The copyright of that code stated: 
+
+Copyright (C) 2001,2002,2003 Ken'ichi Fukamachi
+All rights reserved. This program is free software; you can
+redistribute it and/or modify it under the same terms as Perl itself.
+
+Thanks Ken'ichi
+
+=cut

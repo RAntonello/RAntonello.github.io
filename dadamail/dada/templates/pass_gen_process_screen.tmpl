@@ -1,0 +1,40 @@
+<!-- begin pass_gen_process_screen.tmpl --> 
+<!-- tmpl_set name="title" value="Password Encryption" -->
+
+
+<label for="encrypted_pass">
+Your encrypted password is:
+ <input 
+    name="encrypted_pass"
+    id="encrypted_pass"
+	type="text"
+	value="<!-- tmpl_var encrypted_password escape="HTML" -->"
+	readonly="readonly"
+>
+</label>
+
+
+<p>
+ In your global configuration file, use this password as your
+  <code> 
+   $PROGRAM_ROOT_PASSWORD
+  </code>
+  
+  and set
+  <code> 
+   $ROOT_PASS_IS_ENCRYPTED
+  </code> 
+  to 
+  <strong> 
+   1
+  </strong> 
+  .
+ </p>
+ 
+ <p>
+  When asked for your <!-- tmpl_var PROGRAM_NAME --> Root Password, you will still
+  type in the unencrypted password, not this 
+  gobbledygook.
+ </p>
+ 
+<!-- end pass_gen_process_screen.tmpl --> 

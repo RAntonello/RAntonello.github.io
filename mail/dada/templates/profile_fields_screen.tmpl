@@ -1,0 +1,441 @@
+<!-- begin profile_fields_screen.tmpl --> 
+
+<!-- tmpl_set name="title" value="Profiles &#187; Profile Fields" -->
+<!-- tmpl_set name="load_jquery_validate" value="1" -->
+
+<div id="screen_meta" data-menu_highlight="profile_fields"></div>
+
+<div class="row hide-for-small-only" id="control_panel_breadcrumbs">
+	<div class="medium-10 large-9 columns">
+	   	<nav class="breadcrumbs">	
+		 	 <a href="#" class="unavailable">
+				Profiles
+			 </a>
+			
+			<!-- tmpl_if edit_field --> 
+	 	 	    
+		 	    <a 
+					href="<!-- tmpl_var S_PROGRAM_URL -->?flavor=profile_fields"
+				>	
+					Profile Fields
+				</a>
+				
+				<a 
+	 				href="#"
+	 				class="current"
+	 			>	
+				 <!-- tmpl_var field -->
+			 </a>
+			 
+			 <!-- tmpl_else -->
+ 	 	    <a 
+ 				href="#"
+ 				class="current"
+ 			>	
+ 				Profile Fields
+ 			</a>
+			<!-- /tmpl_if -->
+			
+			
+		</nav>
+	</div>
+	<div class="medium-2 large-3 columns text-right">
+	   <!-- tmpl_include help_link_widget.tmpl -->
+	</div>
+</div>
+
+
+
+<div id="profile_fields"></div>
+
+<!-- tmpl_if field_changes -->
+	<div data-alert class="alert-box success radius">
+    	<!-- tmpl_if deletion --> 
+    			The Profile Field, &quot;<!-- tmpl_var working_field -->&quot;  has been deleted.
+    	<!-- /tmpl_if --> 
+
+    	<!-- tmpl_if addition --> 
+    			The Profile Field, &quot;<!-- tmpl_var working_field -->&quot;  has been added.
+    	<!-- /tmpl_if --> 
+
+    	<!-- tmpl_if edited --> 
+    			The Profile Field, &quot;<!-- tmpl_var working_field -->&quot;  has been edited.
+    	<!-- /tmpl_if --> 
+		 <a href="#" class="close">&times;</a>
+	</div> 
+<!-- /tmpl_if --> 
+
+    
+<!-- tmpl_unless field_status --> 
+	<div class="alert-box alert radius"> 
+		<!-- tmpl_unless edit_field --> 
+	        <p> 
+	         There were problems when adding your new Profile Field:
+	        </p>
+		<!-- tmpl_else --> 
+			<p> 
+	         There were problems when editing your field, <!-- tmpl_var field -->
+	        </p>
+		<!-- /tmpl_unless --> 
+        <ul>
+         <!-- tmpl_if field_error_field_blank -->
+             <li>
+              <p> 
+                The field name you submitted was blank.
+              </p>
+              </li>
+         <!-- /tmpl_if --> 
+          <!-- tmpl_if field_error_field_name_too_long -->
+             <li>
+              <p> 
+                The field name is too long - make sure it's less than 64 characters.
+              </p>
+              </li>
+         <!-- /tmpl_if --> 
+          <!-- tmpl_if field_error_upper_case -->
+             <li>
+              <p> 
+                The field name has upper case characters.
+              </p>
+              </li>
+         <!-- /tmpl_if --> 
+        <!-- tmpl_if field_error_slashes_in_field_name -->
+             <li>
+              <p> 
+                The field name has slashes in its name. 
+              </p>
+              </li>
+         <!-- /tmpl_if --> 
+         <!-- tmpl_if field_error_weird_characters -->
+             <li>
+              <p> 
+                The field name has some weird characters. 
+              </p>
+              </li>
+         <!-- /tmpl_if --> 
+         
+         <!-- tmpl_if field_error_quotes -->
+             <li>
+              <p> 
+                The field name has quotes in it. 
+              </p>
+              </li>
+         <!-- /tmpl_if -->  
+         <!-- tmpl_if field_error_field_exists -->
+             <li>
+              <p> 
+                The field name already exists! 
+              </p>
+              </li>
+         <!-- /tmpl_if -->  
+          <!-- tmpl_if field_error_spaces -->
+             <li>
+              <p> 
+                The field name has spaces (hint: use an underscore instead of a space). 
+              </p>
+              </li>
+         <!-- /tmpl_if -->
+         <!-- tmpl_if field_error_field_is_special_field -->
+             <li>
+              <p> 
+                The field name you're trying to add/edit is a special, reserved field (email_id, email, list, list_type, list_status )
+              </p>
+              </li>
+         <!-- /tmpl_if -->   
+        </ul> 
+	</div> 	
+<!-- /tmpl_unless --> 
+    
+<div class="alert-box info radius">
+	 Profile Fields are <strong>Global</strong> and will affect all Mailing Lists. 
+	 You may only change the Profile Fields if you are logged in with the <!-- tmpl_var PROGRAM_NAME --> 
+	  Root Password.
+</div> 
+
+
+		    
+  <!-- tmpl_unless edit_field -->   
+
+	<fieldset> 
+		<legend>Profile Fields</legend>
+		<!-- tmpl_if fields --> 
+
+
+		<table style="width:100%" class="responsive">
+			<tr> 
+		    	<!-- tmpl_if root_login --> 
+					<th> 
+			         	&nbsp;
+			        </th>
+			    <!-- /tmpl_if --> 
+				<th> 
+		        	Name
+		        </th> 
+				<th> 
+		        	Label
+		        </th>
+				<th> 
+		        	Fallback Value 
+		        </th> 
+				<th> 
+		        	Required 
+		        </th> 
+				<!-- tmpl_if root_login --> 
+			        <th> 
+			         	&nbsp;
+					 </th> 
+				 <!--/tmpl_if-->
+            
+		      </tr> 
+
+				<!-- tmpl_loop fields --> 
+				<tr> 
+			       <!-- tmpl_if root_login --> 
+
+				   <td> 
+			   
+				   	<ul class="button-group">
+				   		<li>
+				            <form action="<!-- tmpl_var S_PROGRAM_URL -->" method="post" accept-charset="<!-- tmpl_var HTML_CHARSET -->">
+				             <input type="hidden" name="flavor" value="profile_fields" > 
+				             <input type="hidden" name="edit_field" value="1" > 
+				             <input type="hidden" name="field"  value="<!-- tmpl_var field -->" > 
+				            <input type="submit" value="edit" class="warning button small" > 
+				            </form> 
+						</li>
+						<!-- tmpl_if can_move_columns --> 
+							<li>
+								<form accept-charset="<!-- tmpl_var HTML_CHARSET -->">			
+									<input type="hidden" name="flavor" value="profile_fields" > 
+					             	<input type="hidden" name="process" value="edit_field_order" > 
+					             	<input type="hidden" name="field"  value="<!-- tmpl_var field -->" >
+									<input type="hidden" name="direction" value="up" > 
+									<input type="submit" value="^" class="button warning small" title="move this field up" <!-- tmpl_if __first__ -->disabled="disabled"<!-- /tmpl_if --> >
+				
+								</form>
+							</li>
+							<li>
+								<form style="margin: 0pt; display: inline;" accept-charset="<!-- tmpl_var HTML_CHARSET -->">
+									<input type="hidden" name="flavor" value="profile_fields" > 
+					             	<input type="hidden" name="process" value="edit_field_order" > 
+					             	<input type="hidden" name="field"  value="<!-- tmpl_var field -->" >
+									<input type="hidden" name="direction" value="down" >
+									<input type="submit" value="v" class="button small warning" title="move this field down"  <!-- tmpl_if __last__ -->disabled="disabled"<!-- /tmpl_if --> >
+								</form>
+							</li>
+						<!-- /tmpl_if --> 
+						</ul>
+			        	</td> 
+			        <!--/tmpl_if-->
+		         <td> 
+		           <!-- tmpl_var field --> 
+		         </td> 
+		         <td> 
+		           <!-- tmpl_var label --> 
+		         </td>
+		         <td> 
+		           <!-- tmpl_var fallback_value --> 
+		         </td> 
+		         <td>
+		           <!-- tmpl_var required --> 
+		         </td> 
+         
+         
+		         <!-- tmpl_if root_login --> 
+             
+		             <td> 
+            
+				   	<ul class="button-group">
+				   		<li>
+				            <form action="<!-- tmpl_var S_PROGRAM_URL -->" method="post" accept-charset="<!-- tmpl_var HTML_CHARSET -->">
+				             <input type="hidden" name="flavor" value="profile_fields" > 
+				             <input type="hidden" name="process" value="delete_field" > 
+				             <input type="hidden" name="field"  value="<!-- tmpl_var field -->" > 
+				            <button type="submit" class="button small alert"  onclick="return removeSubscriberField(this.form);" >
+									<i class="fi-x"></i>
+								</button>
+				            </form> 
+						</li>
+					</ul>
+		             </td> 
+        
+		        <!--/tmpl_if-->
+        
+		        </tr> 
+		        <!-- /tmpl_loop --> 
+		        </table> 
+ 
+		    <!-- tmpl_else --> 
+				<div class="alert-box info radius"> 
+					There are currently no Profile Fields.
+				</div>
+		<!-- /tmpl_if --> 
+	<!-- /tmpl_unless --> 
+</fieldset> 
+
+<fieldset> 
+	<!-- tmpl_unless edit_field --> 
+	    <legend>
+	     Add a New Profile Field
+	    </legend> 
+	<!-- tmpl_else --> 
+		<legend>
+			Edit Profile Field: <!-- tmpl_var field --> 
+		</legend>
+	<!-- /tmpl_unless --> 
+
+    <!-- tmpl_if root_login --> 
+         <form action="<!-- tmpl_var S_PROGRAM_URL -->" method="post" accept-charset="<!-- tmpl_var HTML_CHARSET -->" id="add_edit_field">
+             <input type="hidden" name="flavor" value="profile_fields" > 
+
+			<!-- tmpl_unless edit_field --> 
+             	<input type="hidden" name="process" value="add_field" > 
+            <!-- tmpl_else --> 
+				<input type="hidden" name="process"    value="edit_field" > 
+ 				<input type="hidden" name="orig_field" value="<!-- tmpl_var field -->" > 
+    		<!-- /tmpl_unless -->
+			
+			<div class="row">
+			   <div class="small-12 columns">
+					<!-- tmpl_if using_SQLite -->
+						<!-- tmpl_if edit_field -->
+							<div data-alert class="alert-box warning radius">
+								Disabled. SQLite backend currently doesn't support renaming fields.
+							</div>
+						<!-- /tmpl_if -->
+					<!-- /tmpl_if -->
+
+			
+					<div class="alert-box info radius">
+							Use underscores, instead of spaces - no funny characters, and use lower case characters instead of uppercase.
+						<br>
+						Field Names prefixed with, &quot;<!-- tmpl_var HIDDEN_SUBSCRIBER_FIELDS_PREFIX escape="HTML" -->&quot; 
+						will not be displayed on public subscription forms.
+					</div>
+				</div>
+			</div>
+			
+	      <div class="row">
+	        <div class="large-3 medium-3 columns">
+		        <label 
+					class="medium-text-right"
+					for="field"
+				>
+					Field Name
+				</label> 
+			</div>
+	        <div class="large-9 medium-9 columns">
+	                <input 
+						type="text" 
+						name="field"  
+						id="field" 
+						placeholder="field_name"
+						value="<!-- tmpl_var field escape="HTML"  -->"
+							<!-- tmpl_if using_SQLite -->
+								<!-- tmpl_if edit_field -->
+									disabled="disabled"
+								<!-- /tmpl_if -->
+							<!-- /tmpl_if --> 
+						>
+		 			</div> 
+			 </div>
+
+ 			<div class="row">
+ 			   <div class="small-12 columns">
+				  <div class="alert-box info radius">
+                 	 Labels will be used on public subscription forms
+				  </div> 
+  				</div>
+  			</div>
+			
+  	      <div class="row">
+  	        <div class="large-3 medium-3 columns">
+                  <label 
+				  	for="field_label"
+					class="medium-text-right"
+				  >
+					  Label
+				  </label> 
+	 			</div>
+	 	        <div class="large-9 medium-9 columns">
+				 
+                  <input 
+				  	type="text" 
+					name="field_label" 
+					id="field_label"  
+					placeholder="Field Label"
+					
+					value="<!-- tmpl_var field_label escape="HTML" -->"  
+				  >
+				</div> 
+			 </div>
+			 
+  			<div class="row">
+  			   <div class="small-12 columns">
+   				 <div class="alert-box info radius">
+   	                 Fallback Values are used in mail merging, etc., when there's no 
+					 profile information saved for that address.
+   				</div>
+			</div> 
+		 </div>	
+				
+	      <div class="row">
+	        <div class="large-3 medium-3 columns">
+		
+                 <label 
+				 	for="fallback_field_value"
+					class="medium-text-right"
+				>
+					 Fallback Value
+				 </label> 
+ 			</div>
+ 	        <div class="large-9 medium-9 columns">
+			
+                 <input 
+				 	type="text" 
+					name="fallback_field_value" 
+					id="fallback_field_value"  
+					value="<!-- tmpl_var fallback_field_value escape="HTML" -->"  
+					placeholder="Fallback Value"
+				 >
+				 
+ 	  			<div class="row">
+ 	  			   <div class="small-12 columns">
+ 	                 <input 
+ 					 	type="checkbox" 
+ 						name="field_required" 
+ 						id="field_required"  
+ 						value="1" 
+ 							<!-- tmpl_if field_required -->checked="checked"<!-- /tmpl_if --> 
+ 						>
+				
+ 	                  <label for="field_required">
+ 						  required
+ 					  </label> 
+ 	             	</div> 
+ 	   			 </div>
+				 
+			</div>
+		</div>
+				 
+	  			
+
+				<ul class="button-group right">
+					<!-- tmpl_unless edit_field --> 
+	                	<li><input type="submit" value="Add Profile Field" class="button success"></li> 
+					<!-- tmpl_else --> 
+						<li><input type="submit" value="Edit Profile Field, &quot;<!-- tmpl_var field -->&quot;" class="button success"></li> 
+					<!-- /tmpl_unless --> 
+				</ul> 
+			
+            
+                </form> 
+        
+	<!-- tmpl_else --> 
+	    <div class="alert-box warning radius">
+			Disabled. You are required to login using the <!-- tmpl_var PROGRAM_NAME --> Root Password to Add/Edit/Remove Profile Fields.
+		</div>
+	<!--/tmpl_if-->
+</fieldset>  
+
+<!-- end profile_fields_screen.tmpl --> 

@@ -1,0 +1,594 @@
+From <vidick@cms.caltech.edu>
+Return-path: <vidick@cms.caltech.edu>
+Envelope-to: steering@itcs-conf.org
+Delivery-date: Tue, 26 Jul 2016 06:01:30 -0600
+Received: from [131.215.239.19] (port=57457 helo=outgoing-mail.its.caltech.edu)
+	by box507.bluehost.com with esmtps (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256)
+	(Exim 4.86_2)
+	(envelope-from <vidick@cms.caltech.edu>)
+	id 1bS13C-0004dd-13
+	for steering@itcs-conf.org; Tue, 26 Jul 2016 06:01:30 -0600
+Received: from smtp02.caltech.edu (localhost [127.0.0.1])
+	by smtp02.caltech.edu (Postfix) with ESMTP id 164246C1D38
+	for <steering@itcs-conf.org>; Tue, 26 Jul 2016 05:01:23 -0700 (PDT)
+X-Spam-Scanned: at Caltech-IMSS on smtp02.caltech.edu by amavisd-new
+Received: from [192.168.2.13] (unknown [65.92.69.136])
+	(using TLSv1.2 with cipher DHE-RSA-AES128-SHA (128/128 bits))
+	(No client certificate requested)
+	(Authenticated sender: vidick)
+	by smtp-server.its.caltech.edu (Postfix) with ESMTPSA id 343C16C2E12
+	for <steering@itcs-conf.org>; Tue, 26 Jul 2016 05:01:22 -0700 (PDT)
+From: Thomas vidick <vidick@cms.caltech.edu>
+Subject: Comments on ITCS website
+To: steering@itcs-conf.org
+Message-ID: <32a02c96-0700-c8a7-9a78-0a7192d09df0@cms.caltech.edu>
+Date: Tue, 26 Jul 2016 08:01:20 -0400
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101
+ Thunderbird/45.2.0
+MIME-Version: 1.0
+Content-type: text/plain; charset="UTF-8"; format="flowed"
+X-Identified-User: {0000:box507.bluehost.com:local:local} {sentby:Delivered locally}
+Content-Transfer-Encoding: quoted-printable
+
+Dear SC members,=0D
+=0D
+I hope you are all getting this email, and do not find the use of a =0D
+mailing list intrusive. It should be convenient, and not receive more =0D
+traffic than the volume of SC-related email that have been exchanged in =0D
+the past. You can email the list simply by sending an email to =0D
+steering@itcs-conf.org.=0D
+=0D
+A preliminary draft of the ITCS website is available at itcs-conf.org. =0D
+The goal of the website is to serve as a "permanent home" for ITCS. =0D
+Something people will easily find by googling, will contain a little =0D
+background on the conference, links to prior instantiations, =0D
+proceedings, a link to the local conference website (or it could also =0D
+easily host it directly), etc.=0D
+=0D
+I am seeking any kind of feedback and comments. Some specific points to =0D
+consider are:=0D
+=0D
+- General design. This will hopefully get improved (in particular I =0D
+would like a little color - which color is ITCS? Red (as was ICS)?), but =
+=0D
+suggestions are welcome.=0D
+=0D
+- "The ITCS Conferences" text on the home page. This was previously =0D
+labeled "mission statement" but I decided to be less forceful. The text =0D
+is mostly plagiarized from statements on past ITCS websites, and some =0D
+original text Umesh had forwarded me. We can definitely change it, so =0D
+let me know if you're not comfortable with it.=0D
+=0D
+- Pictures in the Governance tab. Let me know if you're not happy with =0D
+yours.=0D
+=0D
+- Mailing list. As suggested by Madhu, I created an =0D
+announcements@itcs-conf.org list. The aim is to use this as one (among =0D
+others) ways of communicating with anyone interested in the conference. =0D
+CCC has a similar list. It has very low traffic, maybe 3-4 email a year, =
+=0D
+e.g. to announce when the new CFP is out, suggest registration when it =0D
+is set up, point to the proceedings once they are out, and perhaps one =0D
+or two other general announcements.=0D
+=0D
+Thanks for taking the time to send your feedback!=0D
+Thomas=0D
+=0D
+PS: Technically, the website is hosted by bluehost.com and =0D
+designed/managed through wordpress. I can give direct access to anyone =0D
+if you would like to (same for the mailing list platform). I bought the =0D
+domain and basic hosting services for a year, at a cost of 70$. This is =0D
+renewable yearly for about the same cost (it is a little less if I sign =0D
+up for linger). So it is basically a negligible cost, and I am happy to =0D
+cover it for the foreseeable future :-) (Unless there are ethical =0D
+reasons not to do so...this is taken out of my personal Caltech funds.)
+
+From <vidick@cms.caltech.edu>
+Return-path: <vidick@cms.caltech.edu>
+Envelope-to: test@itcs-conf.org
+Delivery-date: Wed, 27 Jul 2016 10:06:37 -0600
+Received: from [131.215.239.19] (port=33819 helo=outgoing-mail.its.caltech.edu)
+	by box507.bluehost.com with esmtps (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256)
+	(Exim 4.86_2)
+	(envelope-from <vidick@cms.caltech.edu>)
+	id 1bSRLw-0003Ck-NH
+	for test@itcs-conf.org; Wed, 27 Jul 2016 10:06:37 -0600
+Received: from smtp01.caltech.edu (localhost [127.0.0.1])
+	by smtp01.caltech.edu (Postfix) with ESMTP id 9DEC9A3366
+	for <test@itcs-conf.org>; Wed, 27 Jul 2016 09:06:30 -0700 (PDT)
+X-Spam-Scanned: at Caltech-IMSS on smtp01.caltech.edu by amavisd-new
+Received: from [10.10.164.167] (nat.perimeterinstitute.ca [38.117.109.20])
+	(using TLSv1.2 with cipher DHE-RSA-AES128-SHA (128/128 bits))
+	(No client certificate requested)
+	(Authenticated sender: vidick)
+	by smtp-server.its.caltech.edu (Postfix) with ESMTPSA id 3D390A2B73
+	for <test@itcs-conf.org>; Wed, 27 Jul 2016 09:06:29 -0700 (PDT)
+To: test@itcs-conf.org
+From: Thomas vidick <vidick@cms.caltech.edu>
+Subject: testdd
+Message-ID: <112f76c3-9a2e-5d05-b5df-167aa7b7edfe@cms.caltech.edu>
+Date: Wed, 27 Jul 2016 12:06:24 -0400
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101
+ Thunderbird/45.2.0
+MIME-Version: 1.0
+Content-type: text/plain; charset="UTF-8"; format="flowed"
+X-Identified-User: {0000:box507.bluehost.com:local:local} {sentby:Delivered locally}
+Content-Transfer-Encoding: quoted-printable
+
+
+From <vidick@cms.caltech.edu>
+Return-path: <vidick@cms.caltech.edu>
+Envelope-to: test@itcs-conf.org
+Delivery-date: Wed, 27 Jul 2016 10:12:40 -0600
+Received: from [131.215.239.19] (port=48224 helo=outgoing-mail.its.caltech.edu)
+	by box507.bluehost.com with esmtps (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256)
+	(Exim 4.86_2)
+	(envelope-from <vidick@cms.caltech.edu>)
+	id 1bSRRo-0001As-Aw
+	for test@itcs-conf.org; Wed, 27 Jul 2016 10:12:40 -0600
+Received: from smtp01.caltech.edu (localhost [127.0.0.1])
+	by smtp01.caltech.edu (Postfix) with ESMTP id 05629A33C2
+	for <test@itcs-conf.org>; Wed, 27 Jul 2016 09:12:35 -0700 (PDT)
+X-Spam-Scanned: at Caltech-IMSS on smtp01.caltech.edu by amavisd-new
+Received: from [10.10.164.167] (nat.perimeterinstitute.ca [38.117.109.20])
+	(using TLSv1.2 with cipher DHE-RSA-AES128-SHA (128/128 bits))
+	(No client certificate requested)
+	(Authenticated sender: vidick)
+	by smtp-server.its.caltech.edu (Postfix) with ESMTPSA id 1A9D7A1B02
+	for <test@itcs-conf.org>; Wed, 27 Jul 2016 09:12:30 -0700 (PDT)
+To: test@itcs-conf.org
+From: Thomas vidick <vidick@cms.caltech.edu>
+Subject: testd3
+Message-ID: <12e502b7-28f9-8306-3fcb-602323114e23@cms.caltech.edu>
+Date: Wed, 27 Jul 2016 12:12:25 -0400
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101
+ Thunderbird/45.2.0
+MIME-Version: 1.0
+Content-type: text/plain; charset="UTF-8"; format="flowed"
+X-Identified-User: {0000:box507.bluehost.com:local:local} {sentby:Delivered locally}
+Content-Transfer-Encoding: quoted-printable
+
+
+From <vidick@cms.caltech.edu>
+Return-path: <vidick@cms.caltech.edu>
+Envelope-to: test@itcs-conf.org
+Delivery-date: Wed, 27 Jul 2016 10:24:01 -0600
+Received: from [131.215.239.19] (port=49215 helo=outgoing-mail.its.caltech.edu)
+	by box507.bluehost.com with esmtps (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256)
+	(Exim 4.86_2)
+	(envelope-from <vidick@cms.caltech.edu>)
+	id 1bSRcn-0001nP-A6
+	for test@itcs-conf.org; Wed, 27 Jul 2016 10:24:01 -0600
+Received: from smtp01.caltech.edu (localhost [127.0.0.1])
+	by smtp01.caltech.edu (Postfix) with ESMTP id 0B3F3A33ED
+	for <test@itcs-conf.org>; Wed, 27 Jul 2016 09:23:56 -0700 (PDT)
+X-Spam-Scanned: at Caltech-IMSS on smtp01.caltech.edu by amavisd-new
+Received: from [10.10.164.167] (nat.perimeterinstitute.ca [38.117.109.20])
+	(using TLSv1.2 with cipher DHE-RSA-AES128-SHA (128/128 bits))
+	(No client certificate requested)
+	(Authenticated sender: vidick)
+	by smtp-server.its.caltech.edu (Postfix) with ESMTPSA id 9FA5AA1A1F
+	for <test@itcs-conf.org>; Wed, 27 Jul 2016 09:23:55 -0700 (PDT)
+To: test@itcs-conf.org
+From: Thomas vidick <vidick@cms.caltech.edu>
+Subject: onemoretest
+Message-ID: <e49d1416-9a58-d1e9-88ed-f7eb7e6447e6@cms.caltech.edu>
+Date: Wed, 27 Jul 2016 12:23:51 -0400
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101
+ Thunderbird/45.2.0
+MIME-Version: 1.0
+Content-type: text/plain; charset="UTF-8"; format="flowed"
+X-Identified-User: {0000:box507.bluehost.com:local:local} {sentby:Delivered locally}
+Content-Transfer-Encoding: quoted-printable
+
+
+From <vidick@cms.caltech.edu>
+Return-path: <vidick@cms.caltech.edu>
+Envelope-to: test@itcs-conf.org
+Delivery-date: Wed, 27 Jul 2016 10:25:23 -0600
+Received: from [131.215.239.19] (port=40735 helo=outgoing-mail.its.caltech.edu)
+	by box507.bluehost.com with esmtps (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256)
+	(Exim 4.86_2)
+	(envelope-from <vidick@cms.caltech.edu>)
+	id 1bSRe6-00037T-TS
+	for test@itcs-conf.org; Wed, 27 Jul 2016 10:25:22 -0600
+Received: from smtp01.caltech.edu (localhost [127.0.0.1])
+	by smtp01.caltech.edu (Postfix) with ESMTP id A0979A33C1
+	for <test@itcs-conf.org>; Wed, 27 Jul 2016 09:25:17 -0700 (PDT)
+X-Spam-Scanned: at Caltech-IMSS on smtp01.caltech.edu by amavisd-new
+Received: from [10.10.164.167] (nat.perimeterinstitute.ca [38.117.109.20])
+	(using TLSv1.2 with cipher DHE-RSA-AES128-SHA (128/128 bits))
+	(No client certificate requested)
+	(Authenticated sender: vidick)
+	by smtp-server.its.caltech.edu (Postfix) with ESMTPSA id 3BBB9A24E7
+	for <test@itcs-conf.org>; Wed, 27 Jul 2016 09:25:17 -0700 (PDT)
+To: test@itcs-conf.org
+From: Thomas vidick <vidick@cms.caltech.edu>
+Subject: testd4
+Message-ID: <c552a61a-aa3a-f2b2-01dc-6abb49e51de2@cms.caltech.edu>
+Date: Wed, 27 Jul 2016 12:25:12 -0400
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101
+ Thunderbird/45.2.0
+MIME-Version: 1.0
+Content-type: text/plain; charset="UTF-8"; format="flowed"
+X-Identified-User: {0000:box507.bluehost.com:local:local} {sentby:Delivered locally}
+Content-Transfer-Encoding: quoted-printable
+
+this is a longer message=0D
+to make sure it does not get rejected=0D
+works?
+
+From <vidick@cms.caltech.edu>
+Return-path: <vidick@cms.caltech.edu>
+Envelope-to: test@itcs-conf.org
+Delivery-date: Wed, 27 Jul 2016 10:29:36 -0600
+Received: from [131.215.239.19] (port=32511 helo=outgoing-mail.its.caltech.edu)
+	by box507.bluehost.com with esmtps (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256)
+	(Exim 4.86_2)
+	(envelope-from <vidick@cms.caltech.edu>)
+	id 1bSRiB-0006dM-UO
+	for test@itcs-conf.org; Wed, 27 Jul 2016 10:29:35 -0600
+Received: from smtp01.caltech.edu (localhost [127.0.0.1])
+	by smtp01.caltech.edu (Postfix) with ESMTP id 93EC1A3401
+	for <test@itcs-conf.org>; Wed, 27 Jul 2016 09:29:30 -0700 (PDT)
+X-Spam-Scanned: at Caltech-IMSS on smtp01.caltech.edu by amavisd-new
+Received: from [10.10.164.167] (nat.perimeterinstitute.ca [38.117.109.20])
+	(using TLSv1.2 with cipher DHE-RSA-AES128-SHA (128/128 bits))
+	(No client certificate requested)
+	(Authenticated sender: vidick)
+	by smtp-server.its.caltech.edu (Postfix) with ESMTPSA id 9ED50A33FC
+	for <test@itcs-conf.org>; Wed, 27 Jul 2016 09:29:29 -0700 (PDT)
+To: test@itcs-conf.org
+From: Thomas vidick <vidick@cms.caltech.edu>
+Subject: is this better
+Message-ID: <fb85cfaf-0f9d-0ec4-2a91-59303c48cdc2@cms.caltech.edu>
+Date: Wed, 27 Jul 2016 12:29:25 -0400
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101
+ Thunderbird/45.2.0
+MIME-Version: 1.0
+Content-type: text/plain; charset="UTF-8"; format="flowed"
+X-Identified-User: {0000:box507.bluehost.com:local:local} {sentby:Delivered locally}
+Content-Transfer-Encoding: quoted-printable
+
+Hi Leslie,=0D
+=0D
+Thanks for the explanations! If it was only up to me I would go with the =
+=0D
+second license you suggest, authorizing re-use but in entirety, as =0D
+things taken out of context can always appear, well, out of context.=0D
+=0D
+I don't have strong feelings about this though and don't want to clash =0D
+with Delft's standard. We have to use the same, right? Or could I use =0D
+simply use the "no clips" license for my own videos? If so, and it's =0D
+simple to implement, let's do it. If it created complications, let's not =
+=0D
+worry about it and use the license suggested by Delft.=0D
+=0D
+Thanks!=0D
+Thomas=0D
+=0D
+On 7/26/2016 6:50 PM, Maxfield, Leslie M. wrote:=0D
+ > Hi Thomas,=0D
+ >=0D
+ > The statement of =E2=80=9Cas joint authors=E2=80=9D has been added to th=
+e copyright=0D
+ > notice which would allow Caltech and TU Delft to re-use content beyond=
+=0D
+ > the MOOC use:=0D
+ > "Copyright Delft University of Technology and Caltech, as joint authors,=
+=0D
+ > licensed under a CC BY-NC-SA 4.0 Creative Commons License."=0D
+ >=0D
+ > As for the Creative Commons License, I want to make sure you aware that=
+=0D
+ > there isn=E2=80=99t one license; there are actually 6. The one that TU D=
+elft=0D
+ > proposed is "CC BY-NC-SA" which means, CC=3D Creative Commons, BY =3D mu=
+st=0D
+ > give attribution, NC =3D non-commercial use, SA =3D Share Alike, the new=
+=0D
+ > work must have the same CC license. With this license, users can take=0D
+ > clips from your video and make a new video that would be non-commercial,=
+=0D
+ > and offered with the same CC license. They would credit TU Delft and=0D
+ > Caltech for the clips used.=0D
+ >=0D
+ > Our general counsel=E2=80=99s office wants you to be aware that there is=
+ another=0D
+ > CC license which we have used in our other MOOCs. It is similar: CC=0D
+ > BY-NC-ND. Instead of SA, there is ND=3D non derivatives. This means that=
+=0D
+ > someone can take your video and use it for non-commercial purposes, give=
+=0D
+ > Caltech and TU Delft credit, but they cannot take clips from the video;=
+=0D
+ > your video must be shown in its entirety.=0D
+ >=0D
+ > Do you have a preference? Do you want people to be able to take the=0D
+ > clips from your videos for use in a new video?=0D
+ >=0D
+ > Here is more info about the licenses:=0D
+ > =0D
+http://sarafhawkins.com/creative-commons-licenses-explained-plain-english/=
+=0D
+ > https://creativecommons.org/licenses/=0D
+ >=0D
+ > Thank you, and if easier, we can discuss this when we meet next week!=0D
+ > Leslie=0D
+ >=0D
+ > --=0D
+ > *Leslie Maxfield  <http://www.its.caltech.edu/~lmm>** *| Director |=0D
+ > Academic Media Technologies and Communications | *amt.caltech.edu*=0D
+ > <http://amt.caltech.edu>=0D
+ > Mail Code 1-10 | Pasadena CA 91125 | (626) 395-8155 | Caltech=0D
+ > | *caltech.edu <http://www.caltech.edu/>*=0D
+ >=0D
+ > From: Thomas vidick <vidick@cms.caltech.edu =0D
+<mailto:vidick@cms.caltech.edu>>=0D
+ > Date: Tuesday, July 26, 2016 at 10:09 AM=0D
+ > To: Leslie Maxfield <lmm@caltech.edu <mailto:lmm@caltech.edu>>=0D
+ > Subject: Re: copyright question=0D
+ >=0D
+ > Hi Leslie,=0D
+ >=0D
+ >     Are you comfortable to have copyright applied to both you and TU =0D
+Delft=0D
+ >     on the lecture videos that you record on your own, or would you =0D
+prefer=0D
+ >     those just be attributed to Caltech?=0D
+ >=0D
+ >=0D
+ > Hum. I'm not strongly opposed, but what is the reason for this? If it's=
+=0D
+ > just that it makes everything easier, sure. It just means I/Caltech=0D
+ > wouldn't be able to reuse the videos without consent from Delft? Is=0D
+ > Caltech ok with this? Does the reverse also apply - we have a share of=
+=0D
+ > copyright for Stephanie's videos? I don't mind if it seems reasonable to=
+=0D
+ > you/the counsel office.=0D
+ >=0D
+ > Thomas=0D
+ >=0D
+ >
+
+From <vidick@cms.caltech.edu>
+Return-path: <vidick@cms.caltech.edu>
+Envelope-to: test@itcs-conf.org
+Delivery-date: Wed, 27 Jul 2016 10:39:03 -0600
+Received: from [131.215.239.19] (port=30773 helo=outgoing-mail.its.caltech.edu)
+	by box507.bluehost.com with esmtps (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256)
+	(Exim 4.86_2)
+	(envelope-from <vidick@cms.caltech.edu>)
+	id 1bSRrL-0006bG-52
+	for test@itcs-conf.org; Wed, 27 Jul 2016 10:39:03 -0600
+Received: from smtp01.caltech.edu (localhost [127.0.0.1])
+	by smtp01.caltech.edu (Postfix) with ESMTP id 1657EA3297
+	for <test@itcs-conf.org>; Wed, 27 Jul 2016 09:38:57 -0700 (PDT)
+X-Spam-Scanned: at Caltech-IMSS on smtp01.caltech.edu by amavisd-new
+Received: from [10.10.164.167] (nat.perimeterinstitute.ca [38.117.109.20])
+	(using TLSv1.2 with cipher DHE-RSA-AES128-SHA (128/128 bits))
+	(No client certificate requested)
+	(Authenticated sender: vidick)
+	by smtp-server.its.caltech.edu (Postfix) with ESMTPSA id A6D23A1F18
+	for <test@itcs-conf.org>; Wed, 27 Jul 2016 09:38:56 -0700 (PDT)
+To: test@itcs-conf.org
+From: Thomas vidick <vidick@cms.caltech.edu>
+Subject: ok now
+Message-ID: <2d752e4c-0f05-3bbf-1b75-c674f7d4f04f@cms.caltech.edu>
+Date: Wed, 27 Jul 2016 12:38:52 -0400
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101
+ Thunderbird/45.2.0
+MIME-Version: 1.0
+Content-type: text/plain; charset="UTF-8"; format="flowed"
+X-Identified-User: {0000:box507.bluehost.com:local:local} {sentby:Delivered locally}
+Content-Transfer-Encoding: quoted-printable
+
+with the cron job it should work?=0D
+Thomas
+
+From <kore80@yahoo.com>
+Return-path: <kore80@yahoo.com>
+Envelope-to: test@itcs-conf.org
+Delivery-date: Wed, 27 Jul 2016 10:53:25 -0600
+Received: from [98.138.121.136] (port=52400 helo=nm49-vm8.bullet.mail.ne1.yahoo.com)
+	by box507.bluehost.com with esmtps (TLSv1:ECDHE-RSA-AES128-SHA:128)
+	(Exim 4.86_2)
+	(envelope-from <kore80@yahoo.com>)
+	id 1bSS5F-0003Jk-4T
+	for test@itcs-conf.org; Wed, 27 Jul 2016 10:53:25 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1469638399; bh=6mX7lxuQ8yO2Lt5XckSVQCGxgaOuEftTN9W0fS9k+pY=; h=Date:From:Reply-To:To:Subject:References:From:Subject; b=WJ0ntpxae/SBAoWv8qroinnHjttaYCUNuc3yJVxIwrgFI1uJJ8IpbCOTpCpYzdbqRMqrsBJ607zTvHjr/Zu3/LoqskehzJ6W9vPBXJEDRyAjoo9G+zDLMXYxvHjGrTl94pSjCak8igIjwzMgWAdAm7H+a07q7J1aqbzyfzwVbCc1oi0rMphJsmaiz3okFuJ7yCKQfxmcVnT9UMoF8d+AJxDqiawaAejiPFPZIkUtueNUe6K1T8vkEAQO6txyv/T1fnZ7qw1Z1rmqs2tLGvhlj7PVsF4jts0iuh4I+RX9ZJfAkOxty8ifWxX3Qqhj8qfXuqNAUZQfCJdsdUPY6if3fA==
+Received: from [127.0.0.1] by nm49.bullet.mail.ne1.yahoo.com with NNFMP; 27 Jul 2016 16:53:19 -0000
+Received: from [98.138.100.115] by nm49.bullet.mail.ne1.yahoo.com with NNFMP; 27 Jul 2016 16:50:35 -0000
+Received: from [98.138.226.167] by tm106.bullet.mail.ne1.yahoo.com with NNFMP; 27 Jul 2016 16:50:35 -0000
+Received: from [127.0.0.1] by omp1068.mail.ne1.yahoo.com with NNFMP; 27 Jul 2016 16:50:35 -0000
+X-Yahoo-Newman-Property: ymail-4
+X-Yahoo-Newman-Id: 683863.58075.bm@omp1068.mail.ne1.yahoo.com
+X-YMail-OSG: 7OwULlQVM1lW6jMR3H0OlHW_2rjwVw2mvdhAM449oJQBVQxUjVxAWZ1.KA04L1n
+ tUOcz.grBGvTOo68KjH0mru.VBHiebrtS2mYFGB639bHFIZCboYClAdHXuFtAGfgr3lAZ4pbeXHd
+ qy910iNNb_TzUY1JW5foY4TZfGgiL.91fLqj7hJkmtjEEC2cIEd5XUQ2UnCrwGsflchNu9c1zUec
+ XVHPoBCKov0XAj9t2AOKGwNc.fD_dslhQ9gEfzbadKpIKmfS4Jdk5lF_dibQULZLIqBpMjGvk.Qj
+ GFYTCahmQ9VexKkluG.LT.9Cvhn9nIb7wjAE6S23hBAVujp.IPWaUt3ZTz0MNEpVb_Trx4zMCegA
+ i2mkRRmdWWlqiwpTwLxBMNVT3sDe7N42zPA59vX5UGLDpa1nG44KqaCX7L23Xu9nWJr0Q6OuAYwM
+ 2VkQ1eO03utxkSNUv8bpnOChnG0Fbh.bPWUuk3ESxOCRvFbSrK2BPW5ix7adVhddhIG4L4CfUfjO
+ Lge3spzw40LbRbGpSi6ipEbCwM5lV05I-
+Received: from jws10038.mail.ne1.yahoo.com by sendmailws101b.mail.ne1.yahoo.com; Wed, 27 Jul 2016 16:50:34 +0000; 1469638234.973
+Date: Wed, 27 Jul 2016 16:50:34 +0000 (UTC)
+From: Thomas Vidick <kore80@yahoo.com>
+Reply-To: Thomas Vidick <kore80@yahoo.com>
+To: "test@itcs-conf.org" <test@itcs-conf.org>
+Message-ID: <1050744399.5369391.1469638234692.JavaMail.yahoo@mail.yahoo.com>
+Subject: testetst
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_5369390_381279633.1469638234690"
+References: <1050744399.5369391.1469638234692.JavaMail.yahoo.ref@mail.yahoo.com>
+X-Identified-User: {0000:box507.bluehost.com:local:local} {sentby:Delivered locally}
+
+------=_Part_5369390_381279633.1469638234690
+Content-type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Content-length: 6
+
+test=
+
+------=_Part_5369390_381279633.1469638234690
+Content-type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Content-length: 277
+
+<html><head></head><body><div style=3D"color:#000; background-color:#fff; f=
+ont-family:HelveticaNeue, Helvetica Neue, Helvetica, Arial, Lucida Grande, =
+sans-serif;font-size:12px"><div id=3D"yui_3_16_0_ym19_1_1469636547425_11689=
+" dir=3D"ltr">test</div></div></body></html>=
+
+------=_Part_5369390_381279633.1469638234690--
+
+From <kore80@yahoo.com>
+Return-path: <kore80@yahoo.com>
+Envelope-to: test@itcs-conf.org
+Delivery-date: Wed, 27 Jul 2016 11:15:37 -0600
+Received: from [98.138.121.129] (port=36207 helo=nm49-vm1.bullet.mail.ne1.yahoo.com)
+	by box507.bluehost.com with esmtps (TLSv1:ECDHE-RSA-AES128-SHA:128)
+	(Exim 4.86_2)
+	(envelope-from <kore80@yahoo.com>)
+	id 1bSSQj-0005yt-FM
+	for test@itcs-conf.org; Wed, 27 Jul 2016 11:15:37 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1469639731; bh=rEiDeW4FSZHgKMlxl7Tn8tr097G9fnzPbIFbIu3Amtg=; h=Date:From:Reply-To:To:Subject:References:From:Subject; b=jpKZRinirHMAXAMJh7ca1wKlQk/8XRCD3YS9luuAi8b6Q2oROtTFgpAlvLgAB3WHe6BbGn5aU5KcPFQPjPPKYIhzjE1+TkFiG4+qbM+EVd4tNp8EN8C04UlTuztZHlZ53IxzP1vQ9hZghLlL/+mcuqIsme+4RfSCQhLlq27yGtoyU6pn3VaVIbHYdB8ncLlTEe3l44dUkmIlgSIysKEVvlutZmLJle2rnQHMjvUCeGYEgn+jB78lsP+VLl55xrL65s/1f8Eol8ryLA1QUcDBydJBcSq/DixcRjDNar+To9LNqQqk5isbAfnRWKGgL+37z93NydS/RQp6tQZQxLRhMA==
+Received: from [127.0.0.1] by nm49.bullet.mail.ne1.yahoo.com with NNFMP; 27 Jul 2016 17:15:31 -0000
+Received: from [98.138.100.115] by nm49.bullet.mail.ne1.yahoo.com with NNFMP; 27 Jul 2016 17:12:51 -0000
+Received: from [98.138.226.168] by tm106.bullet.mail.ne1.yahoo.com with NNFMP; 27 Jul 2016 17:09:51 -0000
+Received: from [127.0.0.1] by omp1069.mail.ne1.yahoo.com with NNFMP; 27 Jul 2016 17:09:51 -0000
+X-Yahoo-Newman-Property: ymail-4
+X-Yahoo-Newman-Id: 144163.1681.bm@omp1069.mail.ne1.yahoo.com
+X-YMail-OSG: KRhyOTQVM1mDqob1j7ytRopzQEGCDUCdINEpxAkVp6g.dKtM_Tldosdspov7TRf
+ RnZqkGItfEpWk5BXx0aCxDVJP_FCSN2g9NDJ0nGQauQbOop.bLIDQmVwvnHvKOkYI6F.D66HREBc
+ I7L2hJw9Ulo3ubd2dn1UWuiSBbw29LlncQ99PKax_E9EmVInLoVgsT_anTkiK8K8u3HXynBpRIDX
+ 0WXYLmeoivlwHCWdBHxRqaVBrU.THrbv.glCLrKnVrRSKCsP14d4vFzftK0PpWV.sAdfgPlpOByZ
+ RgRicE.YatC9o76Ro2BI7xPQfUCJ6YlbH.2bC9hXf7.E3WvxgpXGZTK0scPFWmpKrsRyXPY0o3g6
+ hJV2B1z9U5x2sg3aVTOv33Dzj.r53BzXww7fQyqHFJE1jzHtTcOQu6pLgnD2aoSRGJVtNe0asSHS
+ S2Bgn_14uv8tvpQCPFOiETdNUx7Oifrd9G4bMS11QF9BNAtFDRGYswUhQFLlU4HIako9Jl6waHZG
+ dL4uIQ_9qMdj9f550dDNzjj1h0zlruIw-
+Received: from jws10083.mail.ne1.yahoo.com by sendmailws123.mail.ne1.yahoo.com; Wed, 27 Jul 2016 17:09:50 +0000; 1469639390.607
+Date: Wed, 27 Jul 2016 17:09:48 +0000 (UTC)
+From: Thomas Vidick <kore80@yahoo.com>
+Reply-To: Thomas Vidick <kore80@yahoo.com>
+To: "test@itcs-conf.org" <test@itcs-conf.org>
+Message-ID: <1929114833.5346274.1469639388826.JavaMail.yahoo@mail.yahoo.com>
+Subject: nre test
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_5346273_1576432946.1469639388825"
+References: <1929114833.5346274.1469639388826.JavaMail.yahoo.ref@mail.yahoo.com>
+X-Identified-User: {0000:box507.bluehost.com:local:local} {sentby:Delivered locally}
+
+------=_Part_5346273_1576432946.1469639388825
+Content-type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Content-length: 21
+
+again test template=
+
+------=_Part_5346273_1576432946.1469639388825
+Content-type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Content-length: 292
+
+<html><head></head><body><div style=3D"color:#000; background-color:#fff; f=
+ont-family:HelveticaNeue, Helvetica Neue, Helvetica, Arial, Lucida Grande, =
+sans-serif;font-size:12px"><div id=3D"yui_3_16_0_ym19_1_1469636547425_17309=
+" dir=3D"ltr">again test template</div></div></body></html>=
+
+------=_Part_5346273_1576432946.1469639388825--
+
+From <vidick@cms.caltech.edu>
+Return-path: <vidick@cms.caltech.edu>
+Envelope-to: test@itcs-conf.org
+Delivery-date: Wed, 27 Jul 2016 11:18:12 -0600
+Received: from [131.215.239.19] (port=19214 helo=outgoing-mail.its.caltech.edu)
+	by box507.bluehost.com with esmtps (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256)
+	(Exim 4.86_2)
+	(envelope-from <vidick@cms.caltech.edu>)
+	id 1bSSTE-0007qe-Jo
+	for test@itcs-conf.org; Wed, 27 Jul 2016 11:18:12 -0600
+Received: from smtp01.caltech.edu (localhost [127.0.0.1])
+	by smtp01.caltech.edu (Postfix) with ESMTP id 47350A0D94
+	for <test@itcs-conf.org>; Wed, 27 Jul 2016 10:18:07 -0700 (PDT)
+X-Spam-Scanned: at Caltech-IMSS on smtp01.caltech.edu by amavisd-new
+Received: from [10.10.164.167] (nat.perimeterinstitute.ca [38.117.109.20])
+	(using TLSv1.2 with cipher DHE-RSA-AES128-SHA (128/128 bits))
+	(No client certificate requested)
+	(Authenticated sender: vidick)
+	by smtp-server.its.caltech.edu (Postfix) with ESMTPSA id CEBB9A3438
+	for <test@itcs-conf.org>; Wed, 27 Jul 2016 10:18:06 -0700 (PDT)
+To: test@itcs-conf.org
+From: Thomas vidick <vidick@cms.caltech.edu>
+Subject: is this nicer
+Message-ID: <83ca8fe1-fdf0-262c-e452-03814057417a@cms.caltech.edu>
+Date: Wed, 27 Jul 2016 13:18:01 -0400
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101
+ Thunderbird/45.2.0
+MIME-Version: 1.0
+Content-type: text/plain; charset="UTF-8"; format="flowed"
+X-Identified-User: {0000:box507.bluehost.com:local:local} {sentby:Delivered locally}
+Content-Transfer-Encoding: quoted-printable
+
+is this nice
+
+From <kore80@yahoo.com>
+Return-path: <kore80@yahoo.com>
+Envelope-to: test@itcs-conf.org
+Delivery-date: Wed, 27 Jul 2016 11:25:07 -0600
+Received: from [98.138.229.119] (port=59072 helo=nm36-vm7.bullet.mail.ne1.yahoo.com)
+	by box507.bluehost.com with esmtps (TLSv1:ECDHE-RSA-AES128-SHA:128)
+	(Exim 4.86_2)
+	(envelope-from <kore80@yahoo.com>)
+	id 1bSSZv-0005Hl-2c
+	for test@itcs-conf.org; Wed, 27 Jul 2016 11:25:07 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1469640301; bh=FvO3+Xdtx3HKw5Ly4xiSkeK51a/M15VkC45EK9pSX+M=; h=Date:From:Reply-To:To:Subject:References:From:Subject; b=EL0d2tuw0T6HUjlTJTWpJXs2c9bTQYBhZglDkGPjcEJ46JDqUXvu8sYtTwXOwv2GuZjIoY/qnfe+9l8b9ujQ1gw5r3iHWqAuy0ftRWKHtzkK8JeshCmv+Lkmatk6XSzMYRx0tq6UpSLh/PPH9cRtz2HNAwCJVM8JrOGzSZntrjd4Vmj6urhYHQL0RWkrYjZk/IExLCWL9tLt4BP9cRjUAIVppdG+9pLnaoM368wlz9u0cfQV/2zSjFAtOJepv+O4c4sLkTQAmsX2nD1YOEZl//CsnD1kMb9WCgJkFMBDnHt0I0hQ51PFCmfgTgED6ACHC1CCSwuKwHiEgORsXHHgbA==
+Received: from [127.0.0.1] by nm36.bullet.mail.ne1.yahoo.com with NNFMP; 27 Jul 2016 17:25:01 -0000
+Received: from [98.138.101.128] by nm36.bullet.mail.ne1.yahoo.com with NNFMP; 27 Jul 2016 17:22:18 -0000
+Received: from [98.138.89.163] by tm16.bullet.mail.ne1.yahoo.com with NNFMP; 27 Jul 2016 17:22:17 -0000
+Received: from [127.0.0.1] by omp1019.mail.ne1.yahoo.com with NNFMP; 27 Jul 2016 17:22:18 -0000
+X-Yahoo-Newman-Property: ymail-4
+X-Yahoo-Newman-Id: 313193.52577.bm@omp1019.mail.ne1.yahoo.com
+X-YMail-OSG: WIDMTLsVM1lT6OGVC5NELJHn6qVo2OiqQl2Alm.QCrSgI8H1Ogz5LYgBmM1XGeS
+ oY2g.nhUyS4vySPJZAbX_qd28CGYahs5C.QmIALULL2r8oNeNMHn92VTXvr7OASxgFDDCdANce2A
+ NfT3wG.aO68j1OPuHCNwf_KCb5C25zzDrR7gKuy_Ml.xhzaFlafCTS2WZYVsoEuAN7KnPN1brYsi
+ zX4_fPJCNc.ipf8EgT52XM7kt3cM6f4CRk417xovj9y82rAgDDuy6V5OdChVkEKXnmz1b9f65l3B
+ 88ipTM0Qcta6NFogFsV8BHln_amL35p4PBLGvHi5PPCtiTY_NbjVf_AJCqEOnZrBpIt9onCafESa
+ va0dpnZ7AeXyjCWaGkwvQHEpmyO9mW.L6m_6mnz6PXPup7si5hYSMq3E98INNWZWybNhYdJFYzNX
+ 0uw6Paust6hYBB_fccqwtWaTJM1Atf7o1QSYaHvXFlVXqJXALcdcBZahI4SRQJpQxTZFi4qKEW1k
+ HzvLb4VRDpoIv9GlDlYpSH0dVJ7PoH1U-
+Received: from jws100279.mail.ne1.yahoo.com by sendmailws132.mail.ne1.yahoo.com; Wed, 27 Jul 2016 17:22:17 +0000; 1469640137.894
+Date: Wed, 27 Jul 2016 17:22:17 +0000 (UTC)
+From: Thomas Vidick <kore80@yahoo.com>
+Reply-To: Thomas Vidick <kore80@yahoo.com>
+To: "test@itcs-conf.org" <test@itcs-conf.org>
+Message-ID: <1723948991.5245011.1469640137651.JavaMail.yahoo@mail.yahoo.com>
+Subject: testing html
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_5245010_142947661.1469640137650"
+References: <1723948991.5245011.1469640137651.JavaMail.yahoo.ref@mail.yahoo.com>
+X-Identified-User: {0000:box507.bluehost.com:local:local} {sentby:Delivered locally}
+
+------=_Part_5245010_142947661.1469640137650
+Content-type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Content-length: 14
+
+testing html=
+
+------=_Part_5245010_142947661.1469640137650
+Content-type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Content-length: 285
+
+<html><head></head><body><div style=3D"color:#000; background-color:#fff; f=
+ont-family:HelveticaNeue, Helvetica Neue, Helvetica, Arial, Lucida Grande, =
+sans-serif;font-size:12px"><div dir=3D"ltr" id=3D"yui_3_16_0_ym19_1_1469636=
+547425_26811">testing html</div></div></body></html>=
+
+------=_Part_5245010_142947661.1469640137650--
+

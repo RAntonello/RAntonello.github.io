@@ -1,0 +1,97 @@
+<!-- tmpl_if num_rows --> 
+	<div class="pagination-centered">
+  		<ul class="pagination">
+
+		<li class="arrow">
+			<a href="#" class="bounce_handler_turn_page" data-page="<!-- tmpl_var first_page -->">
+				&laquo;
+			</a>
+		</li>
+		<!-- tmpl_if previous_page --> 
+			<li>
+				<a href="#" class="bounce_handler_turn_page" data-page="<!-- tmpl_var previous_page -->">
+					&lsaquo;
+				</a>
+			</li>
+		<!-- /tmpl_if -->
+
+		<!-- tmpl_loop pages_in_set --> 
+			<!-- tmpl_if on_current_page --> 
+				<li class="current">
+					<!-- tmpl_var page --> 
+				</li>
+			<!-- tmpl_else --> 
+				<li>
+					<a href="#" class="bounce_handler_turn_page" data-page="<!-- tmpl_var page -->">
+						<!-- tmpl_var page --> 
+					</a>
+				</li>
+			<!-- /tmpl_if --> 
+		<!-- /tmpl_loop --> 
+
+		<!-- tmpl_if next_page -->
+			<li>
+				<a href="#" class="bounce_handler_turn_page" data-page="<!-- tmpl_var next_page -->">
+					&rsaquo;
+				</a>
+			</li>
+		<!-- /tmpl_if --> 
+		<li class="arrow">
+			<a href="#" class="bounce_handler_turn_page" data-page="<!-- tmpl_var last_page -->">
+				&raquo;
+			</a>
+		</li>
+	</ul>
+</div>
+
+	<div> 
+		<div style="max-height: 300px; overflow: auto; border:1px solid black">
+			<table  style="width:100%" class="responsive">
+				<tr> 
+					<th>
+						Email
+					</th>
+					<th>
+						Score
+					</th>
+				</tr> 
+				<!-- tmpl_loop scorecard --> 
+					<tr>
+						<td>
+							<a href="<!-- tmpl_var Plugin_URL -->?prm=cgi_bounce_score_search&amp;query=<!-- tmpl_var email ESCAPE="URL" -->&chrome=0" title="<!-- tmpl_var email ESCAPE="HTML" -->" class="modalbox">
+								<!-- tmpl_var email -->
+							</a>
+						</td>
+						<td>
+							<!-- tmpl_var score -->
+						</td>
+					</tr> 
+				<!-- /tmpl_loop --> 
+			</table> 
+		</div>		
+	</div> 
+
+	<form action="<!-- tmpl_var S_PROGRAM_URL -->" method="post"> 
+		<input type="hidden" name="prm" value="cgi_erase_scorecard" > 
+		<input type="hidden" name="flavor" value="plugins" > 
+		<input type="hidden" name="plugin" value="bounce_handler" > 
+		<div class="clearfix">
+			<ul class="button-group right">
+			    <li>
+					<input 
+						type="submit" 
+						class="alert button" 
+						onclick="if(!confirm('Are you sure you want to Erase the Bounce Scorecard? This cannot be undone.')){alert('Scorecard Not Erased.');return false;}" 
+						name="process" 
+						value="Erase Score Card"
+					>
+				</li>
+			</ul>
+		</div>
+	</form> 
+
+<!-- tmpl_else --> 
+	<div class="alert-box info radius"> 
+		 Currently, there are no bounced addresses saved in the Bounce Scorecard.
+	</div>
+<!-- /tmpl_if -->

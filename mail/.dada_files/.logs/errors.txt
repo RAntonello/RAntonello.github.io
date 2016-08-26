@@ -1,0 +1,22 @@
+[Thu Jul 21 00:17:38 2016] mail.cgi: doesn't have a draft! at /DADA/App/MassSend.pm line 1681.
+220-box507.bluehost.com ESMTP Exim 4.86_2 #1 Thu, 21 Jul 2016 00:36:08 -0600 
+220-We do not authorize the use of this system to transport unsolicited, 
+220 and/or bulk e-mail.
+250-box507.bluehost.com Hello localhost.localdomain [127.0.0.1]
+250-SIZE 52428800
+250-8BITMIME
+250-AUTH PLAIN LOGIN
+250-STARTTLS
+250 HELP
+250-box507.bluehost.com Hello box507.bluehost.com [127.0.0.1]
+250-SIZE 52428800
+250-8BITMIME
+250-AUTH PLAIN LOGIN
+250-STARTTLS
+250 HELP
+550-Verification failed for <steering@itcs-conf.org>
+550-No Such User Here
+550 Sender verify failed
+Dada Mail 9.1.3 Stable 03/13/16 Warning: 
+                         didn't close pipe to '|/usr/sbin/sendmail -t -fsteering@itcs-conf.org' while 
+                         attempting to send a message to: '"ITCS Announcements Subscriber" <rjantonello@aol.com> because:'  at /DADA/Mail/Send.pm line 733.

@@ -1,0 +1,86 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>FastCGI Support</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@osx004.apple.com" />
+</head>
+
+<body>
+
+
+
+<ul id="index">
+  <li><a href="#FastCGI-Support">FastCGI Support</a>
+    <ul>
+      <li><a href="#Configuring-Dada-Mail-to-run-under-FastCGI">Configuring Dada Mail to run under FastCGI</a></li>
+    </ul>
+  </li>
+  <li><a href="#Requirements">Requirements</a></li>
+  <li><a href="#Feedback">Feedback</a></li>
+</ul>
+
+<h1 id="FastCGI-Support">FastCGI Support</h1>
+
+<p>Dada Mail can be run under FastCGI.</p>
+
+<h2 id="Configuring-Dada-Mail-to-run-under-FastCGI">Configuring Dada Mail to run under FastCGI</h2>
+
+<p>When installing Dada Mail via the web-based interface, look under <b>Advanced Configuration (Optional)</b></p>
+
+<p>Check the option, <b>Configure Deployment Options</b>. In the option labeled, <b>Run Dada Mail under:</b> select, <b>FastCGI</b>. Done!</p>
+
+<p>When installing Dada Mail via the command line interface, pass the <code>--deployment_running_under</code> flag with the value, <code>FastCGI</code>:</p>
+
+<pre><code>    --deployment_running_under FastCGI</code></pre>
+
+<p>Doing so will run Dada Mail using the included, <code>mail.fcgi</code> script, rather than <code>mail.cgi</code></p>
+
+<h1 id="Requirements">Requirements</h1>
+
+<p>Dada Mail running under FastCGI does have additional requirements, which can usually be detected by Dada Mail during installation. The following CPAN Modules will need to be installed - they&#39;re not bundled with Dada Mail:</p>
+
+<ul>
+
+<li><p>CGI::Fast</p>
+
+</li>
+<li><p>FCGI</p>
+
+</li>
+</ul>
+
+<p>Your web hosting account also needs to support running Perl apps under FastCGI. FastCGI support for Dada Mail is set up to use an environment similar to having Apache configure with support for the mod_fcgi/mod_fastcgi module: simply accessing the script starts up an FastCGI process, which persists for a specified amount of time (more requests may create a specified pool of processes). If you make global configuration changes to Dada Mail, you will want to manually kill these processes, before you will see your configuration changes.</p>
+
+<p>Hosting companies that provide support for running Dada Mail under FastCGI in this configuration include:</p>
+
+<ul>
+
+<li><p>Bluehost/Hostmonster</p>
+
+</li>
+<li><p>Dreamhost</p>
+
+</li>
+</ul>
+
+<p>If you want to run Dada Mail under a different environment, for example: you&#39;re running the nginx webserver with a reverse proxy to a fastcgi server, you most likely want to run Dada Mail under PSGI/Plack, where one of the PSGI server options is to run as a FastCGI server.</p>
+
+<h1 id="Feedback">Feedback</h1>
+
+<p>FastCGI support for Dada Mail is new! We expect some growing pains. We would love to hear your feedback on how Dada Mail is running under FastCGI. Please contact us directly:</p>
+
+<p><a href="http://dadamailproject.com/contact/">http://dadamailproject.com/contact/</a></p>
+
+<p>sign up and post to the dadadev mailing list:</p>
+
+<p><a href="http://dadamailproject.com/cgi-bin/dada/mail.cgi/list/dadadev/">http://dadamailproject.com/cgi-bin/dada/mail.cgi/list/dadadev/</a></p>
+
+
+</body>
+
+</html>
+
+

@@ -1,0 +1,37 @@
+<!-- begin list_download_widget.tmpl -->
+
+  <form action="<!-- tmpl_var S_PROGRAM_URL -->" method="post">
+	
+    <input type="hidden" name="flavor"    value="text_list" >
+    <input type="hidden" name="type" value="<!-- tmpl_var type -->" >
+
+	<!-- tmpl_if expr="defined(query) || defined(advanced_query)" --> 
+		
+		<input type="hidden" name="query"           value="<!-- tmpl_var query -->" >
+		<input type="hidden" name="advanced_search" value="<!-- tmpl_var advanced_search -->" >
+		<input type="hidden" name="advanced_query"  value="<!-- tmpl_var advanced_query -->" >
+		
+		<input type="hidden" name="order_by" value="<!-- tmpl_var order_by -->" >
+		<input type="hidden" name="order_dir" value="<!-- tmpl_var order_dir -->" >
+
+		<button 
+			type="submit" 
+			class="button small" 
+		>
+			<i class="fi-page-export-csv"></i> Export Search Results (.csv)
+		</button>
+		
+	<!-- tmpl_else --> 
+	
+		<button
+			type="submit" 
+			class="button small"
+			>
+			<i class="fi-page-export-csv"></i> Export <!-- tmpl_var type_title --> (.csv)
+		</button>
+
+	<!-- /tmpl_if --> 
+	
+   </form>
+ 
+<!-- end list_download_widget.tmpl -->

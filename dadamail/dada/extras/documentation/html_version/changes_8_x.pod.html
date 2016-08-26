@@ -1,0 +1,461 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>v8.x Changelog</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@osx004.apple.com" />
+</head>
+
+<body>
+
+
+
+<ul id="index">
+  <li><a href="#Dada-Mail-Changelog-for-v8.x">Dada Mail Changelog for v8.x</a></li>
+  <li><a href="#pod8.4.0">8.4.0</a>
+    <ul>
+      <li><a href="#Dada-Mail-Manual-revision">Dada Mail Manual revision</a></li>
+      <li><a href="#Features">Features</a>
+        <ul>
+          <li><a href="#Recurring-Scheduled-Mass-Mailing-Enhancements">Recurring Scheduled Mass Mailing Enhancements</a></li>
+          <li><a href="#Send-a-Webpage:-Send-a-Cropped-Webpage">Send a Webpage: Send a Cropped Webpage</a></li>
+          <li><a href="#Send-a-Webpage:-PlainText-version-via-URL">Send a Webpage: PlainText version via URL</a></li>
+          <li><a href="#Tracker-Plugin:-Tracking-the-User-Agent">Tracker Plugin: Tracking the User Agent</a></li>
+          <li><a href="#Bounce-Handler-Plugin:-Optimizations">Bounce Handler Plugin: Optimizations</a></li>
+        </ul>
+      </li>
+      <li><a href="#Bugfixes">Bugfixes</a>
+        <ul>
+          <li><a href="#List-Names-set-the-same-as-List-Email-sometimes-interpreted-as-an-email-address-in-From:-To:-headers">List Names set the same as List Email sometimes interpreted as an email address in From:, To: headers</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#pod8.3.0">8.3.0</a>
+    <ul>
+      <li><a href="#Summary">Summary</a></li>
+      <li><a href="#Features1">Features</a>
+        <ul>
+          <li><a href="#Magic-User-Templates-Enhancements">Magic User Templates Enhancements</a></li>
+          <li><a href="#Send-a-Webpage:-grab-the-Subject-of-a-message-from-the-Title-of-the-Webpage">Send a Webpage: grab the Subject of a message, from the Title of the Webpage</a></li>
+        </ul>
+      </li>
+      <li><a href="#Bugfixes1">Bugfixes</a>
+        <ul>
+          <li><a href="#Archived-message-file-attachments-cannot-always-be-downloaded">Archived message file attachments cannot always be downloaded</a></li>
+          <li><a href="#Installer:-incorrect-javasript-filename-being-called">Installer: incorrect javasript filename being called</a></li>
+          <li><a href="#List-Invitations:-Multiple-invites-are-allowed-to-be-sent-to-the-same-address">List Invitations: Multiple invites are allowed to be sent to the same address</a></li>
+        </ul>
+      </li>
+      <li><a href="#Changes">Changes</a>
+        <ul>
+          <li><a href="#jQuery-and-jQuery-Libraries-updated">jQuery and jQuery Libraries updated</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#pod8.2.0">8.2.0</a>
+    <ul>
+      <li><a href="#Features2">Features</a>
+        <ul>
+          <li><a href="#Recurring-Scheduled-Mass-Mailings">Recurring Scheduled Mass Mailings</a></li>
+        </ul>
+      </li>
+      <li><a href="#Bugfixes2">Bugfixes</a>
+        <ul>
+          <li><a href="#Unsubscription-Requests-Do-Not-Work-in-the-List-Control-Panel">Unsubscription Requests Do Not Work in the List Control Panel</a></li>
+          <li><a href="#CC-addresses-not-removed-from-bridge-email-when-using-SES">CC addresses not removed from bridge email when using SES</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#pod8.1.0">8.1.0</a>
+    <ul>
+      <li><a href="#Summary1">Summary</a></li>
+      <li><a href="#Features3">Features</a>
+        <ul>
+          <li><a href="#Magic-User-Templates-Experimental">Magic User Templates (Experimental)</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#pod8.0.3">8.0.3</a>
+    <ul>
+      <li><a href="#Summary2">Summary</a></li>
+      <li><a href="#Bugfixes3">Bugfixes</a>
+        <ul>
+          <li><a href="#Problems-creating-new-list-if-errors-present-in-values-passed">Problems creating new list if errors present in values passed</a></li>
+          <li><a href="#Subscription-Form:-Restful-Subscribe-API-not-working-in-jsonp-mode">Subscription Form: Restful Subscribe API not working in jsonp mode</a></li>
+          <li><a href="#Membership-Remove-Subscribers-throws-Yikes-error-when-you-attempt-to-upload-a-file">Membership &gt;&gt; Remove Subscribers throws, &quot;Yikes!&quot; error when you attempt to upload a file</a></li>
+          <li><a href="#Tracker-plugin:-Bounce-Handler-reports-do-not-show-in-modal-window">Tracker plugin: Bounce Handler reports do not show in modal window</a></li>
+          <li><a href="#Images-dont-show-in-archive-view-in-Chrome">Images don&#39;t show in archive view in Chrome</a></li>
+          <li><a href="#Gravatar-Images-break-with-p.p.-mode-enabled">Gravatar Images break with p.p. mode enabled</a></li>
+          <li><a href="#Minimal-Subscription-Form-does-not-have-correct-form-field-name">Minimal Subscription Form does not have correct form field name</a></li>
+          <li><a href="#Version-Check-Broken">Version Check Broken</a></li>
+          <li><a href="#Rejected-Emails-not-being-attached">Rejected Emails not being attached</a></li>
+          <li><a href="#Extra-Bracket-in-multiple_subscribe.cgi">Extra Bracket in multiple_subscribe.cgi</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#pod8.0.2">8.0.2</a>
+    <ul>
+      <li><a href="#Summary3">Summary</a></li>
+      <li><a href="#Bugfixes4">Bugfixes</a>
+        <ul>
+          <li><a href="#Amazon-SES">Amazon SES</a></li>
+          <li><a href="#Installer">Installer</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#pod8.0.1">8.0.1</a>
+    <ul>
+      <li><a href="#Summary4">Summary</a></li>
+      <li><a href="#Enhancements">Enhancements</a>
+        <ul>
+          <li><a href="#Admin-Menu:-Tracker-Mass-Mailing-Options">Admin Menu: Tracker, Mass Mailing Options</a></li>
+        </ul>
+      </li>
+      <li><a href="#Bugfixes5">Bugfixes</a>
+        <ul>
+          <li><a href="#Bridge">Bridge</a></li>
+          <li><a href="#Archives-w-Inline-File-Attachments">Archives w/Inline File Attachments</a></li>
+          <li><a href="#Multiple-Subscribe-Extension-Script">Multiple Subscribe Extension Script</a></li>
+          <li><a href="#Profiles">Profiles</a></li>
+          <li><a href="#Send-a-Webpage">Send a Webpage</a></li>
+          <li><a href="#List-Invitations">List Invitations</a></li>
+          <li><a href="#Subscription-Confirmation-URL-Redirect">Subscription Confirmation URL Redirect</a></li>
+          <li><a href="#Installer:-Setting-.dada_files-location">Installer: Setting .dada_files location</a></li>
+          <li><a href="#Log-Viewer">Log Viewer</a></li>
+          <li><a href="#Problems-logging-out-changing-List-Password">Problems logging out, changing List Password</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="Dada-Mail-Changelog-for-v8.x">Dada Mail Changelog for v8.x</h1>
+
+<h1 id="pod8.4.0">8.4.0</h1>
+
+<h2 id="Dada-Mail-Manual-revision">Dada Mail Manual revision</h2>
+
+<p>The Dada Mail Manual has been revised for the v8.4.0 release. The following chapters have been updated, to include up to date information on Dada Mail&#39;s new features, like recurring schedules.</p>
+
+<ul>
+
+<li><p>Send a Message</p>
+
+</li>
+<li><p>Send a URL</p>
+
+</li>
+</ul>
+
+<h2 id="Features">Features</h2>
+
+<h3 id="Recurring-Scheduled-Mass-Mailing-Enhancements">Recurring Scheduled Mass Mailing Enhancements</h3>
+
+<p>Dada Mail supports sending out mass mailings on a specific predetermined date and time, as well as on a recurring schedule; where the start and end date, time, and day may be set.</p>
+
+<p>Now, Dada Mail also supports sending the next edition of a recurring scheduled mass mailing only if the content differs from the previously sent out message.</p>
+
+<p>This can be useful - consider the following scenario:</p>
+
+<p>You&#39;re sending out a web page and this page is only be periodically updated - say it&#39;s the index page of a blog. You only want to send it out, if there&#39;s been new entries posted. Using this feature, you would set up your recurring schedule and only when the page is updated will a new edition of the mass mailing be sent out.</p>
+
+<h3 id="Send-a-Webpage:-Send-a-Cropped-Webpage">Send a Webpage: Send a Cropped Webpage</h3>
+
+<p>Dada Mail now has supports sending only a cropped portion of the webpage&#39;s content. All you will need to do is specify the HTML tag Dada Mail should look for, when searching for the content. The rest of the page will not be included as part of the message.</p>
+
+<p>This can be helpful, if the original of the message you would like to send is a full blown page from a website, but you would rather not send the entire page as such a message would not render well as a email message.</p>
+
+<h3 id="Send-a-Webpage:-PlainText-version-via-URL">Send a Webpage: PlainText version via URL</h3>
+
+<p>Much like fetching the HTML version of your message by URL, you may do the same with the PlainText version as well.</p>
+
+<h3 id="Tracker-Plugin:-Tracking-the-User-Agent">Tracker Plugin: Tracking the User Agent</h3>
+
+<p>Dada Mail&#39;s Tracker plugin is useful in collecting a lot of information about activity related to your mass mailings: information like opens, clickthroughs, unsubscribers and bounces and logged and reported using this plugin.</p>
+
+<p>Dada Mail now tracks and reports on the user agent (the app used: like your browser or mail client) that&#39;s being used to open, and view clickthroughs. This feature is currently in a rough form, but a pie chart is now available in the Tracker plugin for each mailing list message you&#39;ve sent out showing what user agent was being used for both opens and clickthroughs. We&#39;re investigating the best way to display this information, but thought best to introduce it, as it is. In the future,</p>
+
+<h3 id="Bounce-Handler-Plugin:-Optimizations">Bounce Handler Plugin: Optimizations</h3>
+
+<p>Bounce Handler bogs down if you have a large number of lists, with a large number of subscribers, and a large number of bounces from this list. Processing bounces in this setup is fairly intense. We&#39;ve made some modifications to the plugin to handle this scenario in a more optimized way.</p>
+
+<h2 id="Bugfixes">Bugfixes</h2>
+
+<h3 id="List-Names-set-the-same-as-List-Email-sometimes-interpreted-as-an-email-address-in-From:-To:-headers">List Names set the same as List Email sometimes interpreted as an email address in From:, To: headers</h3>
+
+<p><a href="https://github.com/justingit/dada-mail/issues/512">https://github.com/justingit/dada-mail/issues/512</a></p>
+
+<h1 id="pod8.3.0">8.3.0</h1>
+
+<h2 id="Summary">Summary</h2>
+
+<p>This is a feature release, relating to features first introduced in the v8 series of Dada Mail. We&#39;re building upon those features, and making them more useful.</p>
+
+<h2 id="Features1">Features</h2>
+
+<h3 id="Magic-User-Templates-Enhancements">Magic User Templates Enhancements</h3>
+
+<p>We&#39;ve added <i>four</i> new options, when creating your Magic User Templates. They&#39;re there to help with compatibility with your already existing site design.</p>
+
+<p>These four options control how Dada Mail inserts its own Javascript into the template. Since it&#39;s basing the template off your already existing site design it&#39;s possible that some of the JavaScript libraries required, like jQuery, are already included within your page. If so, there&#39;s no need to add them again - doing so could potentially disrupt functionality on your site or inadvertainly change the design of your page.</p>
+
+<p>More can be learned about Magic User Templates in Dada Mail&#39;s documentation on Advanced Installation Configuration options in the Dada Mail Installer. These options are available in Pro Dada:</p>
+
+<p><a href="http://dadamailproject.com/d/install_dada_mail-advanced_configuration.pod.html#Configure-Global-Template-Options">http://dadamailproject.com/d/install_dada_mail-advanced_configuration.pod.html#Configure-Global-Template-Options</a></p>
+
+<h3 id="Send-a-Webpage:-grab-the-Subject-of-a-message-from-the-Title-of-the-Webpage">Send a Webpage: grab the Subject of a message, from the Title of the Webpage</h3>
+
+<p>Rather than setting the Subject of a message manually when sending a webpage, you can tell Dada Mail to use the title of the webpage as the Subject of the message.</p>
+
+<p>This can be used to easily have a dynamic message subject, when sending out a recurring scheduled mass mailing.</p>
+
+<p>Look for this feature in the <b>Mass Mailing - Send a Webpage</b> screen</p>
+
+<h2 id="Bugfixes1">Bugfixes</h2>
+
+<h3 id="Archived-message-file-attachments-cannot-always-be-downloaded">Archived message file attachments cannot always be downloaded</h3>
+
+<p><a href="https://github.com/justingit/dada-mail/issues/509">https://github.com/justingit/dada-mail/issues/509</a></p>
+
+<h3 id="Installer:-incorrect-javasript-filename-being-called">Installer: incorrect javasript filename being called</h3>
+
+<p><a href="https://github.com/justingit/dada-mail/issues/510">https://github.com/justingit/dada-mail/issues/510</a></p>
+
+<h3 id="List-Invitations:-Multiple-invites-are-allowed-to-be-sent-to-the-same-address">List Invitations: Multiple invites are allowed to be sent to the same address</h3>
+
+<p><a href="https://github.com/justingit/dada-mail/issues/511">https://github.com/justingit/dada-mail/issues/511</a></p>
+
+<h2 id="Changes">Changes</h2>
+
+<h3 id="jQuery-and-jQuery-Libraries-updated">jQuery and jQuery Libraries updated</h3>
+
+<p>Dada Mail relies on jQuery and many independent jquery plugins to enhance its user experience. We&#39;ve upgraded jQuery to v1.11.3, as well as updating the Colorbox plugin to v1.6.1. This should help with compatibility when using Dada Mail&#39;s Magic User Templates feature.</p>
+
+<h1 id="pod8.2.0">8.2.0</h1>
+
+<h2 id="Features2">Features</h2>
+
+<h3 id="Recurring-Scheduled-Mass-Mailings">Recurring Scheduled Mass Mailings</h3>
+
+<p>Recurring Scheduled Mass Mailings have been integrated into the core of Dada Mail, having only been available before in the now retired Beatitude plugin.</p>
+
+<p>Set a beginning and end date of your mass mailings, the time they should all go out, and the days of the week that you would like the mailings to be sent.</p>
+
+<p>More information on Single and Recurring Scheduled Mass Mailings can be found here:</p>
+
+<p><a href="http://dadamailproject.com/d/features-scheduled_mass_mailings.pod.html">http://dadamailproject.com/d/features-scheduled_mass_mailings.pod.html</a></p>
+
+<h2 id="Bugfixes2">Bugfixes</h2>
+
+<h3 id="Unsubscription-Requests-Do-Not-Work-in-the-List-Control-Panel">Unsubscription Requests Do Not Work in the List Control Panel</h3>
+
+<p><a href="https://github.com/justingit/dada-mail/issues/508">https://github.com/justingit/dada-mail/issues/508</a></p>
+
+<h3 id="CC-addresses-not-removed-from-bridge-email-when-using-SES">CC addresses not removed from bridge email when using SES</h3>
+
+<p><a href="https://github.com/justingit/dada-mail/issues/507">https://github.com/justingit/dada-mail/issues/507</a></p>
+
+<h1 id="pod8.1.0">8.1.0</h1>
+
+<h2 id="Summary1">Summary</h2>
+
+<p>This release primarily introduces Magic User Templates as an experimental feature.</p>
+
+<h2 id="Features3">Features</h2>
+
+<h3 id="Magic-User-Templates-Experimental">Magic User Templates (Experimental)</h3>
+
+<p>Magic Templates allow you to simply set a URL to fetch a webpage, which will then be utilized as your global user template. Various options to adjust the output of your template are available, all of which are available in the included Dada Mail Installer&#39;s Advanced Configuration:</p>
+
+<p><a href="http://dadamailproject.com/d/install_dada_mail-advanced_configuration.pod.html#Configure-Global-Template-Options">http://dadamailproject.com/d/install_dada_mail-advanced_configuration.pod.html#Configure-Global-Template-Options</a></p>
+
+<h1 id="pod8.0.3">8.0.3</h1>
+
+<h2 id="Summary2">Summary</h2>
+
+<p>This is a bugfix release of Dada Mail.</p>
+
+<h2 id="Bugfixes3">Bugfixes</h2>
+
+<h3 id="Problems-creating-new-list-if-errors-present-in-values-passed">Problems creating new list if errors present in values passed</h3>
+
+<p><a href="https://github.com/justingit/dada-mail/issues/506">https://github.com/justingit/dada-mail/issues/506</a></p>
+
+<h3 id="Subscription-Form:-Restful-Subscribe-API-not-working-in-jsonp-mode">Subscription Form: Restful Subscribe API not working in jsonp mode</h3>
+
+<p><a href="https://github.com/justingit/dada-mail/issues/505">https://github.com/justingit/dada-mail/issues/505</a></p>
+
+<h3 id="Membership-Remove-Subscribers-throws-Yikes-error-when-you-attempt-to-upload-a-file">Membership &gt;&gt; Remove Subscribers throws, &quot;Yikes!&quot; error when you attempt to upload a file</h3>
+
+<p><a href="https://github.com/justingit/dada-mail/issues/504">https://github.com/justingit/dada-mail/issues/504</a></p>
+
+<h3 id="Tracker-plugin:-Bounce-Handler-reports-do-not-show-in-modal-window">Tracker plugin: Bounce Handler reports do not show in modal window</h3>
+
+<p><a href="https://github.com/justingit/dada-mail/issues/503">https://github.com/justingit/dada-mail/issues/503</a></p>
+
+<h3 id="Images-dont-show-in-archive-view-in-Chrome">Images don&#39;t show in archive view in Chrome</h3>
+
+<p><a href="https://github.com/justingit/dada-mail/issues/502">https://github.com/justingit/dada-mail/issues/502</a></p>
+
+<h3 id="Gravatar-Images-break-with-p.p.-mode-enabled">Gravatar Images break with p.p. mode enabled</h3>
+
+<p><a href="https://github.com/justingit/dada-mail/issues/500">https://github.com/justingit/dada-mail/issues/500</a></p>
+
+<h3 id="Minimal-Subscription-Form-does-not-have-correct-form-field-name">Minimal Subscription Form does not have correct form field name</h3>
+
+<p><a href="https://github.com/justingit/dada-mail/issues/499">https://github.com/justingit/dada-mail/issues/499</a></p>
+
+<h3 id="Version-Check-Broken">Version Check Broken</h3>
+
+<p><a href="https://github.com/justingit/dada-mail/issues/498">https://github.com/justingit/dada-mail/issues/498</a></p>
+
+<h3 id="Rejected-Emails-not-being-attached">Rejected Emails not being attached</h3>
+
+<p><a href="https://github.com/justingit/dada-mail/issues/496">https://github.com/justingit/dada-mail/issues/496</a></p>
+
+<h3 id="Extra-Bracket-in-multiple_subscribe.cgi">Extra Bracket in multiple_subscribe.cgi</h3>
+
+<p><a href="https://github.com/justingit/dada-mail/issues/495">https://github.com/justingit/dada-mail/issues/495</a></p>
+
+<h1 id="pod8.0.2">8.0.2</h1>
+
+<h2 id="Summary3">Summary</h2>
+
+<p>This is a bugfix release of Dada Mail.</p>
+
+<h2 id="Bugfixes4">Bugfixes</h2>
+
+<h3 id="Amazon-SES">Amazon SES</h3>
+
+<p>Recently, Amazon SES seems to have slightly changed the way it has been returning results to its API calls, specifically when finding your daily email sending quotas. This change has caused problems with Dada Mail&#39;s method of setting its auto-batching capabilities. (fixed)</p>
+
+<p><a href="https://github.com/justingit/dada-mail/issues/491">https://github.com/justingit/dada-mail/issues/491</a></p>
+
+<h3 id="Installer">Installer</h3>
+
+<p>Advanced Options to set the Confirmation Token expiration date were not being written to the global configuration. (fixed)</p>
+
+<p><a href="https://github.com/justingit/dada-mail/issues/492">https://github.com/justingit/dada-mail/issues/492</a></p>
+
+<h1 id="pod8.0.1">8.0.1</h1>
+
+<h2 id="Summary4">Summary</h2>
+
+<p>This is a bugfix release of Dada Mail, but touches upon a multitude of problems uncovered after the release of v8.0.0 of Dada Mail.</p>
+
+<h2 id="Enhancements">Enhancements</h2>
+
+<h3 id="Admin-Menu:-Tracker-Mass-Mailing-Options">Admin Menu: Tracker, Mass Mailing Options</h3>
+
+<p>Both the Tracker and Mass Mailing Options link in the admin menu will show additional information that reflects data and settings of your mailing list</p>
+
+<p>Tracker will show the number of mass mailing campaigns that have been analyzed in the Tracker plugin.</p>
+
+<p>Mass Mailing Options will show your current batch sending speeds in messages per hour.</p>
+
+<h2 id="Bugfixes5">Bugfixes</h2>
+
+<h3 id="Bridge">Bridge</h3>
+
+<p>Several problems with encoding have been found in Bridge, most notably when a message in 8bit Content Transfer Encoding and UTF-8 Encoding is sent. Messages are, by default, handled in a different Content Transfer Encoding (quoted-printable), which is basically 7bit. Problem happens if you try to work with these two Content Transfer Encodings together - basically corruption of text.</p>
+
+<p>To counteract this, messages received by Bridge are first changed to whatever the internal Content Transfer Encoding is, then processed as usual.</p>
+
+<h3 id="Archives-w-Inline-File-Attachments">Archives w/Inline File Attachments</h3>
+
+<p>Somewhat related to Bridge, archives with inline file attachments wouldn&#39;t show up correctly. (fixed)</p>
+
+<p><a href="https://github.com/justingit/dada-mail/issues/482">https://github.com/justingit/dada-mail/issues/482</a></p>
+
+<h3 id="Multiple-Subscribe-Extension-Script">Multiple Subscribe Extension Script</h3>
+
+<p>Subscription confirmation in the <code>multiple_subscribe.cgi</code> extension script would fail, if you have a Profile Field that is required, even if it&#39;s submitted with the form. (fixed)</p>
+
+<p><a href="https://github.com/justingit/dada-mail/issues/481">https://github.com/justingit/dada-mail/issues/481</a></p>
+
+<h3 id="Profiles">Profiles</h3>
+
+<p>Profiles had several issues:</p>
+
+<ul>
+
+<li><p>Logging in, after subscription</p>
+
+<p>After a subscription is made, the subscriber should be logged into their profile right afterwards (via a session cookie) and able to visit their profile via the really big button presented to them, without having to know their current login information. This was broken (fixed).</p>
+
+<p>Also, when this was broken, it wasn&#39;t clear why things didn&#39;t work, as no useful error message was presented (fixed).</p>
+
+</li>
+<li><p>HTML formatting</p>
+
+<p>Several errors in the HTML was present in the Profile Home screen, leading to some of the interface to be broken. (fixed)</p>
+
+<p><a href="https://github.com/justingit/dada-mail/issues/479">https://github.com/justingit/dada-mail/issues/479</a></p>
+
+</li>
+<li><p>Logging In</p>
+
+<p>There seemed also to be a problem with merely logging into you Profile in some instances. (fixed)</p>
+
+</li>
+<li><p>Registering an already-existing account</p>
+
+<p>It was also called to our attention that you could still attempt to register an already existing account, even though there&#39;s a check in place to hault such an action. (fixed)</p>
+
+</li>
+</ul>
+
+<h3 id="Send-a-Webpage">Send a Webpage</h3>
+
+<p>Many problems have cropped up in the Send a Webpage screen, some having to do with problems with encoding (again), and others, when specific types of data are included in the webapge, including linked stylesheets. This would ultimately cause a sending to fail. (fixed)</p>
+
+<p>Send a Webpage also suffered from a problem with using the option to set a custom PlainText alternative - seems as if that option was never correctly utlized, and the auto-generated version would always be used (fixed)</p>
+
+<p><a href="https://github.com/justingit/dada-mail/issues/485">https://github.com/justingit/dada-mail/issues/485</a></p>
+
+<h3 id="List-Invitations">List Invitations</h3>
+
+<p>Like most administration list control panel screens in Dada Mail, the List Invitation screen can be disabled, if you are logged in with the List Password. That&#39;s done in the list control panel screen, <i>Your List Control Panel - Customize Feature Set</i></p>
+
+<p>List Invitation doesn&#39;t have its screen available in the menu, so it&#39;s a little bit of a quess on how to fully disable this. The way it should work is by disabling, <i>Membership - Invite/Subscribe/Add</i>, but this does not work - rather disabling <i>Mail Sending - Mass Mailing Options</i> did this trick, which is nonsensical. (fixed)</p>
+
+<p><a href="https://github.com/justingit/dada-mail/issues/486">https://github.com/justingit/dada-mail/issues/486</a></p>
+
+<h3 id="Subscription-Confirmation-URL-Redirect">Subscription Confirmation URL Redirect</h3>
+
+<p>The URL redirect after a subscription confirmation led to a blank page (fixed)</p>
+
+<p><a href="https://github.com/justingit/dada-mail/issues/488">https://github.com/justingit/dada-mail/issues/488</a></p>
+
+<h3 id="Installer:-Setting-.dada_files-location">Installer: Setting .dada_files location</h3>
+
+<p>It seems that there was a bug related to setting a custom location for the <code>.dada_files</code> directory location. Your custom choice would not be tried out, although the installer would come back and tell you that what you&#39;ve chosen won&#39;t work - maddening. (fixed)</p>
+
+<p><a href="https://github.com/justingit/dada-mail/issues/480">https://github.com/justingit/dada-mail/issues/480</a></p>
+
+<h3 id="Log-Viewer">Log Viewer</h3>
+
+<p>Looks like the Log Viewer plugin always thinks you&#39;re logged in w/the List Password, even if you&#39;re logged in w/the Root Pass. There&#39;s some other oddities I&#39;ll also address. (fixed)</p>
+
+<p><a href="https://github.com/justingit/dada-mail/issues/489">https://github.com/justingit/dada-mail/issues/489</a></p>
+
+<h3 id="Problems-logging-out-changing-List-Password">Problems logging out, changing List Password</h3>
+
+<p>Changing the List Password works, but you will refresh to a server error screen. Seems there&#39;s some problem with the logout() method that seems to be touched quite a few times in the code. (fixed)</p>
+
+<p><a href="https://github.com/justingit/dada-mail/issues/490">https://github.com/justingit/dada-mail/issues/490</a></p>
+
+
+</body>
+
+</html>
+
+
