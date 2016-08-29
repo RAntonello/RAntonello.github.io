@@ -1,6 +1,0 @@
-[Thu Jul 21 00:17:01 2016]	announcements	131.215.220.185	List Created	remote_host:,ip_address:131.215.220.185
-[Thu Jul 21 00:17:16 2016]	announcements	131.215.220.185	login	remote_host:, ip_address:131.215.220.185
-[Thu Jul 21 00:17:36 2016]	announcements	131.215.220.185	login	remote_host:, ip_address:131.215.220.185
-[Thu Jul 21 00:36:02 2016]	announcements	131.215.220.185	Unsubscribed from announcements.sub_confirm_list	rjantonello@aol.com
-[Thu Jul 21 00:36:02 2016]	announcements	131.215.220.185	Subscribed to announcements.sub_confirm_list	rjantonello@aol.com
-[Thu Jul 21 00:36:08 2016]	announcements	131.215.220.185	Subscription Confirmation Sent for announcements.list	rjantonello@aol.com
