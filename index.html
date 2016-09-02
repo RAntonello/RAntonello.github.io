@@ -24,7 +24,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-        <a class="navbar-brand" href="home.html" style="font-size:16px">Home</a>
+        <a class="navbar-brand" href="index.html" style="font-size:16px">Home</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -113,19 +113,11 @@ Subscribe to our mailing list for announcements regarding ITCS.
 <br>
 <br>
 
-<form action="http://itcs-conf.org/dadamail/dada/mail.cgi" method="post" accept-charset="UTF-8">
- <input type="hidden" name="flavor" id="ddm_flavor" value="subscribe"> 
- <input type="hidden" name="list"   id="ddm_list"   value="announcements"> 
- <label for="email" >
-   Email
-   <input type="text" name="email" id="email" value="" placeholder="user@example.com">
- </label>
- 
- 
-
-<input type="submit" class="button" value="Subscribe">
+<form action="https://fwdform.herokuapp.com/user/c275db8f-d226-415a-9886-e70bf70fbbd7" method="post">
+    Email: <input type="text" name="name"><br>
+    Name: <input type="text" name="email"><br>
+    <input type="submit" value="Subscribe">
 </form>
-
 
 <hr>
 
