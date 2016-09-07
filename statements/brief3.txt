@@ -1,5 +1,5 @@
-Itís been understood for decades that, if you take a simple discrete
-ruleósay, a cellular automaton like Conwayís Game of Lifeóand iterate
+It‚Äôs been understood for decades that, if you take a simple discrete
+rule‚Äîsay, a cellular automaton like Conway‚Äôs Game of Life‚Äîand iterate
 it, you can very easily get the capacity for universal computation.
 In other words, your cellular automaton becomes able to implement any
 desired sequence of AND, OR, and NOT gates, store and retrieve bits in
@@ -8,31 +8,31 @@ probably very slowly, using a complicated contraption of thousands or
 millions of cells to represent each bit of the desired computation.
 
 But suppose we want more than mere computational universality.
-Suppose we want ìphysicalî universality: that is, the ability to
+Suppose we want ‚Äúphysical‚Äù universality: that is, the ability to
 implement any transformation whatsoever on any finite region of the
-cellular automatonís state, by suitably initializing the complement of
-that region.  So for example, suppose that, given some 1000◊1000
-square of cells, weíd like to replace every ì0î cell within that
-square by a ì1î cell, and vice versa.  Then physical universality
-would mean that we could do that, eventually, by some ìmachineî we
-could build outside the 1000◊1000 square.
+cellular automaton‚Äôs state, by suitably initializing the complement of
+that region.  So for example, suppose that, given some 1000√ó1000
+square of cells, we‚Äôd like to replace every ‚Äú0‚Äù cell within that
+square by a ‚Äú1‚Äù cell, and vice versa.  Then physical universality
+would mean that we could do that, eventually, by some ‚Äúmachine‚Äù we
+could build outside the 1000√ó1000 square.
 
 You might wonder: are we really asking for more here than just
 ordinary computational universality?  We are.  To see this, consider
-Conwayís famous Game of Life.  Even though Life has been proved to be
-computationally universal, itís not physically universal in the above
-sense.  The reason is simply that Lifeís evolution rule is not
-time-reversible.  So if, for example, there were a lone ì1î cell deep
-inside the 1000◊1000 square, surrounded by a sea of ì0î cells, then
-that ì1î cell would immediately disappear without a trace, and no
+Conway‚Äôs famous Game of Life.  Even though Life has been proved to be
+computationally universal, it‚Äôs not physically universal in the above
+sense.  The reason is simply that Life‚Äôs evolution rule is not
+time-reversible.  So if, for example, there were a lone ‚Äú1‚Äù cell deep
+inside the 1000√ó1000 square, surrounded by a sea of ‚Äú0‚Äù cells, then
+that ‚Äú1‚Äù cell would immediately disappear without a trace, and no
 amount of machinery outside the square could detect that it was ever
 there.
 
 Furthermore, even cellular automata that are both time-reversible and
 computationally universal could fail to be physically universal.
 Suppose, for example, that our CA allowed for the construction of
-ìimpenetrable walls,î through which no signal could pass.  And suppose
-that our 1000◊1000 region contained a hollow box built out of these
+‚Äúimpenetrable walls,‚Äù through which no signal could pass.  And suppose
+that our 1000√ó1000 region contained a hollow box built out of these
 impenetrable walls.  Then no amount of machinery that we built outside
 the region could ever detect whether there was a particle bouncing
 around inside the box.
@@ -43,57 +43,57 @@ universal cellular automaton, or not?
 This question was first asked in a lovely 2010 preprint by Dominik Janzing.
 
 In his ITCS'2015 Best Student Paper, MIT graduate student Luke
-Schaeffer answers Janzingís question in the affirmative, by
-constructing the first cellular automaton thatís been proved to be
+Schaeffer answers Janzing‚Äôs question in the affirmative, by
+constructing the first cellular automaton that‚Äôs been proved to be
 physically universal.
 
 Very briefly, Luke first defines a reversible, two-dimensional CA
 involving particles that move diagonally across a square lattice, in
 one of four possible directions (northeast, northwest, southeast, or
 southwest).  The number of particles is always conserved.  The only
-interesting behavior occurs when three of the particles ìcollideî in a
-single 2◊2 square, and Luke gives rules (symmetric under rotations and
+interesting behavior occurs when three of the particles ‚Äúcollide‚Äù in a
+single 2√ó2 square, and Luke gives rules (symmetric under rotations and
 reflections) that specify what happens then.
 
-Given these rules, itís possible to prove that any configuration
-whatsoever of finitely many particles will ìdiffuse,î after not too
+Given these rules, it‚Äôs possible to prove that any configuration
+whatsoever of finitely many particles will ‚Äúdiffuse,‚Äù after not too
 many time steps, into four unchanging clouds of particles, which
 thereafter simply move away from each other in the four diagonal
 directions for all eternity.  This has the interesting consequence
-that Lukeís CA, when initialized with finitely many particles, can't
-be capable of universal computation in Turingís sense.
+that Luke‚Äôs CA, when initialized with finitely many particles, can't
+be capable of universal computation in Turing‚Äôs sense.
 
 On the other hand, using finitely many particles, one can also prove
 that the CA can perform universal computation in the Boolean circuit
 sense.  In other words, we can implement AND, OR, and NOT gates, and
 by chaining them together, can compute any Boolean function that we
-like on any fixed number of input bits.  And this ìcircuit
-universality,î rather than Turing-machine universality, is all thatís
-implied anyway by physical universality in Janzingís sense.
+like on any fixed number of input bits.  And this ‚Äúcircuit
+universality,‚Äù rather than Turing-machine universality, is all that‚Äôs
+implied anyway by physical universality in Janzing‚Äôs sense.
 
-While the ìdiffusion into four cloudsî aspect of Lukeís CA might seem
+While the ‚Äúdiffusion into four clouds‚Äù aspect of Luke‚Äôs CA might seem
 annoying, it turns out to be useful for proving physical universality.
 For it has the consequence that, no matter what the initial state was
 inside the square we cared about, that state will before too long be
 encoded into the states of four clouds headed away from the square.
-So then, ìallî we need to do is engineer some additional clouds of
+So then, ‚Äúall‚Äù we need to do is engineer some additional clouds of
 particles, initially outside the square, that:
 
 - intercept the four escaping clouds,
-- ìdecodeî the contents of those clouds into a sequence of bits,
+- ‚Äúdecode‚Äù the contents of those clouds into a sequence of bits,
 - apply an arbitrary Boolean circuit to that bit sequence, and then
 convert the output bits of the Boolean circuit into new clouds of
 particles converging back onto the square.
 
-So that's what Luke did.  Just in case thereís any doubt about the
+So that's what Luke did.  Just in case there‚Äôs any doubt about the
 correctness of the end result, Luke actually implemented his
 construction in the cellular-automaton simulator Golly, where you can
 try it yourself.
 
 But who cares that we now know that there exists a
 physically-universal CA?  Well, perhaps we'd like to make finer
-distinctions, among various ìcandidate laws of physics,î than simply
-saying that some laws are computationally universal and others arenít.
+distinctions, among various ‚Äúcandidate laws of physics,‚Äù than simply
+saying that some laws are computationally universal and others aren‚Äôt.
 For ironically, the very pervasiveness of computational universality
 makes it of limited usefulness in distinguishing physical laws: almost
 any sufficiently-interesting set of laws will turn out to be
@@ -102,17 +102,17 @@ computationally universal.
 On the other hand, many of these laws will be computationally
 universal only because of extremely convoluted constructions, which
 fall apart if even the tiniest error is introduced.  In other cases,
-weíll be able to build a universal computer, all right, but that
+we‚Äôll be able to build a universal computer, all right, but that
 computer will be relatively impotent to obtain interesting input about
 its physical environment, or to make its output affect the gross
-features of the CAís physical state.  If you like, weíll have a recipe
+features of the CA‚Äôs physical state.  If you like, we‚Äôll have a recipe
 for creating a universe full of ivory-tower, eggheaded nerds, who can
-search for counterexamples to Goldbachís Conjecture but canít build a
-shelter to protect themselves from a hail of ì1î bits, or even learn
+search for counterexamples to Goldbach‚Äôs Conjecture but can‚Äôt build a
+shelter to protect themselves from a hail of ‚Äú1‚Äù bits, or even learn
 whether such a hail is present or not.
 
-Janzingís notion of physical universality is directly addressing this
-ìeggheadî problem, by asking whether we can build not merely a
+Janzing‚Äôs notion of physical universality is directly addressing this
+‚Äúegghead‚Äù problem, by asking whether we can build not merely a
 universal computer but a particularly powerful kind of robot: one that
 can effect a completely arbitrary transformation (given enough time,
 of course) on any part of its physical environment.  And the answer
