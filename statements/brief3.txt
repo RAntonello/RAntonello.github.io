@@ -1,3 +1,4 @@
+(Statement written by Scott Aaronson)
 It’s been understood for decades that, if you take a simple discrete
 rule—say, a cellular automaton like Conway’s Game of Life—and iterate
 it, you can very easily get the capacity for universal computation.
